@@ -16,6 +16,9 @@
 #include "uiDraw.h"     // for RANDOM and DRAW*
 #include "position.h"      // for POINT
 #include "test.h"
+#include "velocity.h"
+#include "acceleration.h"
+#include "angle.h"
 using namespace std;
 
 /*************************************************************************
@@ -40,8 +43,8 @@ public:
       //ptCrewDragon.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
       //ptCrewDragon.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
 
-      ptShip.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-      ptShip.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+      //ptShip.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
+      //ptShip.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
 
       //ptGPS.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
       //ptGPS.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
@@ -49,8 +52,9 @@ public:
       //ptStar.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
       //ptStar.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
 
-      ptHubble.setMeters(0.0, 42164000.0);
-	  //ptHubble.setVelocity(3074.6, 0.0);
+      ptGPS.setMeters(0.0, 42164000.0);
+	  velGPS.setDX(-3100.0);
+      velGPS.setDY(0.0);
 
       angleShip = 0.0;
       angleEarth = 0.0;
@@ -65,6 +69,8 @@ public:
    Position ptGPS;
    Position ptStar;
    Position ptUpperRight;
+
+   Velocity velGPS;
 
    unsigned char phaseStar;
 
@@ -105,9 +111,46 @@ void callBack(const Interface* pUI, void* p)
    //
 
    // rotate the earth
-   pDemo->angleEarth += 0.01;
+   pDemo->angleEarth += -150.8;
    pDemo->angleShip += 0.02;
    pDemo->phaseStar++;
+
+   // Simulation time step (seconds per frame)
+   const double dt = 48.0;
+
+   // 1. Get position
+   double xs = pDemo->ptGPS.getMetersX();
+   double ys = pDemo->ptGPS.getMetersY();
+
+   // 2. Compute gravity
+   const double g0 = 9.80665;         // m/s² at surface
+   const double rE = 6'378'000.0;     // Earth radius (m)
+
+   double r = sqrt(xs * xs + ys * ys);
+   double h = r - rE;
+   double gh = g0 * pow(rE / (rE + h), 2);
+
+   // 3. Compute direction toward Earth's center
+   Angle d;
+   d.setRadians(atan2(xs, ys));  // 0° = up in your system
+   d.add(M_PI);                  // reverse to point down (toward Earth)
+
+   // 4. Decompose into components
+   double ddx = gh * sin(d.getRadians());
+   double ddy = gh * cos(d.getRadians());
+
+   // 5. Apply acceleration to velocity (dv = a * dt)
+   Acceleration acc(ddx, ddy);
+   pDemo->velGPS.add(acc, dt);
+
+   // 6. Update position using the new velocity (dx = v * dt)
+   pDemo->ptGPS.addMetersX(pDemo->velGPS.getDX() * dt);
+   pDemo->ptGPS.addMetersY(pDemo->velGPS.getDY() * dt);
+
+
+
+
+
 
    //
    // draw everything

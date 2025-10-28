@@ -16,8 +16,8 @@
 //class TestLander;
 //
 //// for add()
-//class Acceleration;
-//class Angle;
+class Acceleration;
+class Angle;
 
  /*********************************************
   * Velocity
@@ -43,10 +43,10 @@ public:
    // setters
    void setDX(double dx) { this->dx = dx; }
    void setDY(double dy) { this->dy = dy; }
-   //void set(const Angle & angle, double magnitude);
+   void set(const Angle & angle, double magnitude);
    void addDX(double dx) { this->dx += dx; }
    void addDY(double dy) { this->dy += dy; }
-   //void add(const Acceleration & acceleration, double time);
+   void add(const Acceleration & acceleration, double time);
 
 private:
    double dx;           // horizontal velocity
