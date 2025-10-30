@@ -14,11 +14,6 @@ using namespace std;
 #include <math.h>   // for M_PI which is 3.14159
 #include <iomanip>
 
-//class TestPosition;
-//class TestVelocity;
-//class TestAcceleration;
-//class TestAngle;
-//class TestLander;
 
  /************************************
   * ANGLE
@@ -26,10 +21,6 @@ using namespace std;
 class Angle
 {
 public:
-   //friend TestAcceleration;
-   //friend TestVelocity;
-   //friend TestAngle;
-   //friend TestLander;
    
    // Constructors
    Angle();

@@ -10,10 +10,6 @@
 
 #pragma once
 
-//class TestAcceleration;
-//class TestVelocity;
-//class TestPosition;
-//class TestLander;
 class Angle;
 
 
@@ -23,10 +19,6 @@ class Angle;
  *********************************************/
 class Acceleration
 {
-   //friend TestPosition;
-   //friend TestVelocity;
-   //friend TestAcceleration;
-   //friend TestLander;
 
 public:
    // constructors

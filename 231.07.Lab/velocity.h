@@ -9,12 +9,7 @@
 
 #pragma once
 
-// for unit tests
-//class TestPosition;
-//class TestVelocity;
-//class TestAcceleration;
-//class TestLander;
-//
+
 //// for add()
 class Acceleration;
 class Angle;
@@ -25,10 +20,6 @@ class Angle;
   *********************************************/
 class Velocity
 {
-   //// for unit tests
-   //friend TestPosition;
-   //friend TestVelocity;
-   //friend TestLander;
    
 public:
    // constructors
