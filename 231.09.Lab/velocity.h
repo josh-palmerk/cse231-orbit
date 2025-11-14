@@ -13,6 +13,7 @@
 //// for add()
 class Acceleration;
 class Angle;
+class TestVelocity;
 
  /*********************************************
   * Velocity
@@ -20,6 +21,7 @@ class Angle;
   *********************************************/
 class Velocity
 {
+	friend TestVelocity;
    
 public:
    // constructors

@@ -15,6 +15,8 @@ using namespace std;
 #include <iomanip>
 
 class TestAngle;
+class TestVelocity;
+class Velocity;
 
  /************************************
   * ANGLE
@@ -23,6 +25,7 @@ class Angle
 {
 public:
 	friend TestAngle;
+	friend TestVelocity;
    
    // Constructors
    Angle();

@@ -11,6 +11,8 @@
 
 #include "unitTest.h"
 #include "velocity.h"
+#include "angle.h"
+#include "acceleration.h"
 
 /*********************************************
  * TEST VELOCITY

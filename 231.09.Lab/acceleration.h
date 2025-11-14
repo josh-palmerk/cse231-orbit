@@ -11,6 +11,7 @@
 #pragma once
 
 class Angle;
+class TestVelocity;
 
 
 /*********************************************
@@ -21,6 +22,9 @@ class Acceleration
 {
 
 public:
+
+    friend TestVelocity;
+
    // constructors
    Acceleration() {
        ddx = 0.0;
