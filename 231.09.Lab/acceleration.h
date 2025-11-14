@@ -12,6 +12,7 @@
 
 class Angle;
 class TestVelocity;
+class TestAcceleration;
 
 
 /*********************************************
@@ -24,6 +25,7 @@ class Acceleration
 public:
 
     friend TestVelocity;
+    friend TestAcceleration;
 
    // constructors
    Acceleration() {

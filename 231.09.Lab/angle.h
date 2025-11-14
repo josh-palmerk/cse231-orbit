@@ -17,6 +17,7 @@ using namespace std;
 class TestAngle;
 class TestVelocity;
 class Velocity;
+class TestAcceleration;
 
  /************************************
   * ANGLE
@@ -26,6 +27,7 @@ class Angle
 public:
 	friend TestAngle;
 	friend TestVelocity;
+	friend TestAcceleration;
    
    // Constructors
    Angle();
