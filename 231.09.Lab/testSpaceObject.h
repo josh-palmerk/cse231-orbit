@@ -38,9 +38,10 @@ public:
         setRadius();
         setSecondsAlive();
 
-        
-
-        //
+        //Behaviors
+        //void applyGravity(const Position & center, double gravitationalConstant, double timeStep);
+        //void updatePosition(double timeStep);
+        //void rotate(double radians);
 
         report("Space Object");
     }
@@ -303,4 +304,33 @@ private:
     // teardown
 
 
+
+
+
+    /*****************************************************************
+    *****************************************************************
+    * BEHAVIORS
+    *****************************************************************
+    *****************************************************************/
+    
+    
+    /*********************************************
+    * name:    APPLY GRAVITY
+    * input:   
+    * output:  
+    *********************************************/
+    void applyGravity()
+    {
+        // setup
+        SpaceObjectDerived so;
+        
+
+        // exercise
+        
+
+        // verify
+        
+
+    }
+    // teardown
 };
