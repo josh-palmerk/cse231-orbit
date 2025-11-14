@@ -14,6 +14,7 @@ using namespace std;
 #include <math.h>   // for M_PI which is 3.14159
 #include <iomanip>
 
+class TestAngle;
 
  /************************************
   * ANGLE
@@ -21,6 +22,7 @@ using namespace std;
 class Angle
 {
 public:
+	friend TestAngle;
    
    // Constructors
    Angle();
