@@ -12,6 +12,7 @@
 #include "testAngle.h"
 #include "testVelocity.h"
 #include "testAcceleration.h"
+#include "testSpaceObject.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -36,4 +37,5 @@ void testRunner()
    TestAngle().run();
    TestVelocity().run();
    TestAcceleration().run();
+   TestSpaceObject().run();
 }

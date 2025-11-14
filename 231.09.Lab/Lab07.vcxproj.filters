@@ -92,6 +92,9 @@
     <ClInclude Include="hubble.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="testSpaceObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

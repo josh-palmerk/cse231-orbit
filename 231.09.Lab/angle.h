@@ -18,6 +18,7 @@ class TestAngle;
 class TestVelocity;
 class Velocity;
 class TestAcceleration;
+class TestSpaceObject;
 
  /************************************
   * ANGLE
@@ -28,6 +29,7 @@ public:
 	friend TestAngle;
 	friend TestVelocity;
 	friend TestAcceleration;
+	friend TestSpaceObject;
    
    // Constructors
    Angle();
