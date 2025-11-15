@@ -50,6 +50,10 @@ public:
         applyGravityDifferentGravity();
         applyGravityDifferentCenter();
         applyGravityDifferentTimeStep();
+        incrementSecondsAlive();
+        decrementSecondsAlive();
+        updateObjectOneSecond();
+        updateObjectHalfSecond();
 
         report("Space Object");
     }
@@ -632,6 +636,121 @@ private:
         // verify
         assertEquals(so.angle.radians, 0.5);
         assertEquals(rotateAmount, 0);
+
+    }
+    // teardown
+
+    /*********************************************
+    * name:    INCREMENT SECONDS ALIVE
+    * input:   secondsAlive = 0, addedTime = 1
+    * output:  secondsAlive = 1, addedTime = 1
+    *********************************************/
+    void incrementSecondsAlive()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.secondsAlive = 0;
+        int addedTime = 1;
+
+        // exercise
+        so.incrementSecondsAlive(addedTime);
+
+        // verify
+        assertEquals(so.secondsAlive, 1);
+        assertEquals(addedTime, 1);
+
+    }
+    // teardown
+
+
+    /*********************************************
+    * name:    DECREMENT SECONDS ALIVE
+    * input:   secondsAlive = 1, addedTime = -1
+    * output:  secondsAlive = 0, addedTime = -1
+    *********************************************/
+    void decrementSecondsAlive()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.secondsAlive = 1;
+        int addedTime = -1;
+
+        // exercise
+        so.incrementSecondsAlive(addedTime);
+
+        // verify
+        assertEquals(so.secondsAlive, 0);
+        assertEquals(addedTime, -1);
+
+    }
+    // teardown
+
+
+    /*********************************************
+    * name:    UPDATE OBJECT ONE SECOND
+    * input:   position(1000000, 1000000) velocity (0,0)
+    *          secondsAlive = 0, timeStep = 1
+    * output:  position(999859.0734623096, 999859.0734623096)
+    *          velocity(-140.9265376903669, -140.9265376903669)
+    *          secondsAlive = 1, timeStep = 1
+    *********************************************/
+    void updateObjectOneSecond()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.position.x = 1000000;
+        so.position.y = 1000000;
+        so.velocity.dx = 0;
+        so.velocity.dx = 0;
+        so.secondsAlive = 0;
+        double timeStep = 1;
+
+        // exercise
+        so.updateObject(timeStep);
+
+        // verify
+        assertEquals(so.velocity.dy, -140.9265376903669);
+        assertEquals(so.velocity.dy, -140.9265376903669);
+        assertEquals(so.position.x, 999859.0734623096);
+        assertEquals(so.position.y, 999859.0734623096);
+        assertEquals(so.secondsAlive, 1);
+        assertEquals(timeStep, 1);
+
+    }
+    // teardown
+
+
+    /*********************************************
+    * name:    UPDATE OBJECT ONE SECOND
+    * input:   position(1000000, 1000000) velocity (0,0)
+    *          secondsAlive = 0, timeStep = 0.5
+    * output:  position(999929.5367311548, 999929.5367311548)
+    *          velocity(-70.46326884518345, -70.46326884518345)
+    *          secondsAlive = 1, timeStep = 0.5
+    *********************************************/
+    void updateObjectHalfSecond()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.position.x = 1000000;
+        so.position.y = 1000000;
+        so.velocity.dx = 0;
+        so.velocity.dx = 0;
+        so.secondsAlive = 0;
+        double timeStep = 0.5;
+
+        // exercise
+        so.updateObject(timeStep);
+
+        // verify
+        cout << so.secondsAlive << endl;
+        cout << so.position.x << endl;
+        assertEquals(so.velocity.dy, -70.46326884518345);
+        assertEquals(so.velocity.dy, -70.46326884518345);
+        assertEquals(so.position.x, 999929.5367311548);
+        assertEquals(so.position.y, 999929.5367311548);
+        assertEquals(so.secondsAlive, 0.5);
+        assertEquals(timeStep, 0.5);
 
     }
     // teardown
