@@ -5,6 +5,7 @@
 #include "position.h"
 #include "angle.h"
 #include "uiDraw.h"
+#include "acceleration.h"
 
 class TestSpaceObject;
 
@@ -36,8 +37,8 @@ public:
 	void applyGravity(const Position& center, double gravitationalConstant, double timeStep);
 	void updatePosition(double timeStep);
 	void rotate(double radians);
-	void updateObject();
-	void incrementSecondsAlive();
+	void updateObject(double timestep);
+	void incrementSecondsAlive(int amount);
 	virtual void draw(ogstream& ui) const = 0;
 
 private:

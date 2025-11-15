@@ -140,7 +140,7 @@ void callBack(const Interface* pUI, void* p)
 
    for (auto obj : pDemo->objects)
    {
-	   obj->updateObject();
+	   obj->updateObject(48);
 	   obj->draw(gout);
    }
 
