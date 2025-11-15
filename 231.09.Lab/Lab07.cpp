@@ -98,61 +98,57 @@ void callBack(const Interface* pUI, void* p)
    // perform all the game logic
    //
 
-   // rotate the earth
-   pDemo->angleEarth += -150.8;
-   pDemo->phaseStar++;
-
    // Simulation time step (seconds per frame)
-   const double dt = 48.0;
+   
+   //// 1. Get position
+   //double xs = pDemo->ptGPS.getMetersX();
+   //double ys = pDemo->ptGPS.getMetersY();
 
-   // 1. Get position
-   double xs = pDemo->ptGPS.getMetersX();
-   double ys = pDemo->ptGPS.getMetersY();
+   //// 2. Compute gravity
+   //const double g0 = 9.80665;         // m/s² at surface
+   //const double rE = 6'378'000.0;     // Earth radius (m)
 
-   // 2. Compute gravity
-   const double g0 = 9.80665;         // m/s² at surface
-   const double rE = 6'378'000.0;     // Earth radius (m)
+   //double r = sqrt(xs * xs + ys * ys);
+   //double h = r - rE;
+   //double gh = g0 * pow(rE / (rE + h), 2);
 
-   double r = sqrt(xs * xs + ys * ys);
-   double h = r - rE;
-   double gh = g0 * pow(rE / (rE + h), 2);
-
-   // 3. Compute direction toward Earth's center
-   Angle d;
-   d.setRadians(atan2(xs, ys));  // 0° = up in your system
-   d.add(M_PI);                  // reverse to point down (toward Earth)
+   //// 3. Compute direction toward Earth's center
+   //Angle d;
+   //d.setRadians(atan2(xs, ys));  // 0° = up in your system
+   //d.add(M_PI);                  // reverse to point down (toward Earth)
 
    // 4. Decompose into components
-   double ddx = gh * sin(d.getRadians());
-   double ddy = gh * cos(d.getRadians());
+   //double ddx = gh * sin(d.getRadians());
+   //double ddy = gh * cos(d.getRadians());
 
    // 5. Apply acceleration to velocity (dv = a * dt)
-   Acceleration acc(ddx, ddy);
-   pDemo->velGPS.add(acc, dt);
+   //Acceleration acc(ddx, ddy);
+   //pDemo->velGPS.add(acc, dt);
 
    // 6. Update position using the new velocity (dx = v * dt)
-   pDemo->ptGPS.addMetersX(pDemo->velGPS.getDX() * dt);
-   pDemo->ptGPS.addMetersY(pDemo->velGPS.getDY() * dt);
-
+   //pDemo->ptGPS.addMetersX(pDemo->velGPS.getDX() * dt);
+   //pDemo->ptGPS.addMetersY(pDemo->velGPS.getDY() * dt);
 
    Position pt;
    ogstream gout(pt);
+   const double dt = 48.0;
 
    for (auto obj : pDemo->objects)
    {
-	   obj->updateObject(48);
+	   obj->updateObject(dt);
 	   obj->draw(gout);
    }
-
 
    //
    // draw everything
    //
 
-
    // draw satellite
-   gout.drawGPS       (pDemo->ptGPS,        pDemo->angleShip);
+   //gout.drawGPS       (pDemo->ptGPS,        pDemo->angleShip);
 
+   // rotate the earth
+   pDemo->angleEarth += -150.8;
+   pDemo->phaseStar++;
    // draw the earth
    pt.setMeters(0.0, 0.0);
    gout.drawEarth(pt, pDemo->angleEarth);
