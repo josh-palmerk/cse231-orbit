@@ -13,6 +13,7 @@
 #include "spaceObject.h"
 #include "satellite.h"
 #include "hubble.h"
+#include "earth.h"
 
  /*********************************************
   * Simulator

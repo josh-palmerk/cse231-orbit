@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="acceleration.cpp" />
     <ClCompile Include="angle.cpp" />
+    <ClCompile Include="earth.cpp" />
     <ClCompile Include="hubble.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="position.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="acceleration.h" />
     <ClInclude Include="angle.h" />
+    <ClInclude Include="earth.h" />
     <ClInclude Include="hubble.h" />
     <ClInclude Include="position.h" />
     <ClInclude Include="satellite.h" />

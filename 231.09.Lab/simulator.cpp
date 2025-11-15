@@ -16,6 +16,7 @@
 Simulator::Simulator()
 {
 	spaceObjects.push_back(new Hubble());
+	spaceObjects.push_back(new Earth());
 }
 
 /************************************************

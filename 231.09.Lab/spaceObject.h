@@ -46,7 +46,7 @@ public:
 	void applyGravity(const Position& center, double gravitationalConstant, double timeStep);
 	void updatePosition(double timeStep);
 	void rotate(double radians);
-	void updateObject(double timestep);
+	virtual void updateObject(double timestep);
 	void incrementSecondsAlive(int amount);
 	virtual void draw(ogstream& ui) const = 0;
 
