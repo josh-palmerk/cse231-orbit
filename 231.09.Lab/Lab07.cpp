@@ -12,6 +12,7 @@
  *****************************************************************/
 
 #include <cassert>      // for ASSERT
+#include <vector>
 #include "uiInteract.h" // for INTERFACE
 #include "uiDraw.h"     // for RANDOM and DRAW*
 #include "position.h"      // for POINT
@@ -19,6 +20,10 @@
 #include "velocity.h"
 #include "acceleration.h"
 #include "angle.h"
+#include "spaceObject.h"
+#include "satellite.h"
+#include "hubble.h"
+
 using namespace std;
 
 /*************************************************************************
@@ -39,6 +44,7 @@ public:
       angleShip = 0.0;
       angleEarth = 0.0;
       phaseStar = 0;
+	  objects.push_back(new Hubble());
    }
 
    Position ptHubble;
@@ -51,6 +57,8 @@ public:
    Position ptUpperRight;
 
    Velocity velGPS;
+
+   vector<SpaceObject*> objects;
 
    unsigned char phaseStar;
 
@@ -127,16 +135,20 @@ void callBack(const Interface* pUI, void* p)
    pDemo->ptGPS.addMetersY(pDemo->velGPS.getDY() * dt);
 
 
+   Position pt;
+   ogstream gout(pt);
 
-
+   for (auto obj : pDemo->objects)
+   {
+	   obj->updateObject();
+	   obj->draw(gout);
+   }
 
 
    //
    // draw everything
    //
 
-   Position pt;
-   ogstream gout(pt);
 
    // draw satellite
    gout.drawGPS       (pDemo->ptGPS,        pDemo->angleShip);

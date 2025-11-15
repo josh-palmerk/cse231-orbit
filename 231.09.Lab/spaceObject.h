@@ -4,6 +4,7 @@
 #include "velocity.h"
 #include "position.h"
 #include "angle.h"
+#include "uiDraw.h"
 
 class TestSpaceObject;
 
@@ -37,7 +38,7 @@ public:
 	void rotate(double radians);
 	void updateObject();
 	void incrementSecondsAlive();
-	virtual void draw() const = 0;
+	virtual void draw(ogstream& ui) const = 0;
 
 private:
 	Position position;
@@ -55,5 +56,5 @@ private:
 class SpaceObjectDerived : public SpaceObject
 {
 public:
-	void draw() const override { assert(false && "draw should not be called"); }
+	void draw(ogstream& ui) const  { assert(false && "draw should not be called"); }
 };
