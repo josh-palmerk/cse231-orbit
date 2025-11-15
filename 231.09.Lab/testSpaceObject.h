@@ -39,6 +39,11 @@ public:
         setSecondsAlive();
 
         //Behaviors
+        updatePositionNoMovement();
+        updatePositionTwoAndHalfSeconds();
+        rotatePositive();
+        rotateNegative();
+        rotateNothing();
         //void applyGravity(const Position & center, double gravitationalConstant, double timeStep);
         //void updatePosition(double timeStep);
         //void rotate(double radians);
@@ -330,6 +335,133 @@ private:
 
         // verify
         
+
+    }
+    // teardown
+
+
+    /*********************************************
+    * name:    UPDATE POSITION NO MOVEMENT
+    * input:   position(15, 20) velocity(10, 10) timeSpent = 0
+    * output:  position(15, 20) velocity(10, 10) timeSpent = 0
+    *********************************************/
+    void updatePositionNoMovement()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.position.x = 15;
+        so.position.y = 20;
+        so.velocity.dx = 10;
+        so.velocity.dy = 10;
+        double timeSpent = 0;
+
+        // exercise
+        so.updatePosition(timeSpent);
+
+        // verify
+        assertEquals(so.position.x, 15);
+        assertEquals(so.position.y, 20);
+        assertEquals(so.velocity.dx, 10);
+        assertEquals(so.velocity.dy, 10);
+        assertEquals(timeSpent, 0);
+
+    }
+    // teardown
+
+
+    /*********************************************
+    * name:    UPDATE POSITION TWO AND HALF SECONDS 
+    * input:   position(10, 10) velocity(10, 10) timeSpent = 0
+    * output:  position(35, 35) velocity(10, 10) timeSpent = 2.5
+    *********************************************/
+    void updatePositionTwoAndHalfSeconds()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.position.x = 10;
+        so.position.y = 10;
+        so.velocity.dx = 10;
+        so.velocity.dy = 10;
+        double timeSpent = 2.5;
+
+        // exercise
+        so.updatePosition(timeSpent);
+
+        // verify
+        assertEquals(so.position.x, 35);
+        assertEquals(so.position.y, 35);
+        assertEquals(so.velocity.dx, 10);
+        assertEquals(so.velocity.dy, 10);
+        assertEquals(timeSpent, 2.5);
+
+    }
+    // teardown
+
+
+    /*********************************************
+    * name:    ROTATE POSITIVE
+    * input:   angle = 0, rotateAmount = 0.5
+    * output:  angle = 0.5, rotateAmount = 0.5
+    *********************************************/
+    void rotatePositive()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.angle.radians = 0;
+        double rotateAmount = 0.5;
+
+        // exercise
+        so.rotate(rotateAmount);
+
+        // verify
+        assertEquals(so.angle.radians, 0.5);
+        assertEquals(rotateAmount, 0.5);
+
+    }
+    // teardown
+
+
+    /*********************************************
+    * name:    ROTATE NEGATIVE
+    * input:   angle = 0.6, rotateAmount = -0.5
+    * output:  angle = 0.1, rotateAmount = -0.5
+    *********************************************/
+    void rotateNegative()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.angle.radians = 0.6;
+        double rotateAmount = -0.5;
+
+        // exercise
+        so.rotate(rotateAmount);
+
+        // verify
+        assertEquals(so.angle.radians, 0.1);
+        assertEquals(rotateAmount, -0.5);
+
+    }
+    // teardown
+
+
+    /*********************************************
+    * name:    ROTATE NOTHING
+    * input:   angle = 0.5, rotateAmount = 0
+    * output:  angle = 0.5, rotateAmount = 0
+    *********************************************/
+    void rotateNothing()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.angle.radians = 0.5;
+        double rotateAmount = 0;
+
+        // exercise
+        so.rotate(rotateAmount);
+
+        // verify
+        assertEquals(so.angle.radians, 0.5);
+        assertEquals(rotateAmount, 0);
 
     }
     // teardown
