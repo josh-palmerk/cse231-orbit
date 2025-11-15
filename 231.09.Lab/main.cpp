@@ -179,7 +179,7 @@ int main(int argc, char** argv)
       "Demo",   /* name on the window */
       ptUpperRight);
 
-   //Simulator orbit;
+   Simulator orbit;
 
    // Initialize the demo
    Demo demo(ptUpperRight);

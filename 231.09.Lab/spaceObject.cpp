@@ -10,20 +10,31 @@
 #include "spaceObject.h"
 
 
-// Default constructor
+ /***********************************************
+ * SPACEOBJECT: Default Constructor
+ * Create a space object
+ ***********************************************/
 SpaceObject::SpaceObject()
 	: position(Position(0, 0)), velocity(Velocity(0, 0)), angle(Angle(0)), secondsAlive(0), radius(0.0)
 {
 }
 
 
-// Parameterized constructor
+/***********************************************
+ * SPACEOBJECT: Non Default Constructor
+ * Create a space object with parameters
+ ***********************************************/
 SpaceObject::SpaceObject(const Position& pos, const Velocity& vel, const Angle& ang, double rad)
 	: position(pos), velocity(vel), angle(ang), secondsAlive(0), radius(rad)
 {
 }
 
 
+/***********************************************
+ * SPACEOBJECT: applyGravity
+ * Applies gravity to an object,
+ * changing its velocity.
+ ***********************************************/
 // Behavior stubs (to be implemented)
 void SpaceObject::applyGravity(const Position& center, double gravitationalConstant, double timeStep)
 {
@@ -65,6 +76,10 @@ void SpaceObject::rotate(double radians)
 }
 
 
+/***********************************
+* SPACEOBJECT: updateObject
+* Updates the behavior of the object.
+***********************************/
 void SpaceObject::updateObject(double timestep)
 {
 	// TODO: General update behavior (e.g., move, rotate, age, etc.)
@@ -74,9 +89,12 @@ void SpaceObject::updateObject(double timestep)
 }
 
 
+/***********************************
+* SPACEOBJECT: incrememntSecondsAlive
+* Adds an amount to secondsAlive
+***********************************/
 void SpaceObject::incrementSecondsAlive(int amount)
 {
 	secondsAlive += amount;
 }
 
-// draw() is pure virtual; no implementation here

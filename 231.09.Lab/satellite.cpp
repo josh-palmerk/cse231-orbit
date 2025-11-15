@@ -8,11 +8,22 @@
  ************************************************************************/
 
 #include "satellite.h"
+
+
+ /***********************************************
+ * SATTELITE: Default Constructor
+ * Create a satellite object
+ ***********************************************/
 Satellite::Satellite()
 	: SpaceObject(), defunct(false)
 {
 }
 
+
+/***********************************************
+* SATTELITE: NonDefault Constructor
+* Create a satellite object with parameters.
+***********************************************/
 Satellite::Satellite(const Position& pos, const Velocity& vel, const Angle& angle, double radius)
 	: SpaceObject(pos, vel, angle, radius), defunct(false)
 {
