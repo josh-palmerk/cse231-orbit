@@ -23,46 +23,6 @@
 
 using namespace std;
 
-/*************************************************************************
- * Demo
- * Test structure to capture the LM that will move around the screen
- *************************************************************************/
-//class Demo
-//{
-//public:
-//   Demo(Position ptUpperRight) :
-//      ptUpperRight(ptUpperRight)
-//   {
-//
-//      ptGPS.setMeters(0.0, 42164000.0);
-//	  velGPS.setDX(-3100.0);
-//      velGPS.setDY(0.0);
-//
-//      angleShip = 0.0;
-//      angleEarth = 0.0;
-//      phaseStar = 0;
-//	  objects.push_back(new Hubble());
-//   }
-//
-//   Position ptHubble;
-//   Position ptSputnik;
-//   Position ptStarlink;
-//   Position ptCrewDragon;
-//   Position ptShip;
-//   Position ptGPS;
-//   Position ptStar;
-//   Position ptUpperRight;
-//
-//   Velocity velGPS;
-//
-//   vector<SpaceObject*> objects;
-//
-//   unsigned char phaseStar;
-//
-//   double angleShip;
-//   double angleEarth;
-//};
-
 /*************************************
  * All the interesting work happens here, when
  * I get called back from OpenGL to draw a frame.
@@ -75,82 +35,18 @@ void callBack(const Interface* pUI, void* p)
    // the first step is to cast the void pointer into a game object. This
    // is the first step of every single callback function in OpenGL. 
    Simulator* pOrbit = (Simulator*)p;
-   //Demo* pDemo = (Demo*)p;
-
-   
-   //
-   // accept input
-   //
-
-   // move by a little
-   /*if (pUI->isUp())
-      pDemo->ptShip.addPixelsY(1.0);
-   if (pUI->isDown())
-      pDemo->ptShip.addPixelsY(-1.0);
-   if (pUI->isLeft())
-      pDemo->ptShip.addPixelsX(-1.0);
-   if (pUI->isRight())
-      pDemo->ptShip.addPixelsX(1.0);*/
-
-
-   //
-   // perform all the game logic
-   //
-
-   // Simulation time step (seconds per frame)
-   
-   //// 1. Get position
-   //double xs = pDemo->ptGPS.getMetersX();
-   //double ys = pDemo->ptGPS.getMetersY();
-
-   //// 2. Compute gravity
-   //const double g0 = 9.80665;         // m/s² at surface
-   //const double rE = 6'378'000.0;     // Earth radius (m)
-
-   //double r = sqrt(xs * xs + ys * ys);
-   //double h = r - rE;
-   //double gh = g0 * pow(rE / (rE + h), 2);
-
-   //// 3. Compute direction toward Earth's center
-   //Angle d;
-   //d.setRadians(atan2(xs, ys));  // 0° = up in your system
-   //d.add(M_PI);                  // reverse to point down (toward Earth)
-
-   // 4. Decompose into components
-   //double ddx = gh * sin(d.getRadians());
-   //double ddy = gh * cos(d.getRadians());
-
-   // 5. Apply acceleration to velocity (dv = a * dt)
-   //Acceleration acc(ddx, ddy);
-   //pDemo->velGPS.add(acc, dt);
-
-   // 6. Update position using the new velocity (dx = v * dt)
-   //pDemo->ptGPS.addMetersX(pDemo->velGPS.getDX() * dt);
-   //pDemo->ptGPS.addMetersY(pDemo->velGPS.getDY() * dt);
 
    Position pt;
    ogstream gout(pt);
    const double dt = 48.0;
 
+   //loop through each object
    for (auto obj : pOrbit->getSpaceObjects())
    {
 	   obj->updateObject(dt);
 	   obj->draw(gout);
    }
 
-   //
-   // draw everything
-   //
-
-   // draw satellite
-   //gout.drawGPS       (pDemo->ptGPS,        pDemo->angleShip);
-
-   // rotate the earth
-   //pDemo->angleEarth += -150.8;
-   //pDemo->phaseStar++;
-   // draw the earth
-   pt.setMeters(0.0, 0.0);
-   //gout.drawEarth(pt, pDemo->angleEarth);
 }
 
 double Position::metersFromPixels = 40.0;
@@ -181,10 +77,8 @@ int main(int argc, char** argv)
       "Demo",   /* name on the window */
       ptUpperRight);
 
-   Simulator orbit;
 
-   // Initialize the demo
-   //Demo demo(ptUpperRight);
+   Simulator orbit;
 
    // set everything into action
    ui.run(callBack, &orbit);
