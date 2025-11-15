@@ -1,15 +1,11 @@
-/*************************************************************
- * 1. Name:
- *      Demo
- * 2. Assignment Name:
- *      Lab 07: Orbit Simulator
- * 3. Assignment Description:
- *      Simulate satellites orbiting the earth
- * 4. What was the hardest part? Be as specific as possible.
- *      Implementing the geocentric orbital physics on the satellite 
- * 5. How long did it take for you to complete the assignment?
- *      About 6 hours
- *****************************************************************/
+/***********************************************************************
+ * Source File:
+ *    Main : Driving point for the program
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    Has main and calls callback to start the program.
+ ************************************************************************/
 
 #include <cassert>      // for ASSERT
 #include <vector>

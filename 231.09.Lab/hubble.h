@@ -1,3 +1,13 @@
+/***********************************************************************
+ * Header File:
+ *    Hubble
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    Satellite space object hubble.
+ ************************************************************************/
+
+
 #pragma once
 #include "satellite.h"
 

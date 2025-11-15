@@ -1,3 +1,12 @@
+/***********************************************************************
+ * Source File:
+ *    Space Object : The base class for all interactive objects in space
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    All the characteristics of satellites space trash and other interactive objects.
+ ************************************************************************/
+
 #include "spaceObject.h"
 
 

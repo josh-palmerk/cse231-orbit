@@ -1,3 +1,12 @@
+/***********************************************************************
+ * Source File:
+ *    Satellite : The base class for all satellites
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    The base class for all satellite objects, inherits space object.
+ ************************************************************************/
+
 #include "satellite.h"
 Satellite::Satellite()
 	: SpaceObject(), defunct(false)

@@ -1,3 +1,12 @@
+/***********************************************************************
+ * Header File:
+ *    SpaceObject
+ * Author:
+ *    Josh and Garrin
+ * Summary:
+ *    Base class for all space objects.
+ ************************************************************************/
+
 #pragma once
 
 #include <cassert>

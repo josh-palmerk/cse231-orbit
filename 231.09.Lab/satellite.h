@@ -1,3 +1,13 @@
+/***********************************************************************
+ * Header File:
+ *    Satellite
+ * Author:
+ *    Josh and Garrin
+ * Summary:
+ *    A space object satellite class.
+ ************************************************************************/
+
+
 #pragma once
 #include "spaceObject.h"
 class Satellite : public SpaceObject
