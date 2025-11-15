@@ -46,7 +46,10 @@ public:
         rotatePositive();
         rotateNegative();
         rotateNothing();
-        //void applyGravity(const Position & center, double gravitationalConstant, double timeStep);
+        applyGravityEarth();
+        applyGravityDifferentGravity();
+        applyGravityDifferentCenter();
+        applyGravityDifferentTimeStep();
 
         report("Space Object");
     }
@@ -387,21 +390,121 @@ private:
     
     
     /*********************************************
-    * name:    APPLY GRAVITY
-    * input:   
-    * output:  
+    * name:    APPLY GRAVITY EARTH
+    * input:   Center(0,0) Position(1000000,1000000) 
+    *          Gravity = 398600441800000.0
+    *          timeStep = 1
+    * output:  velocity(-140.9265376903669, -140.9265376903669)
     *********************************************/
-    void applyGravity()
+    void applyGravityEarth()
     {
         // setup
         SpaceObjectDerived so;
-        
+        so.position.x = 1000000;
+        so.position.y = 1000000;
+        Position center;
+        center.x = 0;
+        center.y = 0;
+        double gravity = 398600441800000.0;
+        double timeStep = 1;
 
         // exercise
-        
+        so.applyGravity(center, gravity, timeStep);
 
         // verify
-        
+        assertEquals(so.velocity.dx, -140.9265376903669);
+        assertEquals(so.velocity.dy, -140.9265376903669); 
+
+    }
+    // teardown
+
+
+    /*********************************************
+    * name:    APPLY GRAVITY DIFFERENT GRAVITY
+    * input:   Center(0,0) Position(1000000,1000000) 
+    *          Gravity = 42828370000000.0
+    *          timeStep = 1
+    * output:  velocity(-15.14211542708325, -15.14211542708325)
+    *********************************************/
+    void applyGravityDifferentGravity()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.position.x = 1000000;
+        so.position.y = 1000000;
+        Position center;
+        center.x = 0;
+        center.y = 0;
+        double gravity = 42828370000000.0;
+        double timeStep = 1;
+
+        // exercise
+        so.applyGravity(center, gravity, timeStep);
+
+        // verify
+        assertEquals(so.velocity.dx, -15.14211542708325);
+        assertEquals(so.velocity.dy, -15.14211542708325);
+
+    }
+    // teardown
+
+
+    /*********************************************
+    * name:    APPLY GRAVITY DIFFERENT CENTER
+    * input:   Center(500000,500000) Position(1000000,1000000) 
+    *          Gravity = 398600441800000.0
+    *          timeStep = 1
+    * output:  velocity(-563.7061507614676, -563.7061507614676)
+    *********************************************/
+    void applyGravityDifferentCenter()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.position.x = 1000000;
+        so.position.y = 1000000;
+        Position center;
+        center.x = 500000;
+        center.y = 500000;
+        double gravity = 398600441800000.0;
+        double timeStep = 1;
+
+        // exercise
+        so.applyGravity(center, gravity, timeStep);
+
+        // verify
+        assertEquals(so.velocity.dx, -563.7061507614676);
+        assertEquals(so.velocity.dy, -563.7061507614676);
+
+
+    }
+    // teardown
+
+
+    /*********************************************
+    * name:    APPLY GRAVITY DIFFERENT TIMESTEP
+    * input:   Center(0,0) Position(1000000,1000000)
+    *          Gravity = 398600441800000.0
+    *          timeStep = 0.5
+    * output:  velocity(-70.46326884518345, -70.46326884518345)
+    *********************************************/
+    void applyGravityDifferentTimeStep()
+    {
+        // setup
+        SpaceObjectDerived so;
+        so.position.x = 1000000;
+        so.position.y = 1000000;
+        Position center;
+        center.x = 0;
+        center.y = 0;
+        double gravity = 398600441800000.0;
+        double timeStep = 0.5;
+
+        // exercise
+        so.applyGravity(center, gravity, timeStep);
+
+        // verify
+        assertEquals(so.velocity.dx, -70.46326884518345);
+        assertEquals(so.velocity.dy, -70.46326884518345);
 
     }
     // teardown
