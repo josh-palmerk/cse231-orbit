@@ -23,7 +23,9 @@ public:
     void run()
     {
         // Constructors
-        
+        defaultConstructor();
+        nonDefaultConstructor();
+
         // Getters
         getPosition();
         getVelocity();
@@ -45,13 +47,78 @@ public:
         rotateNegative();
         rotateNothing();
         //void applyGravity(const Position & center, double gravitationalConstant, double timeStep);
-        //void updatePosition(double timeStep);
-        //void rotate(double radians);
 
         report("Space Object");
     }
 
 private:
+
+
+    /*****************************************************************
+    *****************************************************************
+    * CONSTRUCTORS
+    *****************************************************************
+    *****************************************************************/
+
+    /*********************************************
+    * name:    DEFAULT CONSTRUCTOR
+    * input:   nothing
+    * output:  zero
+    *********************************************/
+    void defaultConstructor()
+    {  
+       // setup
+       // exercise
+        SpaceObjectDerived so;
+
+        // verify
+        assertEquals(so.position.x, 0.0);
+        assertEquals(so.position.y, 0.0);
+        assertEquals(so.velocity.dx, 0.0);
+        assertEquals(so.velocity.dy, 0.0);
+        assertEquals(so.angle.radians, 0.0);
+        assertEquals(so.radius, 0.0);
+        assertEquals(so.secondsAlive, 0);
+    }  
+    // teardown
+
+
+
+    /*********************************************
+     * name:    NON DEFAULT CONSTRUCTOR
+     * input:   pos(1.3, 1.5) velocity(2.3, 4.5)
+     *          angle(0.8) radius = 8.6
+     * output:  pos(1.3, 1.5) velocity(2.3, 4.5)
+     *          angle(0.8) radius = 8.6, secondsAlive = 0
+     *********************************************/
+    void nonDefaultConstructor()
+    {  
+        // setup
+        Position pos;
+        pos.x = 1.3;
+        pos.y = 1.5;
+        Velocity v;
+        v.dx = 2.3;
+        v.dy = 4.5;
+        Angle ang;
+        ang.radians = 0.8;
+        double radius = 8.6;
+
+        // exercise
+        SpaceObjectDerived so(pos, v, ang, radius);
+
+        // verify
+        assertEquals(so.position.x, 1.3);
+        assertEquals(so.position.y, 1.5);
+        assertEquals(so.velocity.dx, 2.3);
+        assertEquals(so.velocity.dy, 4.5);
+        assertEquals(so.angle.radians, 0.8);
+        assertEquals(so.radius, 8.6);
+        assertEquals(so.secondsAlive, 0);
+    }  
+    // teardown
+
+
 
     /*****************************************************************
     *****************************************************************

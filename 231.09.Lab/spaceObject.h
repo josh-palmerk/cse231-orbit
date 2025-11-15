@@ -57,5 +57,8 @@ private:
 class SpaceObjectDerived : public SpaceObject
 {
 public:
+	SpaceObjectDerived() : SpaceObject() {}
+	SpaceObjectDerived(const Position& pos, const Velocity& vel, const Angle& angle, double radius)
+		: SpaceObject(pos, vel, angle, radius) {}
 	void draw(ogstream& ui) const  { assert(false && "draw should not be called"); }
 };
