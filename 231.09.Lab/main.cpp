@@ -19,6 +19,7 @@
 #include "spaceObject.h"
 #include "satellite.h"
 #include "hubble.h"
+#include "simulator.h"
 
 using namespace std;
 
@@ -177,6 +178,8 @@ int main(int argc, char** argv)
    Interface ui(0, NULL,
       "Demo",   /* name on the window */
       ptUpperRight);
+
+   //Simulator orbit;
 
    // Initialize the demo
    Demo demo(ptUpperRight);

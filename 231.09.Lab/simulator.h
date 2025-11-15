@@ -8,3 +8,24 @@
  ************************************************************************/
 
 #pragma once
+
+#include <vector>
+#include "spaceObject.h"
+#include "satellite.h"
+#include "hubble.h"
+
+ /*********************************************
+  * Simulator
+  * Holds all of the objects.
+  *********************************************/
+class Simulator
+{
+private:
+	//to do add stars.
+	vector<SpaceObject*> objects;
+
+public:
+	Simulator();
+
+
+};

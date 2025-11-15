@@ -6,3 +6,14 @@
  * Summary:
  *    Contains callback and all of the objects.
  ************************************************************************/
+
+#include "simulator.h"
+
+ /***********************************************
+ * SIMULATOR : Default Constructor
+ *         Create all objects
+ ***********************************************/
+Simulator::Simulator()
+{
+	objects.push_back(new Hubble());
+}
