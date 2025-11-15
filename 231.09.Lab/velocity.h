@@ -15,6 +15,8 @@ class Acceleration;
 class Angle;
 class TestVelocity;
 class TestSpaceObject;
+class TestHubble;
+class TestEarth;
 
  /*********************************************
   * Velocity
@@ -24,6 +26,8 @@ class Velocity
 {
 	friend TestVelocity;
 	friend TestSpaceObject;
+	friend TestHubble;
+	friend TestEarth;
    
 public:
    // constructors

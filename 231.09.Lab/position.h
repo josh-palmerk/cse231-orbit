@@ -18,6 +18,8 @@ class TestPosition;
 class TestSpaceObject;
 class Acceleration;
 class Velocity;
+class TestHubble;
+class TestEarth;
 
 /*********************************************
  * Position
@@ -28,6 +30,8 @@ class Position
 public:
    friend TestPosition;
    friend TestSpaceObject;
+   friend TestHubble;
+   friend TestEarth;
    
    // constructors
    Position()            : x(0.0), y(0.0)  {}

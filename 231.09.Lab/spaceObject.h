@@ -17,6 +17,8 @@
 #include "acceleration.h"
 
 class TestSpaceObject;
+class TestHubble;
+class TestEarth;
 
 class SpaceObject
 {
@@ -24,6 +26,8 @@ class SpaceObject
 public:
 
 	friend TestSpaceObject;
+	friend TestHubble;
+	friend TestEarth;
 
 	SpaceObject();
 	SpaceObject(const Position& pos, const Velocity& vel, const Angle& angle, double radius);

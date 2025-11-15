@@ -53,7 +53,7 @@ public:
         incrementSecondsAlive();
         decrementSecondsAlive();
         updateObjectOneSecond();
-        updateObjectHalfSecond();
+        updateObjectFiveSeconds();
 
         report("Space Object");
     }
@@ -721,14 +721,14 @@ private:
 
 
     /*********************************************
-    * name:    UPDATE OBJECT ONE SECOND
+    * name:    UPDATE OBJECT FIVE SECOND
     * input:   position(1000000, 1000000) velocity (0,0)
-    *          secondsAlive = 0, timeStep = 0.5
-    * output:  position(999929.5367311548, 999929.5367311548)
-    *          velocity(-70.46326884518345, -70.46326884518345)
-    *          secondsAlive = 1, timeStep = 0.5
+    *          secondsAlive = 0, timeStep = 5
+    * output:  position(996476.8365577408, 996476.8365577408)
+    *          velocity(-704.6326884518345, -704.6326884518345)
+    *          secondsAlive = 5, timeStep = 5
     *********************************************/
-    void updateObjectHalfSecond()
+    void updateObjectFiveSeconds()
     {
         // setup
         SpaceObjectDerived so;
@@ -737,20 +737,18 @@ private:
         so.velocity.dx = 0;
         so.velocity.dx = 0;
         so.secondsAlive = 0;
-        double timeStep = 0.5;
+        double timeStep = 5;
 
         // exercise
         so.updateObject(timeStep);
 
         // verify
-        cout << so.secondsAlive << endl;
-        cout << so.position.x << endl;
-        assertEquals(so.velocity.dy, -70.46326884518345);
-        assertEquals(so.velocity.dy, -70.46326884518345);
-        assertEquals(so.position.x, 999929.5367311548);
-        assertEquals(so.position.y, 999929.5367311548);
-        assertEquals(so.secondsAlive, 0.5);
-        assertEquals(timeStep, 0.5);
+        assertEquals(so.velocity.dy, -704.6326884518345);
+        assertEquals(so.velocity.dy, -704.6326884518345);
+        assertEquals(so.position.x, 996476.8365577408);
+        assertEquals(so.position.y, 996476.8365577408);
+        assertEquals(so.secondsAlive, 5);
+        assertEquals(timeStep, 5);
 
     }
     // teardown
