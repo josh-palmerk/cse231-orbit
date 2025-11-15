@@ -27,41 +27,41 @@ using namespace std;
  * Demo
  * Test structure to capture the LM that will move around the screen
  *************************************************************************/
-class Demo
-{
-public:
-   Demo(Position ptUpperRight) :
-      ptUpperRight(ptUpperRight)
-   {
-
-      ptGPS.setMeters(0.0, 42164000.0);
-	  velGPS.setDX(-3100.0);
-      velGPS.setDY(0.0);
-
-      angleShip = 0.0;
-      angleEarth = 0.0;
-      phaseStar = 0;
-	  objects.push_back(new Hubble());
-   }
-
-   Position ptHubble;
-   Position ptSputnik;
-   Position ptStarlink;
-   Position ptCrewDragon;
-   Position ptShip;
-   Position ptGPS;
-   Position ptStar;
-   Position ptUpperRight;
-
-   Velocity velGPS;
-
-   vector<SpaceObject*> objects;
-
-   unsigned char phaseStar;
-
-   double angleShip;
-   double angleEarth;
-};
+//class Demo
+//{
+//public:
+//   Demo(Position ptUpperRight) :
+//      ptUpperRight(ptUpperRight)
+//   {
+//
+//      ptGPS.setMeters(0.0, 42164000.0);
+//	  velGPS.setDX(-3100.0);
+//      velGPS.setDY(0.0);
+//
+//      angleShip = 0.0;
+//      angleEarth = 0.0;
+//      phaseStar = 0;
+//	  objects.push_back(new Hubble());
+//   }
+//
+//   Position ptHubble;
+//   Position ptSputnik;
+//   Position ptStarlink;
+//   Position ptCrewDragon;
+//   Position ptShip;
+//   Position ptGPS;
+//   Position ptStar;
+//   Position ptUpperRight;
+//
+//   Velocity velGPS;
+//
+//   vector<SpaceObject*> objects;
+//
+//   unsigned char phaseStar;
+//
+//   double angleShip;
+//   double angleEarth;
+//};
 
 /*************************************
  * All the interesting work happens here, when
@@ -74,21 +74,23 @@ void callBack(const Interface* pUI, void* p)
 {
    // the first step is to cast the void pointer into a game object. This
    // is the first step of every single callback function in OpenGL. 
-   Demo* pDemo = (Demo*)p;
+   Simulator* pOrbit = (Simulator*)p;
+   //Demo* pDemo = (Demo*)p;
 
+   
    //
    // accept input
    //
 
    // move by a little
-   if (pUI->isUp())
+   /*if (pUI->isUp())
       pDemo->ptShip.addPixelsY(1.0);
    if (pUI->isDown())
       pDemo->ptShip.addPixelsY(-1.0);
    if (pUI->isLeft())
       pDemo->ptShip.addPixelsX(-1.0);
    if (pUI->isRight())
-      pDemo->ptShip.addPixelsX(1.0);
+      pDemo->ptShip.addPixelsX(1.0);*/
 
 
    //
@@ -130,7 +132,7 @@ void callBack(const Interface* pUI, void* p)
    ogstream gout(pt);
    const double dt = 48.0;
 
-   for (auto obj : pDemo->objects)
+   for (auto obj : pOrbit->getSpaceObjects())
    {
 	   obj->updateObject(dt);
 	   obj->draw(gout);
@@ -144,11 +146,11 @@ void callBack(const Interface* pUI, void* p)
    //gout.drawGPS       (pDemo->ptGPS,        pDemo->angleShip);
 
    // rotate the earth
-   pDemo->angleEarth += -150.8;
-   pDemo->phaseStar++;
+   //pDemo->angleEarth += -150.8;
+   //pDemo->phaseStar++;
    // draw the earth
    pt.setMeters(0.0, 0.0);
-   gout.drawEarth(pt, pDemo->angleEarth);
+   //gout.drawEarth(pt, pDemo->angleEarth);
 }
 
 double Position::metersFromPixels = 40.0;
@@ -182,10 +184,10 @@ int main(int argc, char** argv)
    Simulator orbit;
 
    // Initialize the demo
-   Demo demo(ptUpperRight);
+   //Demo demo(ptUpperRight);
 
    // set everything into action
-   ui.run(callBack, &demo);
+   ui.run(callBack, &orbit);
 
 
    return 0;

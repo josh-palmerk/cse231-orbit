@@ -22,10 +22,11 @@ class Simulator
 {
 private:
 	//to do add stars.
-	vector<SpaceObject*> objects;
+	vector<SpaceObject*> spaceObjects;
 
 public:
 	Simulator();
+	vector<SpaceObject*> getSpaceObjects();
 
 
 };

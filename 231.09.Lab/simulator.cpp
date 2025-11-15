@@ -15,5 +15,14 @@
  ***********************************************/
 Simulator::Simulator()
 {
-	objects.push_back(new Hubble());
+	spaceObjects.push_back(new Hubble());
+}
+
+/************************************************
+ * SIMULATOR : GET SPACE OBJECTS
+ * Returns spaceObjects.
+ ***********************************************/
+vector<SpaceObject*> Simulator::getSpaceObjects()
+{
+	return spaceObjects;
 }
