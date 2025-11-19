@@ -141,13 +141,17 @@
   <ItemGroup>
     <ClCompile Include="acceleration.cpp" />
     <ClCompile Include="angle.cpp" />
+    <ClCompile Include="dragon.cpp" />
     <ClCompile Include="earth.cpp" />
+    <ClCompile Include="gps.cpp" />
     <ClCompile Include="hubble.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="position.cpp" />
     <ClCompile Include="satellite.cpp" />
     <ClCompile Include="simulator.cpp" />
     <ClCompile Include="spaceObject.cpp" />
+    <ClCompile Include="sputnik.cpp" />
+    <ClCompile Include="starlink.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="uiDraw.cpp" />
     <ClCompile Include="uiInteract.cpp" />
@@ -156,17 +160,19 @@
   <ItemGroup>
     <ClInclude Include="acceleration.h" />
     <ClInclude Include="angle.h" />
+    <ClInclude Include="dragon.h" />
     <ClInclude Include="earth.h" />
+    <ClInclude Include="gps.h" />
     <ClInclude Include="hubble.h" />
     <ClInclude Include="position.h" />
     <ClInclude Include="satellite.h" />
     <ClInclude Include="simulator.h" />
     <ClInclude Include="spaceObject.h" />
+    <ClInclude Include="sputnik.h" />
+    <ClInclude Include="starlink.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="testAcceleration.h" />
     <ClInclude Include="testAngle.h" />
-    <ClInclude Include="testEarth.h" />
-    <ClInclude Include="testHubble.h" />
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testSpaceObject.h" />
     <ClInclude Include="testVelocity.h" />

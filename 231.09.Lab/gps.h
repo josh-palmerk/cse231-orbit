@@ -1,0 +1,17 @@
+	
+#pragma once
+#include "satellite.h"
+
+class TestGPS;
+
+class GPS : public Satellite
+{
+public:
+	friend TestGPS;
+
+	GPS();
+	GPS(const Position& pos, const Velocity& vel, const Angle& angle = Angle(0.0), double radius = 12);
+	void draw(ogstream& ui) const override;
+	void shatter() override;
+};
+

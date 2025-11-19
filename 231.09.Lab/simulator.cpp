@@ -17,6 +17,18 @@ Simulator::Simulator()
 {
 	spaceObjects.push_back(new Hubble());
 	spaceObjects.push_back(new Earth());
+	spaceObjects.push_back(new Starlink());
+
+	spaceObjects.push_back(new GPS(Position(0.0, 26560000.0),			Velocity(-3880.0, 0.0)) );
+	spaceObjects.push_back(new GPS(Position(23001634.72, 13280000.0),	Velocity(-1940.00, 3360.18)));
+	spaceObjects.push_back(new GPS(Position(23001634.72, -13280000.0),	Velocity(1940.00, 3360.18)));
+	spaceObjects.push_back(new GPS(Position(0.0, -26560000.0),			Velocity(3880.0, 0.0)));
+	spaceObjects.push_back(new GPS(Position(-23001634.72, -13280000.0),	Velocity(1940.00, -3360.18)));
+	spaceObjects.push_back(new GPS(Position(-23001634.72, 13280000.0),	Velocity(-1940.00, -3360.18)));
+
+	spaceObjects.push_back(new Dragon());
+	spaceObjects.push_back(new Sputnik());
+	//spaceObjects.push_back(new DreamChaser());
 }
 
 /************************************************

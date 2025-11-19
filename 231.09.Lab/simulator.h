@@ -14,6 +14,12 @@
 #include "satellite.h"
 #include "hubble.h"
 #include "earth.h"
+#include "starlink.h"
+#include "gps.h"
+#include "dragon.h"
+#include "sputnik.h"
+//#include "dreamChaser.h"
+
 
  /*********************************************
   * Simulator

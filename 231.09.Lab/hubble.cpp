@@ -23,6 +23,7 @@ Hubble::Hubble()
 	setPosition(pos);
 	setVelocity(vel);
 	setAngle(angle);
+	setRadius(10); //  radius of Hubble in pixels
 }
 
 
