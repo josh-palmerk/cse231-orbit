@@ -20,8 +20,18 @@ GPS::GPS()
 
 
 GPS::GPS(const Position& pos, const Velocity& vel, const Angle& angle, double radius)
-	: Satellite(pos, vel, angle, radius)
+	//: Satellite(pos, vel, angle, radius)
 {
+
+	setPosition(pos);
+	setVelocity(vel);
+	setRadius(radius);
+
+	Angle d;
+	d.setRadians(atan2(pos.getMetersY(), -pos.getMetersX()));
+	setAngle(d);
+
+
 }
 
 

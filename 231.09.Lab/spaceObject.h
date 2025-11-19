@@ -10,6 +10,7 @@
 #pragma once
 
 #include <cassert>
+#include <cmath>
 #include "velocity.h"
 #include "position.h"
 #include "angle.h"
@@ -54,7 +55,7 @@ public:
 	void incrementSecondsAlive(int amount);
 	virtual void draw(ogstream& ui) const = 0;
 
-private:
+protected:
 	Position position;
 	Velocity velocity;
 	Angle angle;

@@ -10,6 +10,8 @@
 
 #pragma once
 #include "spaceObject.h"
+
+
 class Satellite : public SpaceObject
 {
 public:
@@ -18,9 +20,10 @@ public:
 	//void draw() const override;
 
 	bool isDefunct() const { return defunct; }
+	void updateObject(double timestep) override;
 
 	virtual void shatter() = 0;
 
-private:
+protected:
 	bool defunct;
 };

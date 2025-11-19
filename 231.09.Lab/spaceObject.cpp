@@ -86,6 +86,7 @@ void SpaceObject::updateObject(double timestep)
 	applyGravity(Position(0, 0), 398600441800000.0, timestep); // Example gravitational constant for Earth)
 	updatePosition(timestep);
 	incrementSecondsAlive(static_cast<int>(timestep));
+	
 }
 
 
