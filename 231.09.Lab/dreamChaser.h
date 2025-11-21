@@ -15,7 +15,7 @@ public:
 	
 	// Specifics for DreamChaser
 	void fireBullet();
-	void addThrust(); //might need to take amount
+	void addThrust(double timestep); //might need to take amount
 
 	//void updateObject(double timestep) override;
 	void handleInput(const Interface* pUI, double timestep);

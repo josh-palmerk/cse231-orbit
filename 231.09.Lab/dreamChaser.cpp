@@ -27,21 +27,22 @@ void DreamChaser::fireBullet()
 	// Logic for firing a bullet
 }
 
-void DreamChaser::addThrust()
+void DreamChaser::addThrust(double timestep)
 {
-	// Logic for adding thrust
+	// Apply thrust in the direction of the current angle
+	double thrustMagnitude = 2.0; // Example thrust magnitude
+	double ax = thrustMagnitude * cos(getAngle().getRadians());
+	double ay = thrustMagnitude * sin(getAngle().getRadians());
+	Acceleration acc(ax, ay);
+	velocity.add(acc, timestep);
 }
 
 void DreamChaser::handleInput(const Interface* pUI, double timestep)
 {
-	if (pUI->isUp())
+	if (pUI->isDown())
 	{
-		// Apply thrust in the direction of the current angle
-		double thrustMagnitude = 2.0; // Example thrust magnitude
-		double ax = thrustMagnitude * cos(getAngle().getRadians());
-		double ay = thrustMagnitude * sin(getAngle().getRadians());
-		Acceleration acc(ax, ay);
-		velocity.add(acc, timestep);
+		// Thrust forward
+		addThrust(timestep);
 	}
 	if (pUI->isLeft())
 	{
