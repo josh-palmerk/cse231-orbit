@@ -18,7 +18,7 @@
 #include "gps.h"
 #include "dragon.h"
 #include "sputnik.h"
-//#include "dreamChaser.h"
+#include "dreamChaser.h"
 
 
  /*********************************************
@@ -30,10 +30,12 @@ class Simulator
 private:
 	//to do add stars.
 	vector<SpaceObject*> spaceObjects;
+	DreamChaser player;
 
 public:
 	Simulator();
 	vector<SpaceObject*> getSpaceObjects();
+	DreamChaser& getPlayer() { return player; }
 
 
 };

@@ -51,4 +51,5 @@ void Satellite::updateObject(double timestep)
 		d.setRadians(atan2(position.getMetersY(), -position.getMetersX()));
 		setAngle(d);
 	}
+	else rotate(0.01);
 }

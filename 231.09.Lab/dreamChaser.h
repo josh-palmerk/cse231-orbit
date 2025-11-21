@@ -1,0 +1,23 @@
+#pragma once
+#include "spaceObject.h"
+#include "uiDraw.h"
+#include "uiInteract.h" // for INTERFACE
+
+class TestDreamChaser;
+
+class DreamChaser : public SpaceObject
+{
+public:
+	friend TestDreamChaser;
+	DreamChaser();
+	DreamChaser(const Position& pos, const Velocity& vel, const Angle& angle, double radius);
+	void draw(ogstream& ui) const override;
+	
+	// Specifics for DreamChaser
+	void fireBullet();
+	void addThrust(); //might need to take amount
+
+	//void updateObject(double timestep) override;
+	void handleInput(const Interface* pUI, double timestep);
+};
+
