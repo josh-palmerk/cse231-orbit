@@ -50,7 +50,7 @@ void callBack(const Interface* pUI, void* p)
    //separate dream chaser logic
    pOrbit->getPlayer().handleInput(pUI, dt);
    pOrbit->getPlayer().updateObject(dt);
-   pOrbit->getPlayer().draw(gout);
+   pOrbit->getPlayer().draw(gout, pUI);
 }
 
 double Position::metersFromPixels = 40.0;

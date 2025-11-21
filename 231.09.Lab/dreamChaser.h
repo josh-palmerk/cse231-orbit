@@ -11,7 +11,9 @@ public:
 	friend TestDreamChaser;
 	DreamChaser();
 	DreamChaser(const Position& pos, const Velocity& vel, const Angle& angle, double radius);
-	void draw(ogstream& ui) const override;
+	//using SpaceObject::draw;
+	void draw(ogstream& ui) const override {} // to satisfy pure virtual requirement
+	void draw(ogstream& ui, const Interface* pUI) const;
 	
 	// Specifics for DreamChaser
 	void fireBullet();

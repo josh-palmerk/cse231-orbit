@@ -17,10 +17,11 @@ DreamChaser::DreamChaser(const Position& pos, const Velocity& vel, const Angle& 
 {
 }
 
-void DreamChaser::draw(ogstream& ui) const
+void DreamChaser::draw(ogstream& ui, const Interface* pUI) const
 {
-	ui.drawShip(getPosition(), getAngle().getRadians(), false); // TODO bool thrust
+	ui.drawShip(getPosition(), getAngle().getRadians(), pUI->isDown());
 }
+
 
 void DreamChaser::fireBullet()
 {
@@ -31,8 +32,8 @@ void DreamChaser::addThrust(double timestep)
 {
 	// Apply thrust in the direction of the current angle
 	double thrustMagnitude = 2.0; // Example thrust magnitude
-	double ax = thrustMagnitude * cos(getAngle().getRadians());
-	double ay = thrustMagnitude * sin(getAngle().getRadians());
+	double ax = thrustMagnitude * sin(getAngle().getRadians());
+	double ay = thrustMagnitude * cos(getAngle().getRadians());
 	Acceleration acc(ax, ay);
 	velocity.add(acc, timestep);
 }
@@ -47,12 +48,12 @@ void DreamChaser::handleInput(const Interface* pUI, double timestep)
 	if (pUI->isLeft())
 	{
 		// Rotate left
-		angle.add(-0.1 * timestep); // Radians per time step
+		angle.add(-0.1); // Radians per time step
 	}
 	if (pUI->isRight())
 	{
 		// Rotate right
-		angle.add(0.1 * timestep); // Radians per time step
+		angle.add(0.1); // Radians per time step
 	}
 
 	if (pUI->isSpace())
