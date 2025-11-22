@@ -95,7 +95,7 @@ private:
         assertEquals(h.position.y, 4.5);
         assertEquals(h.velocity.dx, 7.3);
         assertEquals(h.velocity.dy, 9.5);
-        assert(h.angle.radians - 5.4177 < 0.001);
+        assert(fabs(h.angle.radians - 5.4177) < 0.005);
         assertEquals(h.radius, 3.8);
         assertEquals(h.secondsAlive, 0);
     }

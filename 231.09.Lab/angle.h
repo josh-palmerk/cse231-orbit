@@ -24,6 +24,8 @@ class TestEarth;
 class TestDragon;
 class TestSputnik;
 class TestStarlink;
+class TestGPS;
+class TestDreamChaser;
 
  /************************************
   * ANGLE
@@ -40,6 +42,8 @@ public:
 	friend TestDragon;
 	friend TestSputnik;
 	friend TestStarlink;
+	friend TestGPS;
+	friend TestDreamChaser;
    
    // Constructors
    Angle();

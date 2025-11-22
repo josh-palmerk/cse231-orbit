@@ -1,24 +1,23 @@
 /***********************************************************************
  * Header File:
- *    TEST DRAGON
+ *    TEST GPS
  * Author:
  *    Josh and Garrin
  * Summary:
- *    All the unit tests for DRAGON
+ *    All the unit tests for GPS
  ************************************************************************/
 
 #pragma once
 
 
-#include "dragon.h"
+#include "gps.h"
 #include "unitTest.h"
 
-
  /*******************************
-  * TEST Dragon
-  * A friend class for Dragon which contains the Dragon unit tests
+  * TEST GPS
+  * A friend class for GPS which contains the GPS unit tests
   ********************************/
-class TestDragon : public UnitTest
+class TestGPS : public UnitTest
 {
 public:
 
@@ -29,7 +28,7 @@ public:
         nonDefaultConstructor();
 
 
-        report("Dragon");
+        report("GPS");
     }
 
 
@@ -46,58 +45,57 @@ private:
     /*********************************************
     * name:    DEFAULT CONSTRUCTOR
     * input:   nothing
-    * output:  pos.y = 8000000.0, vel.dx = -7900.0
-    *          radius = 7.0
+    * output:  pos.y = -2020000000.0, radius = 12.0
     *********************************************/
     void defaultConstructor()
     {
         // setup
         // exercise
-        Dragon d;
+        GPS g;
 
         // verify
-        assertEquals(d.position.x, 0.0);
-        assertEquals(d.position.y, 8000000.0);
-        assertEquals(d.velocity.dx, -7900.0);
-        assertEquals(d.velocity.dy, 0.0);
-        assertEquals(d.angle.radians, 0.0);
-        assertEquals(d.radius, 7.0);
-        assertEquals(d.secondsAlive, 0);
+        assertEquals(g.position.x, 0);
+        assertEquals(g.position.y, -2020000000.0);
+        assertEquals(g.velocity.dx, 0);
+        assertEquals(g.velocity.dy, 0);
+        assertEquals(g.angle.radians, 0.0);
+        assertEquals(g.radius, 12.0);
+        assertEquals(g.secondsAlive, 0);
     }
     // teardown
 
 
     /*********************************************
      * name:    NON DEFAULT CONSTRUCTOR
-     * input:   pos(7.8, 2.3) velocity(4.4, 8.8)
-     *          angle(-1.283) radius = 7.8
-     * output:  pos(7.8, 2.3) velocity(4.4, 8.8)
-     *          angle(5.0) radius = 7.8, secondsAlive = 0
+     * input:   pos(1600.4, 1800.9) velocity(243.1, 305.6)
+     *          angle(2.297) radius = 20.8
+     * output:  pos(1600.4, 1800.9) velocity(243.1, 305.6)
+     *          angle(2.297) radius = 20.8, secondsAlive = 0
      *********************************************/
     void nonDefaultConstructor()
     {
         // setup
         Position pos;
-        pos.x = 7.8;
-        pos.y = 2.3;
+        pos.x = 1600.4;
+        pos.y = 1800.9;
         Velocity v;
-        v.dx = 4.4;
-        v.dy = 8.8;
+        v.dx = 243.1;
+        v.dy = 305.6;
         Angle ang;
-        ang.radians = atan2(-pos.y, -pos.x) + M_PI_2;
-        double radius = 7.8;
+        ang.radians = atan2(pos.y, -pos.x);
+        double radius = 20.8;
 
         // exercise
-        Dragon d(pos, v, ang, radius);
+        GPS g(pos, v, ang, radius);
 
         // verify
-        assertEquals(d.position.x, 7.8);
-        assertEquals(d.position.y, 2.3);
-        assertEquals(d.velocity.dx, 4.4);
-        assertEquals(d.velocity.dy, 8.8);
-        assert(fabs(d.angle.radians - 5.0) < 0.001);
-        assertEquals(d.radius, 7.8);
-        assertEquals(d.secondsAlive, 0);
+        assertEquals(g.position.x, 1600.4);
+        assertEquals(g.position.y, 1800.9);
+        assertEquals(g.velocity.dx, 243.1);
+        assertEquals(g.velocity.dy, 305.6);
+        assert(fabs(g.angle.radians - 2.297) < 0.001);
+        assertEquals(g.radius, 20.8);
+        assertEquals(g.secondsAlive, 0);
     }
     // teardown
 

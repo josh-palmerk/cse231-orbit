@@ -23,6 +23,8 @@ using std::max;
 
 #define GL_SILENCE_DEPRECATION
 
+class TestDreamChaser;
+
 /********************************************
  * INTERFACE
  * All the data necessary to keep our graphics
@@ -31,6 +33,9 @@ using std::max;
 class Interface
 {
 public:
+
+    friend TestDreamChaser;
+
    Interface() {}
 
    // Constructor if you want to set up the window with anything but

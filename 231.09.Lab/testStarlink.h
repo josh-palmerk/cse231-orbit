@@ -71,7 +71,7 @@ private:
      * name:    NON DEFAULT CONSTRUCTOR
      * input:   pos(150.7, 5.2) velocity(76.8, 80.2)
      *          angle(-1.536) radius = 9.8
-     * output:  pos(5.3, 4.5) velocity(7.3, 9.5)
+     * output:  pos(150.7, 5.2) velocity(76.8, 80.2)
      *          angle(4.747) radius = 9.8, secondsAlive = 0
      *********************************************/
     void nonDefaultConstructor()
@@ -95,7 +95,7 @@ private:
         assertEquals(st.position.y, 5.2);
         assertEquals(st.velocity.dx, 76.8);
         assertEquals(st.velocity.dy, 80.2);
-        assert(st.angle.radians - 4.747 < 0.001);
+        assert(fabs(st.angle.radians - 4.747) < 0.001);
         assertEquals(st.radius, 9.8);
         assertEquals(st.secondsAlive, 0);
     }

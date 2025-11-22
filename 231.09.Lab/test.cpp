@@ -18,6 +18,8 @@
 #include "testDragon.h"
 #include "testSputnik.h"
 #include "testStarlink.h"
+#include "testGPS.h"
+#include "testDreamChaser.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -48,4 +50,6 @@ void testRunner()
    TestDragon().run();
    TestSputnik().run();
    TestStarlink().run();
+   TestGPS().run();
+   TestDreamChaser().run();
 }

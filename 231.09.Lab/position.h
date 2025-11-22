@@ -23,6 +23,8 @@ class TestEarth;
 class TestDragon;
 class TestSputnik;
 class TestStarlink;
+class TestGPS;
+class TestDreamChaser;
 
 /*********************************************
  * Position
@@ -38,6 +40,8 @@ public:
    friend TestDragon;
    friend TestSputnik;
    friend TestStarlink;
+   friend TestGPS;
+   friend TestDreamChaser;
    
    // constructors
    Position()            : x(0.0), y(0.0)  {}

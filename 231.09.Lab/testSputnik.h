@@ -72,7 +72,7 @@ private:
      * name:    NON DEFAULT CONSTRUCTOR
      * input:   pos(20.3, 18.3) velocity(26.2, 23.1)
      *          angle(-0.837) radius = 2.8
-     * output:  pos(5.3, 4.5) velocity(7.3, 9.5)
+     * output:  pos(20.3, 18.3) velocity(26.2, 23.1)
      *          angle(5.446) radius = 2.8, secondsAlive = 0
      *********************************************/
     void nonDefaultConstructor()
@@ -91,12 +91,12 @@ private:
         // exercise
         Sputnik s(pos, v, ang, radius);
 
-        // verify
+        // verify 
         assertEquals(s.position.x, 20.3);
         assertEquals(s.position.y, 18.3);
         assertEquals(s.velocity.dx, 26.2);
         assertEquals(s.velocity.dy, 23.1);
-        assert(s.angle.radians - 5.446 < 0.001);
+        assert(fabs(s.angle.radians - 5.446) < 0.001);
         assertEquals(s.radius, 2.8);
         assertEquals(s.secondsAlive, 0);
     }
