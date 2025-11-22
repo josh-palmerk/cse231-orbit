@@ -1,3 +1,13 @@
+/***********************************************************************
+ * Source File:
+ *    GPS : The source information for the GPS satellite
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    The declarations of the GPS satellite.
+ ************************************************************************/
+
+
 #include "gps.h"
 
 /***********************************************
@@ -19,6 +29,11 @@ GPS::GPS()
 }
 
 
+
+/***********************************************
+ * GPS: NonDefault Constructor
+ *      Creates a GPS object
+ ***********************************************/
 GPS::GPS(const Position& pos, const Velocity& vel, const Angle& angle, double radius)
 	//: Satellite(pos, vel, angle, radius)
 {
@@ -35,6 +50,10 @@ GPS::GPS(const Position& pos, const Velocity& vel, const Angle& angle, double ra
 }
 
 
+/***********************************************
+* GPS: Draw
+*      Draws the GPS satellite
+***********************************************/
 void GPS::draw(ogstream& ui) const
 {
 	// Drawing logic for GPS satellite
@@ -42,6 +61,10 @@ void GPS::draw(ogstream& ui) const
 }
 
 
+/***********************************************
+* GPS: Shatter
+*      Shatters GPS into parts
+***********************************************/
 void GPS::shatter()
 {
 	// Logic for GPS shattering

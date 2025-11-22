@@ -1,10 +1,19 @@
+/***********************************************************************
+ * Source File:
+ *    Starlink : The source information for the starlink satellite
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    The declarations of the starlink satellite.
+ ************************************************************************/
+
 #include "starlink.h"
 
 
 /***********************************************
 * STARLINK: Default Constructor
- * Create a Starlink satellite object
- ***********************************************/
+* Create a Starlink satellite object
+***********************************************/
 Starlink::Starlink()
 	: Satellite()
 {
@@ -17,17 +26,31 @@ Starlink::Starlink()
 	setRadius(6); // radius of Starlink satellite in pixels
 }
 
+
+/***********************************************
+ * STARLINK: NonDefault Constructor
+ *           Creates a starlink object
+ ***********************************************/
 Starlink::Starlink(const Position& pos, const Velocity& vel, const Angle& angle, double radius)
 	: Satellite(pos, vel, angle, radius)
 {
 }
 
+/***********************************************
+* STARLINK: Draw
+*           Draws the starlink satellite
+***********************************************/
 void Starlink::draw(ogstream& ui) const
 {
 	// Drawing logic for Starlink satellite
 	ui.drawStarlink(getPosition(), getAngle().getRadians());
 }
 
+
+/***********************************************
+* STARLINK: Shatter
+*           Shatters starlink into parts.
+***********************************************/
 void Starlink::shatter()
 {
 	// Logic for Starlink shattering

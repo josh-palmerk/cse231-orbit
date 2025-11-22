@@ -41,6 +41,10 @@ Satellite::Satellite(const Position& pos, const Velocity& vel, const Angle& angl
 }
 
 
+/***********************************************
+* SATELLITE: Update Object
+* Updates the details of the satellite
+***********************************************/
 void Satellite::updateObject(double timestep)
 {
 	applyGravity(Position(0, 0), 398600441800000.0, timestep); // Example gravitational constant for Earth)

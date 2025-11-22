@@ -1,4 +1,12 @@
-	
+/***********************************************************************
+ * Header File:
+ *    GPS
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    Satellite space object GPS.
+ ************************************************************************/
+
 #pragma once
 #include "satellite.h"
 

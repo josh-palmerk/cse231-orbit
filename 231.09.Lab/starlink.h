@@ -1,3 +1,12 @@
+/***********************************************************************
+ * Header File:
+ *    Starlink
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    Satellite space object starlink.
+ ************************************************************************/
+
 #pragma once
 #include "satellite.h"
 

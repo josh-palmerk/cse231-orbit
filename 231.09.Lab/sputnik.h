@@ -1,3 +1,12 @@
+/***********************************************************************
+ * Header File:
+ *    Sputnik
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    Satellite space object sputnik.
+ ************************************************************************/
+
 #pragma once
 #include "satellite.h"
 

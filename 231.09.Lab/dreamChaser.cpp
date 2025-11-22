@@ -1,5 +1,19 @@
+/***********************************************************************
+ * Source File:
+ *    Dream Chaser : The source information for the Dream Chaser space object
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    The declarations of the Dream Chaser space object.
+ ************************************************************************/
+
 #include "dreamChaser.h"
 
+
+ /***********************************************
+ * DREAM CHASER: Default Constructor
+ *               Creates the Dream Chaser object
+ ***********************************************/
 DreamChaser::DreamChaser()
 	: SpaceObject()
 {
@@ -12,22 +26,42 @@ DreamChaser::DreamChaser()
 	setRadius(10); // radius of Dream Chaser in pixels
 }
 
+
+/***********************************************
+ * DREAMCHASER: NonDefault Constructor
+ *              Creates a Dream Chaser object
+ ***********************************************/
 DreamChaser::DreamChaser(const Position& pos, const Velocity& vel, const Angle& angle, double radius)
 	: SpaceObject(pos, vel, angle, radius)
 {
 }
 
+
+/***********************************************
+* DREAMCHASER: Draw
+*              Draws the Dream Chaser space object
+***********************************************/
 void DreamChaser::draw(ogstream& ui, const Interface* pUI) const
 {
 	ui.drawShip(getPosition(), getAngle().getRadians(), pUI->isDown());
 }
 
 
+
+/***********************************************
+* DREAMCHASER: Fire Bullet
+*              Fires a bullet from the Dream Chaser
+***********************************************/
 void DreamChaser::fireBullet()
 {
 	// Logic for firing a bullet
 }
 
+
+/***********************************************
+* DREAMCHASER: Add Thrust
+*              Adds thrust to the Dream Chaser
+***********************************************/
 void DreamChaser::addThrust(double timestep)
 {
 	// Apply thrust in the direction of the current angle
@@ -38,6 +72,12 @@ void DreamChaser::addThrust(double timestep)
 	velocity.add(acc, timestep);
 }
 
+
+/***********************************************
+* DREAMCHASER: Handle Input
+*              Allows the user to add thrust and
+*              rotate the Dream Chaser
+***********************************************/
 void DreamChaser::handleInput(const Interface* pUI, double timestep)
 {
 	if (pUI->isDown())
@@ -61,6 +101,9 @@ void DreamChaser::handleInput(const Interface* pUI, double timestep)
 		fireBullet();
 	}
 }
+
+
+
 
 //void DreamChaser::updateObject(double timestep) 
 //{

@@ -9,6 +9,11 @@
 
 #include "sputnik.h"
 
+
+ /***********************************************
+ * SPUTNIK: Default Constructor
+ *          Creates the sputnik object
+ ***********************************************/
 Sputnik::Sputnik()
 	: Satellite()
 {
@@ -21,17 +26,31 @@ Sputnik::Sputnik()
 	setRadius(4); // radius of Sputnik in pixels
 }
 
+
+/***********************************************
+ * SPUTNIK: NonDefault Constructor
+ *          Creates a sputnik object
+ ***********************************************/
 Sputnik::Sputnik(const Position& pos, const Velocity& vel, const Angle& angle, double radius)
 	: Satellite(pos, vel, angle, radius)
 {
 }
 
+/***********************************************
+* SPUTNIK: Draw
+*          Draws the sputnik satellite
+***********************************************/
 void Sputnik::draw(ogstream& ui) const
 {
 	// Drawing logic for Sputnik satellite
 	ui.drawSputnik(getPosition(), getAngle().getRadians());
 }
 
+
+/***********************************************
+* SPUTNIK: Shatter
+*          Shatters sputnik into parts.
+***********************************************/
 void Sputnik::shatter()
 {
 	// Logic for Sputnik shattering

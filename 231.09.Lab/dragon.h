@@ -1,3 +1,12 @@
+/***********************************************************************
+ * Header File:
+ *    Dragon
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    Satellite space object dragon.
+ ************************************************************************/
+
 #pragma once
 
 #include "satellite.h"

@@ -1,3 +1,12 @@
+/***********************************************************************
+ * Header File:
+ *    Dream Chaser
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    Space object Dream Chaser.
+ ************************************************************************/
+
 #pragma once
 #include "spaceObject.h"
 #include "uiDraw.h"
