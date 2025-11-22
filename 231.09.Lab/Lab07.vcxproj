@@ -180,6 +180,8 @@
     <ClInclude Include="testHubble.h" />
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testSpaceObject.h" />
+    <ClInclude Include="testSputnik.h" />
+    <ClInclude Include="testStarlink.h" />
     <ClInclude Include="testVelocity.h" />
     <ClInclude Include="uiDraw.h" />
     <ClInclude Include="uiInteract.h" />

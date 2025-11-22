@@ -149,6 +149,12 @@
     <ClInclude Include="testDragon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="testSputnik.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testStarlink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

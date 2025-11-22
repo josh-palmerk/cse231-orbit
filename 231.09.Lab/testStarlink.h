@@ -1,24 +1,24 @@
 /***********************************************************************
  * Header File:
- *    TEST DRAGON
+ *    TEST STARLINK
  * Author:
  *    Josh and Garrin
  * Summary:
- *    All the unit tests for DRAGON
+ *    All the unit tests for STARLINK
  ************************************************************************/
 
 #pragma once
 
 
-#include "dragon.h"
+#include "starlink.h"
 #include "unitTest.h"
 
 
  /*******************************
-  * TEST Dragon
-  * A friend class for Dragon which contains the Dragon unit tests
+  * TEST Starlink
+  * A friend class for Starlink which contains the Starlink unit tests
   ********************************/
-class TestDragon : public UnitTest
+class TestStarlink : public UnitTest
 {
 public:
 
@@ -29,7 +29,7 @@ public:
         nonDefaultConstructor();
 
 
-        report("Dragon");
+        report("Starlink");
     }
 
 
@@ -46,58 +46,58 @@ private:
     /*********************************************
     * name:    DEFAULT CONSTRUCTOR
     * input:   nothing
-    * output:  pos.y = 8000000.0, vel.dx = -7900.0
-    *          radius = 7.0
+    * output:  pos.y = -13020000.0, vel.dx = 5800.0
+    *          radius = 6.0
     *********************************************/
     void defaultConstructor()
     {
         // setup
         // exercise
-        Dragon d;
+        Starlink st;
 
         // verify
-        assertEquals(d.position.x, 0.0);
-        assertEquals(d.position.y, 8000000.0);
-        assertEquals(d.velocity.dx, -7900.0);
-        assertEquals(d.velocity.dy, 0.0);
-        assertEquals(d.angle.radians, 0.0);
-        assertEquals(d.radius, 7.0);
-        assertEquals(d.secondsAlive, 0);
+        assertEquals(st.position.x, 0);
+        assertEquals(st.position.y, -13020000.0);
+        assertEquals(st.velocity.dx, 5800.0);
+        assertEquals(st.velocity.dy, 0);
+        assertEquals(st.angle.radians, 0.0);
+        assertEquals(st.radius, 6.0);
+        assertEquals(st.secondsAlive, 0);
     }
     // teardown
 
 
     /*********************************************
      * name:    NON DEFAULT CONSTRUCTOR
-     * input:   pos(7.8, 2.3) velocity(4.4, 8.8)
-     *          angle(-1.283) radius = 7.8
+     * input:   pos(150.7, 5.2) velocity(76.8, 80.2)
+     *          angle(-1.536) radius = 9.8
      * output:  pos(5.3, 4.5) velocity(7.3, 9.5)
-     *          angle(5.0) radius = 7.8, secondsAlive = 0
+     *          angle(4.747) radius = 9.8, secondsAlive = 0
      *********************************************/
     void nonDefaultConstructor()
     {
         // setup
         Position pos;
-        pos.x = 7.8;
-        pos.y = 2.3;
+        pos.x = 150.7;
+        pos.y = 5.2;
         Velocity v;
-        v.dx = 4.4;
-        v.dy = 8.8;
+        v.dx = 76.8;
+        v.dy = 80.2;
         Angle ang;
         ang.radians = atan2(-pos.y, -pos.x) + M_PI_2;
-        double radius = 7.8;
+        double radius = 9.8;
 
         // exercise
-        Dragon d(pos, v, ang, radius);
+        Starlink st(pos, v, ang, radius);
 
         // verify
-        assertEquals(d.position.x, 7.8);
-        assertEquals(d.position.y, 2.3);
-        assertEquals(d.velocity.dx, 4.4);
-        assertEquals(d.velocity.dy, 8.8);
-        assert(d.angle.radians - 5.0 < 0.001);
-        assertEquals(d.radius, 7.8);
-        assertEquals(d.secondsAlive, 0);
+        assertEquals(st.position.x, 150.7);
+        assertEquals(st.position.y, 5.2);
+        assertEquals(st.velocity.dx, 76.8);
+        assertEquals(st.velocity.dy, 80.2);
+        assert(st.angle.radians - 4.747 < 0.001);
+        assertEquals(st.radius, 9.8);
+        assertEquals(st.secondsAlive, 0);
     }
     // teardown
 

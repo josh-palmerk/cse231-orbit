@@ -46,7 +46,8 @@ private:
     /*********************************************
     * name:    DEFAULT CONSTRUCTOR
     * input:   nothing
-    * output:  zero
+    * output:  pos.y = -42164000.0, vel.dx = 3100.0
+    *          radius = 10.0
     *********************************************/
     void defaultConstructor()
     {
@@ -90,7 +91,6 @@ private:
         Hubble h(pos, v, ang, radius);
 
         // verify
-        cout << h.angle.radians << endl;
         assertEquals(h.position.x, 5.3);
         assertEquals(h.position.y, 4.5);
         assertEquals(h.velocity.dx, 7.3);

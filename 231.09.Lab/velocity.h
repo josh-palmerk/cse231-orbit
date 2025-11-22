@@ -17,6 +17,9 @@ class TestVelocity;
 class TestSpaceObject;
 class TestHubble;
 class TestEarth;
+class TestDragon;
+class TestSputnik;
+class TestStarlink;
 
  /*********************************************
   * Velocity
@@ -28,6 +31,9 @@ class Velocity
 	friend TestSpaceObject;
 	friend TestHubble;
 	friend TestEarth;
+	friend TestDragon;
+	friend TestSputnik;
+	friend TestStarlink;
    
 public:
    // constructors

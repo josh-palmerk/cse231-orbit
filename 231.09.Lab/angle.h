@@ -21,6 +21,9 @@ class TestAcceleration;
 class TestSpaceObject;
 class TestHubble;
 class TestEarth;
+class TestDragon;
+class TestSputnik;
+class TestStarlink;
 
  /************************************
   * ANGLE
@@ -34,6 +37,9 @@ public:
 	friend TestSpaceObject;
 	friend TestHubble;
 	friend TestEarth;
+	friend TestDragon;
+	friend TestSputnik;
+	friend TestStarlink;
    
    // Constructors
    Angle();
