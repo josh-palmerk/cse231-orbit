@@ -140,6 +140,15 @@
     <ClInclude Include="dreamChaser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="testEarth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testHubble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testDragon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

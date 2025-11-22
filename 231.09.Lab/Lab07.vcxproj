@@ -175,6 +175,9 @@
     <ClInclude Include="test.h" />
     <ClInclude Include="testAcceleration.h" />
     <ClInclude Include="testAngle.h" />
+    <ClInclude Include="testDragon.h" />
+    <ClInclude Include="testEarth.h" />
+    <ClInclude Include="testHubble.h" />
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testSpaceObject.h" />
     <ClInclude Include="testVelocity.h" />

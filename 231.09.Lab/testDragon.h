@@ -1,24 +1,24 @@
 /***********************************************************************
  * Header File:
- *    Test Hubble : Test the Hubble class
+ *    TEST DRAGON
  * Author:
  *    Josh and Garrin
  * Summary:
- *    All the unit tests for Hubble
+ *    All the unit tests for DRAGON
  ************************************************************************/
 
 #pragma once
 
+
 #include "hubble.h"
 #include "unitTest.h"
-#include <iomanip>
 
 
-/*******************************
- * TEST Hubble
- * A friend class for Hubble which contains the Hubble unit tests
- ********************************/
-class TestHubble : public UnitTest
+ /*******************************
+  * TEST Dragon
+  * A friend class for Dragon which contains the Dragon unit tests
+  ********************************/
+class TestDragon : public UnitTest
 {
 public:
 
@@ -27,9 +27,9 @@ public:
         // Constructors
         defaultConstructor();
         nonDefaultConstructor();
-        
 
-        report("Hubble");
+
+        report("Dragon");
     }
 
 
@@ -60,7 +60,7 @@ private:
         assertEquals(h.velocity.dx, 3100.0);
         assertEquals(h.velocity.dy, 0.0);
         assertEquals(h.angle.radians, 0.0);
-        assertEquals(h.radius, 10.0);
+        assertEquals(h.radius, 0.0);
         assertEquals(h.secondsAlive, 0);
     }
     // teardown
@@ -69,9 +69,9 @@ private:
     /*********************************************
      * name:    NON DEFAULT CONSTRUCTOR
      * input:   pos(5.3, 4.5) velocity(7.3, 9.5)
-     *          angle(-0.86545) radius = 3.8
+     *          angle(0.3) radius = 3.8
      * output:  pos(5.3, 4.5) velocity(7.3, 9.5)
-     *          angle(5.4) radius = 3.8, secondsAlive = 0
+     *          angle(0.3) radius = 3.8, secondsAlive = 0
      *********************************************/
     void nonDefaultConstructor()
     {
@@ -83,25 +83,21 @@ private:
         v.dx = 7.3;
         v.dy = 9.5;
         Angle ang;
-        ang.radians = atan2(-pos.y, -pos.x) + M_PI_2;
+        ang.radians = 0.3;
         double radius = 3.8;
 
         // exercise
         Hubble h(pos, v, ang, radius);
 
         // verify
-        cout << h.angle.radians << endl;
         assertEquals(h.position.x, 5.3);
         assertEquals(h.position.y, 4.5);
         assertEquals(h.velocity.dx, 7.3);
         assertEquals(h.velocity.dy, 9.5);
-        assert(h.angle.radians - 5.4177 < 0.001);
+        assertEquals(h.angle.radians, 0.3);
         assertEquals(h.radius, 3.8);
         assertEquals(h.secondsAlive, 0);
     }
     // teardown
 
 };
-
-
-
