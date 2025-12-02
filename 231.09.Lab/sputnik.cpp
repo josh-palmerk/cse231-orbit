@@ -55,5 +55,9 @@ void Sputnik::shatter(vector<SpaceObject*>& spaceObjects)
 {
 	// Logic for Sputnik shattering
 	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
+	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
+	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
+	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
+	// remove self here?
 }
 

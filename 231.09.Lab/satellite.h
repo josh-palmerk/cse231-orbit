@@ -12,7 +12,7 @@
 #include "spaceObject.h"
 #include "fragment.h"
 #include "part.h"
-
+#include "uiDraw.h"
 
 class Satellite : public SpaceObject
 {

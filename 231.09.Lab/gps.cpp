@@ -67,5 +67,21 @@ void GPS::draw(ogstream& ui) const
 ***********************************************/
 void GPS::shatter(vector<SpaceObject*>& spaceObjects)
 {
-	// Logic for GPS shattering
+    // Logic for GPS shattering
+    // center r7 left 8 right 8 3 frags each
+
+    ogstream ui;
+    spaceObjects.push_back(new Part(
+        getPosition(), getVelocity(), getAngle(), 7.0,
+        [&ui](const Position& pos, double rot, const Position& offset) { ui.drawGPSCenter(pos, rot); }, 3));
+	spaceObjects.push_back(new Part(
+		getPosition(), getVelocity(), getAngle(), 8.0,
+		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawGPSLeft(pos, rot, offset); }, 3));
+	spaceObjects.push_back(new Part(
+		getPosition(), getVelocity(), getAngle(), 8.0,
+		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawGPSRight(pos, rot, offset); }, 3));
+
+    spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
+    spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
+    // remove self here?
 }

@@ -53,5 +53,25 @@ void Hubble::draw(ogstream& ui) const
 ***********************************************/
 void Hubble::shatter(vector<SpaceObject*>& spaceObjects)
 {
-	// Logic for Hubble shattering
+	ogstream ui;
+	// Logic for Hubble shattering: 
+	// telescope rad 10 3 frags
+	spaceObjects.push_back(new Part(
+		getPosition(), getVelocity(), getAngle(), 10.0,
+		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawHubbleTelescope(pos, rot); }, 3));
+
+	// computer rad 7 2 frags
+	
+	spaceObjects.push_back(new Part(
+		getPosition(), getVelocity(), getAngle(), 7.0,
+		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawHubbleComputer(pos, rot); }, 2));
+
+	// left rad 8 2 frags
+	spaceObjects.push_back(new Part(
+		getPosition(), getVelocity(), getAngle(), 8.0,
+		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawHubbleLeft(pos, rot, offset); }, 2));
+	// right rad 8 2 frags
+	spaceObjects.push_back(new Part(
+		getPosition(), getVelocity(), getAngle(), 8.0,
+		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawHubbleRight(pos, rot, offset); }, 2));
 }

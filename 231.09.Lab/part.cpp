@@ -1,4 +1,5 @@
 #include "part.h"
+#include "fragment.h"
 
 /***********************************************	
 * PART : Default Constructor
@@ -15,10 +16,11 @@ Part::Part()
 * 	   Creates a part object
 * ***********************************************/
 
-Part::Part(const Position& pos, const Velocity& vel, const Angle& angle, double radius, std::function <void(const Position&, double)> drawFunction)
+Part::Part(const Position& pos, const Velocity& vel, const Angle& angle, double radius, std::function <void(const Position&, double, const Position&)> drawFunction, int fragNum)
 	: SpaceJunk(pos, vel, angle, radius)
 {
 	this->drawFunction = drawFunction;
+	this->fragNum = fragNum;
 	addKick();
 }
 
@@ -29,5 +31,18 @@ Part::Part(const Position& pos, const Velocity& vel, const Angle& angle, double 
 void Part::draw(ogstream& ui) const
 {
 	// Drawing logic for Part
-	this->drawFunction(getPosition(), getAngle().getRadians());
+	drawFunction(getPosition(), getAngle().getRadians(), Position());
+}
+
+/***********************************************
+* PART : Shatter
+* 	   Shatters part into fragments.
+************************************************/
+void Part::shatter(vector<SpaceObject*>& spaceObjects)
+{
+	// Logic for Part shattering
+	for (int i = 0; i < fragNum; ++i)
+	{
+		spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
+	}
 }

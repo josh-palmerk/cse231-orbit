@@ -54,5 +54,18 @@ void Dragon::draw(ogstream& ui) const
 ***********************************************/
 void Dragon::shatter(vector<SpaceObject*>& spaceObjects)
 {
+	ogstream ui;
 	// Logic for Dragon shattering
+	// center rad 6 4 frags
+	spaceObjects.push_back(new Part(
+		getPosition(), getVelocity(), getAngle(), 6.0,
+		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawCrewDragonCenter(pos, rot); }, 4));
+	// right rad 6 2 frags
+	spaceObjects.push_back(new Part(
+		getPosition(), getVelocity(), getAngle(), 6.0,
+		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawCrewDragonRight(pos, rot); }, 2));
+	// left rad 6 2 frags
+	spaceObjects.push_back(new Part(
+		getPosition(), getVelocity(), getAngle(), 6.0,
+		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawCrewDragonLeft(pos, rot); }, 2));
 }
