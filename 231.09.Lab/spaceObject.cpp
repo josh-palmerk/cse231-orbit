@@ -80,7 +80,7 @@ void SpaceObject::rotate(double radians)
 * SPACEOBJECT: updateObject
 * Updates the behavior of the object.
 ***********************************/
-void SpaceObject::updateObject(double timestep)
+void SpaceObject::updateObject(double timestep, vector<SpaceObject*>& spaceObjects)
 {
 	// TODO: General update behavior (e.g., move, rotate, age, etc.)
 	applyGravity(Position(0, 0), 398600441800000.0, timestep); // Example gravitational constant for Earth)
@@ -91,7 +91,7 @@ void SpaceObject::updateObject(double timestep)
 
 
 /***********************************
-* SPACEOBJECT: incrememntSecondsAlive
+* SPACEOBJECT: incrementSecondsAlive
 * Adds an amount to secondsAlive
 ***********************************/
 void SpaceObject::incrementSecondsAlive(int amount)

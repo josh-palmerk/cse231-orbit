@@ -16,6 +16,7 @@
 #include "angle.h"
 #include "uiDraw.h"
 #include "acceleration.h"
+#include <vector>
 
 class TestSpaceObject;
 class TestHubble;
@@ -51,7 +52,7 @@ public:
 	void applyGravity(const Position& center, double gravitationalConstant, double timeStep);
 	void updatePosition(double timeStep);
 	void rotate(double radians);
-	virtual void updateObject(double timestep);
+	virtual void updateObject(double timestep, vector<SpaceObject*> & spaceObjects);
 	void incrementSecondsAlive(int amount);
 	virtual void draw(ogstream& ui) const = 0;
 

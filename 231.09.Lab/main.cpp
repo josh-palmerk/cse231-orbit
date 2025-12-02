@@ -40,16 +40,18 @@ void callBack(const Interface* pUI, void* p)
    ogstream gout(pt);
    const double dt = 48.0;
 
+   vector<SpaceObject*> spaceObjects = pOrbit->getSpaceObjects();
+
    //loop through each object
-   for (auto obj : pOrbit->getSpaceObjects())
+   for (auto obj : spaceObjects)
    {
-	   obj->updateObject(dt);
+	   obj->updateObject(dt, spaceObjects);
 	   obj->draw(gout);
    }
 
    //separate dream chaser logic
    pOrbit->getPlayer().handleInput(pUI, dt);
-   pOrbit->getPlayer().updateObject(dt);
+   pOrbit->getPlayer().updateObject(dt, spaceObjects);
    pOrbit->getPlayer().draw(gout, pUI);
 }
 

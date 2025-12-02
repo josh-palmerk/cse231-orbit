@@ -8,8 +8,8 @@
  ************************************************************************/
 
 #include "testSpaceObject.h"
-
- 
+#include <vector> 
+#include "simulator.h"
  
  
  /*****************************************************************
@@ -655,9 +655,11 @@ void TestSpaceObject::updateObjectOneSecond()
     so.velocity.dx = 0;
     so.secondsAlive = 0;
     double timeStep = 1;
+    Simulator sim;
+    vector<SpaceObject*> spaceObjects;
 
     // exercise
-    so.updateObject(timeStep);
+    so.updateObject(timeStep, spaceObjects);
 
     // verify
     assertEquals(so.velocity.dy, -140.9265376903669);
@@ -689,9 +691,11 @@ void TestSpaceObject::updateObjectFiveSeconds()
     so.velocity.dx = 0;
     so.secondsAlive = 0;
     double timeStep = 5;
+    Simulator sim;
+	vector<SpaceObject*> spaceObjects;
 
     // exercise
-    so.updateObject(timeStep);
+    so.updateObject(timeStep, spaceObjects);
 
     // verify
     assertEquals(so.velocity.dy, -704.6326884518345);

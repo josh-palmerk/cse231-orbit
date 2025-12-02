@@ -20,7 +20,7 @@ public:
 	//void draw() const override;
 
 	bool isDefunct() const { return defunct; }
-	void updateObject(double timestep) override;
+	void updateObject(double timestep, vector<SpaceObject*>& spaceObjects) override;
 
 	virtual void shatter() = 0;
 

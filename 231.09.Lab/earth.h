@@ -18,6 +18,6 @@ public:
 	friend TestEarth;
 	Earth();
 	virtual void draw(ogstream& ui) const override;
-	virtual void updateObject(double timestep) override;
+	virtual void updateObject(double timestep, vector<SpaceObject*>& spaceObjects) override;
 };
 

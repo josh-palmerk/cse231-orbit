@@ -8,7 +8,8 @@
  ************************************************************************/
 
 #include "testEarth.h"
-
+#include <vector>
+#include "simulator.h"
 
 
 
@@ -62,9 +63,11 @@ void TestEarth::earthUpdateObjectOneSecond()
     Earth e;
     e.angle.radians = 0;
     double timeStep = 1;
+    Simulator sim;
+    vector<SpaceObject*> spaceObjects;
 
     // exercise
-    e.updateObject(timeStep);
+    e.updateObject(timeStep, spaceObjects);
 
     // verify
     assertEquals(e.angle.radians, 6.283112585);
@@ -85,9 +88,11 @@ void TestEarth::earthUpdateObjectFullRotation()
     Earth e;
     e.angle.radians = 0;
     double timeStep = 60;
+    Simulator sim;
+    vector<SpaceObject*> spaceObjects;
 
     // exercise
-    e.updateObject(timeStep);
+    e.updateObject(timeStep, spaceObjects);
 
     // verify
     assertEquals(e.angle.radians, 6.278822);
@@ -108,9 +113,11 @@ void TestEarth::earthUpdateObjectHalfRotation()
     Earth e;
     e.angle.radians = 0;
     double timeStep = 30;
+    Simulator sim;
+    vector<SpaceObject*> spaceObjects;
 
     // exercise
-    e.updateObject(timeStep);
+    e.updateObject(timeStep, spaceObjects);
 
     // verify
     assertEquals(e.angle.radians, 6.2810);

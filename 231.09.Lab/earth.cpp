@@ -33,7 +33,7 @@ void Earth::draw(ogstream& ui) const
  * EARTH: updateObject
  * Overrides updateobject to rotate the earth.
  ***********************************************/
-void Earth::updateObject(double timestep)
+void Earth::updateObject(double timestep, vector<SpaceObject*>& spaceObjects)
 {
 
 	// Calculates radians for accurate rotation this frame
