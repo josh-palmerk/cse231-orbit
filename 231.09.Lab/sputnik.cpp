@@ -51,8 +51,9 @@ void Sputnik::draw(ogstream& ui) const
 * SPUTNIK: Shatter
 *          Shatters sputnik into parts.
 ***********************************************/
-void Sputnik::shatter()
+void Sputnik::shatter(vector<SpaceObject*>& spaceObjects)
 {
 	// Logic for Sputnik shattering
+	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
 }
 

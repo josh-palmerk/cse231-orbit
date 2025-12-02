@@ -20,5 +20,5 @@ public:
 	Dragon();
 	Dragon(const Position& pos, const Velocity& vel, const Angle& angle, double radius);
 	void draw(ogstream& ui) const override;
-	void shatter() override;
+	void shatter(vector<SpaceObject*>& spaceObjects) override;
 };

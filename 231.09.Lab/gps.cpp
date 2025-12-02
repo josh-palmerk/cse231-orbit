@@ -65,7 +65,7 @@ void GPS::draw(ogstream& ui) const
 * GPS: Shatter
 *      Shatters GPS into parts
 ***********************************************/
-void GPS::shatter()
+void GPS::shatter(vector<SpaceObject*>& spaceObjects)
 {
 	// Logic for GPS shattering
 }

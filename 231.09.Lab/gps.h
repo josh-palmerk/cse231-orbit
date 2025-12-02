@@ -20,6 +20,6 @@ public:
 	GPS();
 	GPS(const Position& pos, const Velocity& vel, const Angle& angle = Angle(0.0), double radius = 12);
 	void draw(ogstream& ui) const override;
-	void shatter() override;
+	void shatter(vector<SpaceObject*>& spaceObjects) override;
 };
 

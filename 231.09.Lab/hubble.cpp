@@ -51,7 +51,7 @@ void Hubble::draw(ogstream& ui) const
 * HUBBLE : Shatter
 *         Shatters hubble into parts.
 ***********************************************/
-void Hubble::shatter()
+void Hubble::shatter(vector<SpaceObject*>& spaceObjects)
 {
 	// Logic for Hubble shattering
 }

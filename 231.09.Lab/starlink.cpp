@@ -51,7 +51,7 @@ void Starlink::draw(ogstream& ui) const
 * STARLINK: Shatter
 *           Shatters starlink into parts.
 ***********************************************/
-void Starlink::shatter()
+void Starlink::shatter(vector<SpaceObject*>& spaceObjects)
 {
 	// Logic for Starlink shattering
 }

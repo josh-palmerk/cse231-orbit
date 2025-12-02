@@ -10,6 +10,8 @@
 
 #pragma once
 #include "spaceObject.h"
+#include "fragment.h"
+#include "part.h"
 
 
 class Satellite : public SpaceObject
@@ -22,7 +24,7 @@ public:
 	bool isDefunct() const { return defunct; }
 	void updateObject(double timestep, vector<SpaceObject*>& spaceObjects) override;
 
-	virtual void shatter() = 0;
+	virtual void shatter(vector<SpaceObject*>& spaceObjects) = 0;
 
 protected:
 	bool defunct;

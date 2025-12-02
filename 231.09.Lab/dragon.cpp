@@ -52,7 +52,7 @@ void Dragon::draw(ogstream& ui) const
 * DRAGON: Shatter
 *         Shatters dragon into parts.
 ***********************************************/
-void Dragon::shatter()
+void Dragon::shatter(vector<SpaceObject*>& spaceObjects)
 {
 	// Logic for Dragon shattering
 }
