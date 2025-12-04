@@ -155,6 +155,7 @@
     <ClCompile Include="spaceJunk.cpp" />
     <ClCompile Include="spaceObject.cpp" />
     <ClCompile Include="sputnik.cpp" />
+    <ClCompile Include="star.cpp" />
     <ClCompile Include="starlink.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="testAcceleration.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="testPosition.cpp" />
     <ClCompile Include="testSpaceObject.cpp" />
     <ClCompile Include="testSputnik.cpp" />
+    <ClCompile Include="testStar.cpp" />
     <ClCompile Include="testStarlink.cpp" />
     <ClCompile Include="testVelocity.cpp" />
     <ClCompile Include="uiDraw.cpp" />
@@ -189,6 +191,7 @@
     <ClInclude Include="spaceJunk.h" />
     <ClInclude Include="spaceObject.h" />
     <ClInclude Include="sputnik.h" />
+    <ClInclude Include="star.h" />
     <ClInclude Include="starlink.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="testAcceleration.h" />
@@ -201,6 +204,7 @@
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testSpaceObject.h" />
     <ClInclude Include="testSputnik.h" />
+    <ClInclude Include="testStar.h" />
     <ClInclude Include="testStarlink.h" />
     <ClInclude Include="testVelocity.h" />
     <ClInclude Include="uiDraw.h" />

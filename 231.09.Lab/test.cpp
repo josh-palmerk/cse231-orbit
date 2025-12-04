@@ -20,6 +20,7 @@
 #include "testStarlink.h"
 #include "testGPS.h"
 #include "testDreamChaser.h"
+#include "testStar.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -52,4 +53,5 @@ void testRunner()
    TestStarlink().run();
    TestGPS().run();
    TestDreamChaser().run();
+   TestStar().run();
 }
