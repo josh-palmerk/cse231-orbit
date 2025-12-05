@@ -8,6 +8,7 @@
  ************************************************************************/
 
 #include "dreamChaser.h"
+#include "bullet.h"
 
 
  /***********************************************
@@ -52,9 +53,10 @@ void DreamChaser::draw(ogstream& ui, const Interface* pUI) const
 * DREAMCHASER: Fire Bullet
 *              Fires a bullet from the Dream Chaser
 ***********************************************/
-void DreamChaser::fireBullet()
+void DreamChaser::fireBullet(vector<SpaceObject*>& bullets)
 {
 	// Logic for firing a bullet
+	bullets.push_back(new Bullet ());
 }
 
 
@@ -78,7 +80,7 @@ void DreamChaser::addThrust(double timestep)
 *              Allows the user to add thrust and
 *              rotate the Dream Chaser
 ***********************************************/
-void DreamChaser::handleInput(const Interface* pUI, double timestep)
+void DreamChaser::handleInput(const Interface* pUI, double timestep, vector<SpaceObject*>& bullets)
 {
 	if (pUI->isDown())
 	{
@@ -98,7 +100,7 @@ void DreamChaser::handleInput(const Interface* pUI, double timestep)
 
 	if (pUI->isSpace())
 	{
-		fireBullet();
+		fireBullet(bullets);
 	}
 }
 

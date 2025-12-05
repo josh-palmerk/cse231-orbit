@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="acceleration.cpp" />
     <ClCompile Include="angle.cpp" />
+    <ClCompile Include="bullet.cpp" />
     <ClCompile Include="dragon.cpp" />
     <ClCompile Include="dreamChaser.cpp" />
     <ClCompile Include="earth.cpp" />
@@ -178,6 +179,7 @@
   <ItemGroup>
     <ClInclude Include="acceleration.h" />
     <ClInclude Include="angle.h" />
+    <ClInclude Include="bullet.h" />
     <ClInclude Include="dragon.h" />
     <ClInclude Include="dreamChaser.h" />
     <ClInclude Include="earth.h" />

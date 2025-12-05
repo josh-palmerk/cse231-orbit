@@ -50,7 +50,7 @@ void callBack(const Interface* pUI, void* p)
    }
 
    //separate dream chaser logic
-   pOrbit->getPlayer().handleInput(pUI, dt);
+   pOrbit->getPlayer().handleInput(pUI, dt, spaceObjects);
    pOrbit->getPlayer().updateObject(dt, spaceObjects);
    pOrbit->getPlayer().draw(gout, pUI);
 }

@@ -100,8 +100,11 @@ void TestDreamChaser::turnLeftFromZero()
     Interface* pUI = &ui;
     pUI->isLeftPress = 1;
 
+    vector<SpaceObject*> bullets;
+    bullets.push_back(new DreamChaser);
+
     // exercise
-    dc.handleInput(pUI, timeStep);
+    dc.handleInput(pUI, timeStep, bullets);
 
     // verify
     assert(fabs(dc.angle.radians - 6.183) < 0.001);
@@ -128,8 +131,11 @@ void TestDreamChaser::turnLeftFromPositive()
     Interface* pUI = &ui;
     pUI->isLeftPress = 1;
 
+    vector<SpaceObject*> bullets;
+    bullets.push_back(new DreamChaser);
+
     // exercise
-    dc.handleInput(pUI, timeStep);
+    dc.handleInput(pUI, timeStep, bullets);
 
     // verify
     assertEquals(dc.angle.radians, 0.4);
@@ -156,8 +162,11 @@ void TestDreamChaser::turnLeftFromNegative()
     Interface* pUI = &ui;
     pUI->isLeftPress = 1;
 
+    vector<SpaceObject*> bullets;
+    bullets.push_back(new DreamChaser);
+
     // exercise
-    dc.handleInput(pUI, timeStep);
+    dc.handleInput(pUI, timeStep, bullets);
 
     // verify
     assert(fabs(dc.angle.radians - 5.6832) < 0.001);
@@ -185,8 +194,11 @@ void TestDreamChaser::turnRightFromZero()
     Interface* pUI = &ui;
     pUI->isRightPress = 1;
 
+    vector<SpaceObject*> bullets;
+    bullets.push_back(new DreamChaser);
+
     // exercise
-    dc.handleInput(pUI, timeStep);
+    dc.handleInput(pUI, timeStep, bullets);
 
     // verify
     assert(dc.angle.radians, 0.1);
@@ -214,8 +226,11 @@ void TestDreamChaser::turnRightFromPositive()
     Interface* pUI = &ui;
     pUI->isRightPress = 1;
 
+    vector<SpaceObject*> bullets;
+    bullets.push_back(new DreamChaser);
+
     // exercise
-    dc.handleInput(pUI, timeStep);
+    dc.handleInput(pUI, timeStep, bullets);
 
     // verify
     assertEquals(dc.angle.radians, 0.6);
@@ -242,8 +257,11 @@ void TestDreamChaser::turnRightFromNegative()
     Interface* pUI = &ui;
     pUI->isRightPress = 1;
 
+    vector<SpaceObject*> bullets;
+    bullets.push_back(new DreamChaser);
+
     // exercise
-    dc.handleInput(pUI, timeStep);
+    dc.handleInput(pUI, timeStep, bullets);
 
     // verify
     assert(fabs(dc.angle.radians - 5.8832) < 0.001);
@@ -271,8 +289,11 @@ void TestDreamChaser::thrusterTurnsOn()
     Interface* pUI = &ui;
     pUI->isDownPress = 1;
 
+    vector<SpaceObject*> bullets;
+    bullets.push_back(new DreamChaser);
+
     // exercise
-    dc.handleInput(pUI, timeStep);
+    dc.handleInput(pUI, timeStep, bullets);
 
     // verify
     assertEquals(dc.velocity.dx, 0);

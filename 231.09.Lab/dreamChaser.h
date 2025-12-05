@@ -28,10 +28,10 @@ public:
 	void draw(ogstream& ui, const Interface* pUI) const;
 	
 	// Specifics for DreamChaser
-	void fireBullet();
+	void fireBullet(vector<SpaceObject*>& bullets);
 	void addThrust(double timestep); //might need to take amount
 
 	//void updateObject(double timestep) override;
-	void handleInput(const Interface* pUI, double timestep);
+	void handleInput(const Interface* pUI, double timestep, vector<SpaceObject*>& bullets);
 };
 
