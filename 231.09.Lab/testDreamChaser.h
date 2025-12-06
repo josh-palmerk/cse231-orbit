@@ -42,6 +42,10 @@ public:
         addThrustNegativeAngle();
         addThrustDifferentTimeStep();
         addThrustToExistingVelocity();
+        //shooting bullets
+        spaceFiresBullet();
+        bulletLocation();
+        bulletLocationAngle();
 
         report("Dream Chaser");
     }
@@ -63,6 +67,9 @@ private:
     void addThrustNegativeAngle();
     void addThrustDifferentTimeStep();
     void addThrustToExistingVelocity();
+    void spaceFiresBullet();
+    void bulletLocation();
+    void bulletLocationAngle();
 
 
    

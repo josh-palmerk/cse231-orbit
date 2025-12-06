@@ -103,7 +103,6 @@ void TestDreamChaser::turnLeftFromZero()
     pUI->isLeftPress = 1;
 
     vector<SpaceObject*> bullets;
-    bullets.push_back(new DreamChaser);
 
     // exercise
     dc.handleInput(pUI, timeStep, bullets);
@@ -134,7 +133,6 @@ void TestDreamChaser::turnLeftFromPositive()
     pUI->isLeftPress = 1;
 
     vector<SpaceObject*> bullets;
-    bullets.push_back(new DreamChaser);
 
     // exercise
     dc.handleInput(pUI, timeStep, bullets);
@@ -165,7 +163,6 @@ void TestDreamChaser::turnLeftFromNegative()
     pUI->isLeftPress = 1;
 
     vector<SpaceObject*> bullets;
-    bullets.push_back(new DreamChaser);
 
     // exercise
     dc.handleInput(pUI, timeStep, bullets);
@@ -197,7 +194,6 @@ void TestDreamChaser::turnRightFromZero()
     pUI->isRightPress = 1;
 
     vector<SpaceObject*> bullets;
-    bullets.push_back(new DreamChaser);
 
     // exercise
     dc.handleInput(pUI, timeStep, bullets);
@@ -229,7 +225,6 @@ void TestDreamChaser::turnRightFromPositive()
     pUI->isRightPress = 1;
 
     vector<SpaceObject*> bullets;
-    bullets.push_back(new DreamChaser);
 
     // exercise
     dc.handleInput(pUI, timeStep, bullets);
@@ -260,7 +255,6 @@ void TestDreamChaser::turnRightFromNegative()
     pUI->isRightPress = 1;
 
     vector<SpaceObject*> bullets;
-    bullets.push_back(new DreamChaser);
 
     // exercise
     dc.handleInput(pUI, timeStep, bullets);
@@ -291,8 +285,7 @@ void TestDreamChaser::thrusterTurnsOn()
     Interface* pUI = &ui;
     pUI->isDownPress = 1;
 
-    vector<SpaceObject*> bullets;
-    bullets.push_back(new DreamChaser);
+    vector<SpaceObject*> bullets;;
 
     // exercise
     dc.handleInput(pUI, timeStep, bullets);
@@ -410,3 +403,94 @@ void TestDreamChaser::addThrustToExistingVelocity()
 
     // teardown
 }
+
+/*********************************************
+* name:    SPACE FIRES BULLET
+* input:    bullets.size() = 0, timeStep = 1
+* output:   bullets.size() = 1, timeStep = 1
+*********************************************/
+void TestDreamChaser::spaceFiresBullet()
+{
+    // setup
+    DreamChaser dc;
+    double timeStep = 1;
+
+    Interface ui;
+    Interface* pUI = &ui;
+    pUI->isSpacePress = 1;
+
+    vector<SpaceObject*> bullets;
+
+    // exercise
+    dc.handleInput(pUI, timeStep, bullets);
+
+    // verify
+    assertEquals(bullets.size(), 1);
+    assertEquals(timeStep, 1.0);
+
+    // teardown
+    Interface::isSpacePress = 0;
+}
+
+
+/*********************************************
+* name:    Bullet Location
+* input:    Position(10.5, 10.5) bullets.size = 0
+* output:   Position(10.5, 2432010.5)
+*           bullets.size = 1
+*********************************************/
+void TestDreamChaser::bulletLocation()
+{
+    // setup
+    DreamChaser dc;
+    dc.position.x = 10.5;
+    dc.position.y = 10.5;
+    dc.angle.radians = 0;
+    dc.velocity.dx = 0;
+    dc.velocity.dy = 0;
+
+    vector<SpaceObject*> bullets;
+
+    // exercise
+    dc.fireBullet(bullets);
+
+    // verify
+    assertEquals(bullets.size(), 1);
+    assertEquals(bullets[0]->position.x, 10.5);
+    assertEquals(bullets[0]->position.y, 2432010.5);
+    assertEquals(dc.position.x, 10.5);
+    assertEquals(dc.position.y, 10.5);
+
+    // teardown
+}
+
+/*********************************************
+* name:    Bullet Location Angle
+* input:    Position(0, 0), radians = 0.5, bullets.size = 0
+* output:   Position(1165962.9, 2134280.8),
+*           bullets.size = 1
+*********************************************/
+void TestDreamChaser::bulletLocationAngle()
+{
+    // setup
+    DreamChaser dc;
+    dc.position.x = 0;
+    dc.position.y = 0;
+    dc.angle.radians = 0.5;
+    dc.velocity.dx = 0;
+    dc.velocity.dy = 0;
+
+    vector<SpaceObject*> bullets;
+
+    // exercise
+    dc.fireBullet(bullets);
+
+    // verify
+    assertEquals(bullets.size(), 1);
+    assert(fabs(bullets[0]->position.x - 1165962.9) < 0.1);
+    assert(fabs(bullets[0]->position.y - 2134280.8) < 0.1);
+    assertEquals(dc.angle.radians, 0.5);
+
+    // teardown
+}
+
