@@ -21,7 +21,7 @@
  /*********************************************
  * name:    DEFAULT CONSTRUCTOR
  * input:   nothing
- * output:  pos.y = -2020000000.0, radius = 12.0
+ * output:  pos.y = -2020000000.0, radius = 12.0 * 128000
  *********************************************/
 void TestGPS::defaultConstructor()
 {
@@ -35,7 +35,7 @@ void TestGPS::defaultConstructor()
     assertEquals(g.velocity.dx, 0);
     assertEquals(g.velocity.dy, 0);
     assertEquals(g.angle.radians, 0.0);
-    assertEquals(g.radius, 12.0);
+    assertEquals(g.radius, 12.0 * 128000);
     assertEquals(g.secondsAlive, 0);
 }
 // teardown

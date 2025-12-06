@@ -44,24 +44,6 @@ void callBack(const Interface* pUI, void* p)
    vector<SpaceObject*>& spaceObjects = pOrbit->getSpaceObjects();
    vector<SpaceObject*> spaceObjectsCrashed;
 
-   
-
-   //cout << "spaceObjects.size() = " << spaceObjects.size() << endl;
-   //cout << "sputnik position: " << spaceObjects[10]->getPosition() << endl;
-   //cout << "dreamchaser positon: " << spaceObjects[11]->getPosition() << endl;
-   //double distancebetween = computeDistance(spaceObjects[10]->getPosition(), spaceObjects[11]->getPosition());
-   //cout << distancebetween << endl;
-
-   if (spaceObjects.size() == 13)
-   {
-	   cout << "bullet position: " << spaceObjects[12]->getPosition() << endl;
-	   cout << "earth position: " << spaceObjects[1]->getPosition() << endl;
-	   cout << "dreamchaser positon: " << spaceObjects[11]->getPosition() << endl;
-	   double distancebetween = computeDistance(spaceObjects[1]->getPosition(), spaceObjects[12]->getPosition());
-	   cout << "distance between bullet and earth: " << distancebetween << endl;
-	   cout << spaceObjects[12]->getSecondsAlive() << endl;
-   }
-
    //loop through each object to update
    for (auto obj : spaceObjects)
    {
@@ -82,7 +64,6 @@ void callBack(const Interface* pUI, void* p)
 		   {
 			   if (distance < (spaceObjects[i]->getRadius() + spaceObjects[x]->getRadius()))
 			   {
-				   cout << "hello" << endl;
 				   spaceObjects[i]->die();
 				   spaceObjects[x]->die();
 				   spaceObjectsCrashed.push_back(spaceObjects[i]);

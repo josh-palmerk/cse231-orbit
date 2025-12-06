@@ -13,13 +13,18 @@
 
  /***********************************************
   * BULLET: Default Constructor
-  * Creates the earth object
+  * Creates the bullet object
   ***********************************************/
 Bullet::Bullet()
 	: SpaceObject(Position(0, 0), Velocity(0, 0), Angle(0), 0.5 * 128000.0, false) // Radius in meters
 {
 }
 
+
+/***********************************************
+ * BULLET: Non Default Constructor
+ * Creates the bullet object
+ ***********************************************/
 Bullet::Bullet(Position pos, Velocity vel)
 	: SpaceObject()
 {

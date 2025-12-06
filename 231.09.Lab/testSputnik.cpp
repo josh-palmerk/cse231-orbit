@@ -22,7 +22,7 @@
  * input:   nothing
  * output:  pos.x = -36515095.13, pos.y = 21082000.0
  *          vel.dx = 2050.0, vel.dy = 2684.68
- *          radius = 4.0
+ *          radius = 4.0 * 128000
  *********************************************/
 void TestSputnik::defaultConstructor()
 {
@@ -36,7 +36,7 @@ void TestSputnik::defaultConstructor()
     assertEquals(s.velocity.dx, 2050.0);
     assertEquals(s.velocity.dy, 2684.68);
     assertEquals(s.angle.radians, 0.0);
-    assertEquals(s.radius, 4.0);
+    assertEquals(s.radius, 4.0 * 128000);
     assertEquals(s.secondsAlive, 0);
 }
 // teardown

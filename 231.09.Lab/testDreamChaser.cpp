@@ -20,7 +20,7 @@
  * name:    DEFAULT CONSTRUCTOR
  * input:   nothing
  * output:  pos.x = 40000000.0, pos.y = 40000000.0,
- *          velo.dy = -2000.0, radius = 12.0
+ *          velo.dy = -2000.0, radius = 12.0 * 128000
  *********************************************/
 void TestDreamChaser::defaultConstructor()
 {
@@ -34,7 +34,7 @@ void TestDreamChaser::defaultConstructor()
     assertEquals(dc.velocity.dx, 0);
     assertEquals(dc.velocity.dy, -2000.0);
     assertEquals(dc.angle.radians, 0.0);
-    assertEquals(dc.radius, 10.0);
+    assertEquals(dc.radius, 10.0 * 128000);
     assertEquals(dc.secondsAlive, 0);
 }
 // teardown

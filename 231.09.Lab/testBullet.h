@@ -28,6 +28,11 @@ public:
         defaultConstructor();
         nonDefaultConstructor();
 
+        //Interactions
+        die();
+        updateObjectDeadAfterTimePasses();
+        updateObjectDiesAfterTimePasses();
+        updateObjectAliveAfterTimePasses();
         report("Bullet");
     }
 
@@ -36,6 +41,10 @@ public:
 private:
     void defaultConstructor();
     void nonDefaultConstructor();
+    void die();
+    void updateObjectDeadAfterTimePasses();
+    void updateObjectDiesAfterTimePasses();
+    void updateObjectAliveAfterTimePasses();
     
 
 

@@ -22,7 +22,7 @@
  * name:    DEFAULT CONSTRUCTOR
  * input:   nothing
  * output:  pos.y = -13020000.0, vel.dx = 5800.0
- *          radius = 6.0
+ *          radius = 6.0 * 128000
  *********************************************/
 void TestStarlink::defaultConstructor()
 {
@@ -36,7 +36,7 @@ void TestStarlink::defaultConstructor()
     assertEquals(st.velocity.dx, 5800.0);
     assertEquals(st.velocity.dy, 0);
     assertEquals(st.angle.radians, 0.0);
-    assertEquals(st.radius, 6.0);
+    assertEquals(st.radius, 6.0 * 128000);
     assertEquals(st.secondsAlive, 0);
 }
 // teardown

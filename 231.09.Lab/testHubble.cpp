@@ -21,7 +21,7 @@
  * name:    DEFAULT CONSTRUCTOR
  * input:   nothing
  * output:  pos.y = -42164000.0, vel.dx = 3100.0
- *          radius = 10.0
+ *          radius = 10.0 * 128000
  *********************************************/
 void TestHubble::defaultConstructor()
 {
@@ -35,7 +35,7 @@ void TestHubble::defaultConstructor()
     assertEquals(h.velocity.dx, 3100.0);
     assertEquals(h.velocity.dy, 0.0);
     assertEquals(h.angle.radians, 0.0);
-    assertEquals(h.radius, 10.0);
+    assertEquals(h.radius, 10.0 * 128000);
     assertEquals(h.secondsAlive, 0);
 }
 // teardown

@@ -21,7 +21,7 @@
   * name:    DEFAULT CONSTRUCTOR
   * input:   nothing
   * output:  pos.y = 8000000.0, vel.dx = -7900.0
-  *          radius = 7.0
+  *          radius = 7.0 * 128000
   *********************************************/
 void TestDragon::defaultConstructor()
 {
@@ -35,7 +35,7 @@ void TestDragon::defaultConstructor()
     assertEquals(d.velocity.dx, -7900.0);
     assertEquals(d.velocity.dy, 0.0);
     assertEquals(d.angle.radians, 0.0);
-    assertEquals(d.radius, 7.0);
+    assertEquals(d.radius, 7.0 * 128000);
     assertEquals(d.secondsAlive, 0);
 }
 // teardown
