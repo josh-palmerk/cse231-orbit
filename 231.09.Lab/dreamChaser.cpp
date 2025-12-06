@@ -56,7 +56,9 @@ void DreamChaser::draw(ogstream& ui, const Interface* pUI) const
 void DreamChaser::fireBullet(vector<SpaceObject*>& bullets)
 {
 	// Logic for firing a bullet
-	bullets.push_back(new Bullet ());
+	Position p = getPosition();
+	Velocity v = Velocity(0, -4000);
+	bullets.push_back(new Bullet(p, v));
 }
 
 

@@ -20,6 +20,13 @@ Bullet::Bullet()
 {
 }
 
+Bullet::Bullet(Position pos, Velocity vel)
+{
+	position = pos;
+	velocity = vel;
+	radius = 1.5;
+}
+
 /***********************************************
  * BULLET: Draw
  * Draws the bullet
