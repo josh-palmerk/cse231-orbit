@@ -58,6 +58,7 @@ void callBack(const Interface* pUI, void* p)
 	   cout << "dreamchaser positon: " << spaceObjects[11]->getPosition() << endl;
 	   double distancebetween = computeDistance(spaceObjects[1]->getPosition(), spaceObjects[12]->getPosition());
 	   cout << "distance between bullet and earth: " << distancebetween << endl;
+	   cout << spaceObjects[12]->getSecondsAlive() << endl;
    }
 
    
@@ -93,7 +94,7 @@ void callBack(const Interface* pUI, void* p)
 	   }
    }
 
-   //ai generated, get rid of the dead objects
+   //get rid of the dead objects (ai generated)
    spaceObjects.erase(
 	   remove_if(spaceObjects.begin(), spaceObjects.end(),
 		   [](SpaceObject* obj) { return obj->isDead(); }),
