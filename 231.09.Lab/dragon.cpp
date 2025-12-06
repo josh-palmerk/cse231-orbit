@@ -23,7 +23,7 @@ Dragon::Dragon()
 	setPosition(pos);
 	setVelocity(vel);
 	setAngle(angle);
-	setRadius(7); // radius of Dragon satellite in pixels
+	setRadius(7 * 128000.0); // radius of Dragon satellite in pixels
 }
 
 

@@ -24,7 +24,7 @@ DreamChaser::DreamChaser()
 	setPosition(pos);
 	setVelocity(vel);
 	setAngle(angle);
-	setRadius(10); // radius of Dream Chaser in pixels
+	setRadius(10 * 128000.0); // radius of Dream Chaser in pixels
 }
 
 
@@ -57,8 +57,9 @@ void DreamChaser::fireBullet(vector<SpaceObject*>& bullets)
 {
 	// Logic for firing a bullet
 	Position p = getPosition();
-	Velocity v = Velocity(0, -4000);
-	bullets.push_back(new Bullet(p, v));
+	Angle ang = getAngle();
+	Velocity v = Velocity(9000, 0);
+	bullets.push_back(new Bullet(p, v, ang));
 }
 
 

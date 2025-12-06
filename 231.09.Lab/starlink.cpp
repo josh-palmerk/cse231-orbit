@@ -23,7 +23,7 @@ Starlink::Starlink()
 	setPosition(pos);
 	setVelocity(vel);
 	setAngle(angle);
-	setRadius(6); // radius of Starlink satellite in pixels
+	setRadius(6 * 128000.0); // radius of Starlink satellite in pixels
 }
 
 

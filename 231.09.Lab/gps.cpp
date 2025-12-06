@@ -25,7 +25,7 @@ GPS::GPS()
 	setPosition(pos);
 	setVelocity(vel);
 	setAngle(angle);
-	setRadius(12); // radius of GPS satellite in pixels
+	setRadius(12 * 128000.0); // radius of GPS satellite in pixels
 }
 
 
@@ -83,6 +83,7 @@ void GPS::shatter(vector<SpaceObject*>& spaceObjects)
 
     spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));
     spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));
+	die();
     // remove self here?
 }
 

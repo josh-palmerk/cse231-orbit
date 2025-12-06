@@ -43,13 +43,22 @@ void callBack(const Interface* pUI, void* p)
    vector<SpaceObject*>& spaceObjects = pOrbit->getSpaceObjects();
    vector<SpaceObject*> spaceObjectsCrashed;
 
-   //loop through each object
-   for (auto obj : spaceObjects)
-   {
-	   obj->updateObject(dt, spaceObjects);
-   }
+   
 
    //cout << "spaceObjects.size() = " << spaceObjects.size() << endl;
+   //cout << "sputnik position: " << spaceObjects[10]->getPosition() << endl;
+   //cout << "dreamchaser positon: " << spaceObjects[11]->getPosition() << endl;
+   //double distancebetween = computeDistance(spaceObjects[10]->getPosition(), spaceObjects[11]->getPosition());
+   //cout << distancebetween << endl;
+
+   if (spaceObjects.size() == 13)
+   {
+	   cout << "bullet position: " << spaceObjects[12]->getPosition() << endl;
+	   cout << "earth position: " << spaceObjects[1]->getPosition() << endl;
+	   cout << "dreamchaser positon: " << spaceObjects[11]->getPosition() << endl;
+	   double distancebetween = computeDistance(spaceObjects[1]->getPosition(), spaceObjects[12]->getPosition());
+	   cout << "distance between bullet and earth: " << distancebetween << endl;
+   }
 
    
 
@@ -57,10 +66,9 @@ void callBack(const Interface* pUI, void* p)
    {
 	   for (int x = i + 1; x < spaceObjects.size(); x++)
 	   {
-
 		   double distance = computeDistance(spaceObjects[i]->getPosition(), spaceObjects[x]->getPosition());
 
-		   if (distance < (spaceObjects[i]->getRadius() * 40 + spaceObjects[x]->getRadius() * 40))
+		   if (distance < (spaceObjects[i]->getRadius() + spaceObjects[x]->getRadius()))
 		   {
 			   cout << "hello" << endl;
 			   spaceObjects[i]->die();
@@ -94,11 +102,21 @@ void callBack(const Interface* pUI, void* p)
    pOrbit->getPlayer().updateObject(dt, spaceObjects);
    pOrbit->getPlayer().draw(gout, pUI);
 
+   //loop through each object
+   /*for (auto obj : spaceObjects)
+   {
+	   obj->updateObject(dt, spaceObjects);
+   }*/
+
    //draw
    for (auto obj : spaceObjects)
    {
+	   //cout << obj->getRadius() << endl;
+	   obj->updateObject(dt, spaceObjects);
 	   obj->draw(gout);
    }
+
+   //cout << endl;
 }
 
 double Position::metersFromPixels = 40.0;

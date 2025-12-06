@@ -16,16 +16,17 @@
   * Creates the earth object
   ***********************************************/
 Bullet::Bullet()
-	: SpaceObject(Position(0, 0), Velocity(0, 0), Angle(0), 0.5, false) // Radius in pixels?
+	: SpaceObject(Position(0, 0), Velocity(0, 0), Angle(0), 0.5 * 128000.0, false) // Radius in meters
 {
 }
 
-Bullet::Bullet(Position pos, Velocity vel)
+Bullet::Bullet(Position pos, Velocity vel, Angle ang)
 	: SpaceObject()
 {
 	position = pos;
 	velocity = vel;
-	radius = 1.5;
+	angle = ang;
+	radius = 0.5 * 128000.0;
 	dead = false;
 }
 

@@ -23,7 +23,7 @@ Sputnik::Sputnik()
 	setPosition(pos);
 	setVelocity(vel);
 	setAngle(angle);
-	setRadius(4); // radius of Sputnik in pixels
+	setRadius(4 * 128000.0); // radius of Sputnik converted to meters
 }
 
 
