@@ -99,3 +99,5 @@ void SpaceObject::incrementSecondsAlive(int amount)
 	secondsAlive += amount;
 }
 
+
+

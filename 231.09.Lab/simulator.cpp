@@ -44,3 +44,72 @@ vector<SpaceObject*>& Simulator::getSpaceObjects()
 {
 	return spaceObjects;
 }
+
+/***********************************
+* SIMULATOR: Object Collisions
+* Checks to see if any objects have collided.
+***********************************/
+void Simulator::objectCollisions(vector<SpaceObject*>& spaceObjects)
+{
+	//make an array to send all crashed objects to
+	vector<SpaceObject*> spaceObjectsCrashed;
+
+	//loop through each object to then loop through to check against every other object.
+	for (int i = 0; i < spaceObjects.size(); i++)
+	{
+		for (int x = i + 1; x < spaceObjects.size(); x++)
+		{
+			double distance = computeDistance(spaceObjects[i]->getPosition(), spaceObjects[x]->getPosition());
+
+			if (spaceObjects[i]->isDead() == false && spaceObjects[x]->isDead() == false)
+			{
+				if (distance < (spaceObjects[i]->getRadius() + spaceObjects[x]->getRadius()))
+				{
+					//if they hit have them die
+					spaceObjects[i]->die();
+					spaceObjects[x]->die();
+					//then send them to the crashed vector
+					spaceObjectsCrashed.push_back(spaceObjects[i]);
+					spaceObjectsCrashed.push_back(spaceObjects[x]);
+				}
+			}
+
+		}
+	}
+
+
+	//check for collisions with the player
+	for (auto obj : spaceObjects)
+	{
+		double distance = computeDistance(obj->getPosition(), player.getPosition());
+		if (player.isDead() == false && obj->isDead() == false)
+		{
+			if (distance < (player.getRadius() + obj->getRadius()))
+			{
+				obj->die();
+				player.die();
+				spaceObjectsCrashed.push_back(obj);
+			}
+		}
+	}
+
+	//erase all crashed objects and add in the parts.
+	for (auto obj : spaceObjectsCrashed)
+	{
+		if (obj->isDead())
+		{
+			obj->shatter(spaceObjects);
+
+		}
+	}
+
+	//get rid of the dead objects (ai generated)
+	spaceObjects.erase(
+		remove_if(spaceObjects.begin(), spaceObjects.end(),
+			[](SpaceObject* obj) { return obj->isDead(); }),
+		spaceObjects.end()
+	);
+
+
+
+}

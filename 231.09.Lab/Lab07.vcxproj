@@ -168,6 +168,7 @@
     <ClCompile Include="testGps.cpp" />
     <ClCompile Include="testHubble.cpp" />
     <ClCompile Include="testPosition.cpp" />
+    <ClCompile Include="testSimulator.cpp" />
     <ClCompile Include="testSpaceObject.cpp" />
     <ClCompile Include="testSputnik.cpp" />
     <ClCompile Include="testStar.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="testGps.h" />
     <ClInclude Include="testHubble.h" />
     <ClInclude Include="testPosition.h" />
+    <ClInclude Include="testSimulator.h" />
     <ClInclude Include="testSpaceObject.h" />
     <ClInclude Include="testSputnik.h" />
     <ClInclude Include="testStar.h" />

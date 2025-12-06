@@ -21,6 +21,8 @@
 #include "dreamChaser.h"
 #include "star.h"
 
+class TestSimulator;
+
  /*********************************************
   * Simulator
   * Holds all of the objects.
@@ -33,9 +35,13 @@ private:
 	DreamChaser player;
 
 public:
+
+	friend TestSimulator;
+
 	Simulator();
 	vector<SpaceObject*>& getSpaceObjects();
 	DreamChaser& getPlayer() { return player; }
+	void objectCollisions(vector<SpaceObject*>& spaceObjects);
 	//vector<Star> stars;
 
 };
