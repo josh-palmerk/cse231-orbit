@@ -18,7 +18,7 @@ public:
 	friend TestGPS;
 
 	GPS();
-	GPS(const Position& pos, const Velocity& vel, const Angle& angle = Angle(0.0), double radius = 12);
+	GPS(const Position& pos, const Velocity& vel, const Angle& angle = Angle(0.0), double radius = 12 * 128000);
 	void draw(ogstream& ui) const override;
 	void shatter(vector<SpaceObject*>& spaceObjects) override;
 	void die() override;
