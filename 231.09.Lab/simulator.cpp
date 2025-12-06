@@ -28,7 +28,6 @@ Simulator::Simulator()
 
 	spaceObjects.push_back(new Dragon());
 	spaceObjects.push_back(new Sputnik());
-	spaceObjects.push_back(new DreamChaser());
 }
 
 /************************************************

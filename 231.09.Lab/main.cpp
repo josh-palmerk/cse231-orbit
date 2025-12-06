@@ -61,8 +61,16 @@ void callBack(const Interface* pUI, void* p)
 	   cout << spaceObjects[12]->getSecondsAlive() << endl;
    }
 
+   //loop through each object to update
+   for (auto obj : spaceObjects)
+   {
+	   obj->updateObject(dt, spaceObjects);
+   }
+   //update the player
+   pOrbit->getPlayer().updateObject(dt, spaceObjects);
    
 
+   //check for collisions
    for (int i = 0; i < spaceObjects.size(); i++)
    {
 	   for (int x = i + 1; x < spaceObjects.size(); x++)
@@ -84,6 +92,22 @@ void callBack(const Interface* pUI, void* p)
 	   }
    }
 
+   //check for collisions with the player
+   for (auto obj : spaceObjects)
+   {
+	   double distance = computeDistance(obj->getPosition(), pOrbit->getPlayer().getPosition());
+	   if (pOrbit->getPlayer().isDead() == false && obj->isDead() == false)
+	   {
+		   if (distance < (pOrbit->getPlayer().getRadius() + obj->getRadius()))
+		   {
+			   obj->die();
+			   pOrbit->getPlayer().die();
+			   spaceObjectsCrashed.push_back(obj);
+		   }
+	   }
+   }
+
+
    //erase all crashed objects and add in the parts.
    for (auto obj : spaceObjectsCrashed)
    {
@@ -94,6 +118,7 @@ void callBack(const Interface* pUI, void* p)
 	   }
    }
 
+
    //get rid of the dead objects (ai generated)
    spaceObjects.erase(
 	   remove_if(spaceObjects.begin(), spaceObjects.end(),
@@ -103,21 +128,20 @@ void callBack(const Interface* pUI, void* p)
 
 
    //separate dream chaser logic
-   pOrbit->getPlayer().handleInput(pUI, dt, spaceObjects);
-   pOrbit->getPlayer().updateObject(dt, spaceObjects);
-   pOrbit->getPlayer().draw(gout, pUI);
-
-   //loop through each object
-   /*for (auto obj : spaceObjects)
+   if (pOrbit->getPlayer().isDead() == false)
    {
-	   obj->updateObject(dt, spaceObjects);
-   }*/
+	   pOrbit->getPlayer().handleInput(pUI, dt, spaceObjects);
+	   pOrbit->getPlayer().draw(gout, pUI);
+   }
+   
+
+   
 
    //draw
    for (auto obj : spaceObjects)
    {
 	   //cout << obj->getRadius() << endl;
-	   obj->updateObject(dt, spaceObjects);
+	   //obj->updateObject(dt, spaceObjects);
 	   obj->draw(gout);
    }
 
