@@ -22,6 +22,7 @@
 #include "testDreamChaser.h"
 #include "testStar.h"
 #include "testBullet.h"
+#include "testSimulator.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -56,4 +57,5 @@ void testRunner()
    TestDreamChaser().run();
    TestStar().run();
    TestBullet().run();
+   TestSimulator().run();
 }

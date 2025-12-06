@@ -12,10 +12,16 @@
 
 class TestBullet;
 
+/*********************************************
+ * Bullet
+ * Projectile fired from Dream Chaser
+ *********************************************/
 class Bullet : public SpaceObject
 {
 public:
+
 	friend TestBullet;
+
 	Bullet();
 	Bullet(Position pos, Velocity vel);
 	void die() override;

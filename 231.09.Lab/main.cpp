@@ -42,92 +42,35 @@ void callBack(const Interface* pUI, void* p)
    const double dt = 48.0;
 
    vector<SpaceObject*>& spaceObjects = pOrbit->getSpaceObjects();
-   vector<SpaceObject*> spaceObjectsCrashed;
 
    //loop through each object to update
    for (auto obj : spaceObjects)
    {
 	   obj->updateObject(dt, spaceObjects);
    }
+
    //update the player
    pOrbit->getPlayer().updateObject(dt, spaceObjects);
    
 
    //check for collisions
-   for (int i = 0; i < spaceObjects.size(); i++)
-   {
-	   for (int x = i + 1; x < spaceObjects.size(); x++)
-	   {
-		   double distance = computeDistance(spaceObjects[i]->getPosition(), spaceObjects[x]->getPosition());
-
-		   if (spaceObjects[i]->isDead() == false && spaceObjects[x]->isDead() == false)
-		   {
-			   if (distance < (spaceObjects[i]->getRadius() + spaceObjects[x]->getRadius()))
-			   {
-				   spaceObjects[i]->die();
-				   spaceObjects[x]->die();
-				   spaceObjectsCrashed.push_back(spaceObjects[i]);
-				   spaceObjectsCrashed.push_back(spaceObjects[x]);
-			   }
-		   }
-		   
-	   }
-   }
-
-   //check for collisions with the player
-   for (auto obj : spaceObjects)
-   {
-	   double distance = computeDistance(obj->getPosition(), pOrbit->getPlayer().getPosition());
-	   if (pOrbit->getPlayer().isDead() == false && obj->isDead() == false)
-	   {
-		   if (distance < (pOrbit->getPlayer().getRadius() + obj->getRadius()))
-		   {
-			   obj->die();
-			   pOrbit->getPlayer().die();
-			   spaceObjectsCrashed.push_back(obj);
-		   }
-	   }
-   }
+   pOrbit->objectCollisions(spaceObjects);
 
 
-   //erase all crashed objects and add in the parts.
-   for (auto obj : spaceObjectsCrashed)
-   {
-	   if (obj->isDead())
-	   {
-		   obj->shatter(spaceObjects);
-
-	   }
-   }
-
-
-   //get rid of the dead objects (ai generated)
-   spaceObjects.erase(
-	   remove_if(spaceObjects.begin(), spaceObjects.end(),
-		   [](SpaceObject* obj) { return obj->isDead(); }),
-	   spaceObjects.end()
-    );
-
-
-   //separate dream chaser logic
+   //if the player isnt dead take input and draw.
    if (pOrbit->getPlayer().isDead() == false)
    {
 	   pOrbit->getPlayer().handleInput(pUI, dt, spaceObjects);
 	   pOrbit->getPlayer().draw(gout, pUI);
    }
-   
 
-   
 
    //draw
    for (auto obj : spaceObjects)
    {
-	   //cout << obj->getRadius() << endl;
-	   //obj->updateObject(dt, spaceObjects);
 	   obj->draw(gout);
    }
 
-   //cout << endl;
 }
 
 double Position::metersFromPixels = 40.0;
