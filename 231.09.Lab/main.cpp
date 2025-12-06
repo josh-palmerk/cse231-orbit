@@ -127,7 +127,15 @@ void callBack(const Interface* pUI, void* p)
 	   obj->draw(gout);
    }
 
-   //cout << endl;
+
+   int partCount = 0;
+
+   for (SpaceObject* obj : spaceObjects) {
+	   if (dynamic_cast<Part*>(obj)) {
+		   partCount++;
+	   }
+   }
+   cout << "Parts in sim: " << partCount << endl;
 }
 
 double Position::metersFromPixels = 40.0;

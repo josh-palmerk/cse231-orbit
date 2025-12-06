@@ -39,7 +39,13 @@ void Fragment::draw(ogstream& ui) const
 void Fragment::updateObject(double timestep, vector<SpaceObject*>& spaceObjects)
 {
 	// Call the base class updateObject to handle position update
-	SpaceJunk::updateObject(timestep, spaceObjects);
+	applyGravity(Position(0, 0), 398600441800000.0, timestep); // Example gravitational constant for Earth)
+	updatePosition(timestep);
+	incrementSecondsAlive(static_cast<int>(timestep));
 	// Additional logic for Fragment can be added here if needed
-	rotate(timestep * 1.5); // Fragments rotate wildly
+	rotate(timestep * 1.4); // Fragments rotate wildly
+	framesToLive--;
+	if (framesToLive <= 0)
+		dead = true;
+	//remove self?
 }

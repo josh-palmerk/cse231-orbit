@@ -9,4 +9,6 @@ public:
 	Fragment(const Position& pos, const Velocity& vel, const Angle& angle, double radius, bool dead);
 	void draw(ogstream& ui) const override;
 	void updateObject(double timestep, vector<SpaceObject*>& spaceObjects) override;
+private:
+	double framesToLive = random(50, 100);
 };

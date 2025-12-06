@@ -24,11 +24,16 @@ SpaceJunk::SpaceJunk(const Position& pos, const Velocity& vel, const Angle& angl
 * **********************************************/
 void SpaceJunk::addKick()
 {
-	Acceleration kick(random(5000.0, 9000.0), random(5000.0, 9000.0)); 
-	// pretty sure it's 5000-9000 total, not each. might need to use set() for this
+	double newSpeed = this->getVelocity().getSpeed() + random(5000, 9000);
+	
+	Acceleration kick(0, 0); 
+	Angle newAngle = Angle(random(0, 360));
+	kick.set(newAngle, newSpeed);
+
 	Velocity currentVelocity = getVelocity();
-	currentVelocity.add(kick, 1.0); // Assuming a time step of 1 second for the kick
+	currentVelocity.add(kick, 1); // Assuming a time step of 1 second for the kick
 	setVelocity(currentVelocity);
+	updatePosition(48); // Update position immediately after the kick
 }
 
 /***********************************************
@@ -41,5 +46,7 @@ void SpaceJunk::updateObject(double timestep, vector<SpaceObject*>& spaceObjects
 	//// Call the base class updateObject to handle position update
 	//SpaceObject::updateObject(timestep, spaceObjects);
 	//// Additional logic for SpaceJunk can be added here if needed
-	
+	applyGravity(Position(0, 0), 398600441800000.0, timestep); // Example gravitational constant for Earth)
+	updatePosition(timestep);
+	incrementSecondsAlive(static_cast<int>(timestep));
 }
