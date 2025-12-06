@@ -20,12 +20,11 @@ Bullet::Bullet()
 {
 }
 
-Bullet::Bullet(Position pos, Velocity vel, Angle ang)
+Bullet::Bullet(Position pos, Velocity vel)
 	: SpaceObject()
 {
 	position = pos;
 	velocity = vel;
-	angle = ang;
 	radius = 0.5 * 128000.0;
 	dead = false;
 }

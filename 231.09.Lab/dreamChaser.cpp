@@ -57,9 +57,9 @@ void DreamChaser::fireBullet(vector<SpaceObject*>& bullets)
 {
 	// Logic for firing a bullet
 	Position p = getPosition();
-	Angle ang = getAngle();
-	Velocity v = Velocity(9000, 0);
-	bullets.push_back(new Bullet(p, v, ang));
+	Velocity v;
+	v.set(getAngle(), 9000);
+	bullets.push_back(new Bullet(p, v));
 }
 
 

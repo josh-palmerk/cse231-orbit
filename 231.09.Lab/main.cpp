@@ -68,14 +68,18 @@ void callBack(const Interface* pUI, void* p)
 	   {
 		   double distance = computeDistance(spaceObjects[i]->getPosition(), spaceObjects[x]->getPosition());
 
-		   if (distance < (spaceObjects[i]->getRadius() + spaceObjects[x]->getRadius()))
+		   if (spaceObjects[i]->isDead() == false && spaceObjects[x]->isDead() == false)
 		   {
-			   cout << "hello" << endl;
-			   spaceObjects[i]->die();
-			   spaceObjects[x]->die();
-			   spaceObjectsCrashed.push_back(spaceObjects[i]);
-			   spaceObjectsCrashed.push_back(spaceObjects[x]);
+			   if (distance < (spaceObjects[i]->getRadius() + spaceObjects[x]->getRadius()))
+			   {
+				   cout << "hello" << endl;
+				   spaceObjects[i]->die();
+				   spaceObjects[x]->die();
+				   spaceObjectsCrashed.push_back(spaceObjects[i]);
+				   spaceObjectsCrashed.push_back(spaceObjects[x]);
+			   }
 		   }
+		   
 	   }
    }
 
