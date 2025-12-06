@@ -23,7 +23,10 @@ public:
     void run()
     {
         // Constructors
-        
+        defaultConstructor();
+
+        incrementPhase();
+        incrementPhaseLoop();
 
 
         report("Star");
@@ -32,7 +35,9 @@ public:
 
 
 private:
-
+   void defaultConstructor();
+   void incrementPhase();
+   void incrementPhaseLoop();
     
 
 };

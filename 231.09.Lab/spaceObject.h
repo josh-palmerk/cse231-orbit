@@ -22,6 +22,7 @@ class TestSpaceObject;
 class TestHubble;
 class TestEarth;
 class TestDreamChaser;
+class TestStar;
 
 class SpaceObject
 {
@@ -32,6 +33,7 @@ public:
 	friend TestHubble;
 	friend TestEarth;
 	friend TestDreamChaser;
+	friend TestStar;
 
 	SpaceObject();
 	SpaceObject(const Position& pos, const Velocity& vel, const Angle& angle, double radius, bool dead);
