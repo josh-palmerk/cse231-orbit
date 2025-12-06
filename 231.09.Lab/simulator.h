@@ -19,7 +19,7 @@
 #include "dragon.h"
 #include "sputnik.h"
 #include "dreamChaser.h"
-
+#include "star.h"
 
  /*********************************************
   * Simulator
@@ -36,6 +36,6 @@ public:
 	Simulator();
 	vector<SpaceObject*>& getSpaceObjects();
 	DreamChaser& getPlayer() { return player; }
-
+	//vector<Star> stars;
 
 };

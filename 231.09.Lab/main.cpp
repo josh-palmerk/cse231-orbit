@@ -20,6 +20,7 @@
 #include "satellite.h"
 #include "hubble.h"
 #include "simulator.h"
+#include "star.h"
 
 using namespace std;
 

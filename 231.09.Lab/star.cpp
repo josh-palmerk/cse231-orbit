@@ -14,7 +14,7 @@
  * STAR: Default Constructor
  *       Creates the star object
  ***********************************************/
-Star::Star()
-{
-
-}
+//Star::Star()
+//{
+//
+//}
