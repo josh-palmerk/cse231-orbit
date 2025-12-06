@@ -61,11 +61,4 @@ void Sputnik::shatter(vector<SpaceObject*>& spaceObjects)
 	// remove self here?
 }
 
-/***********************************************
-* SPUTNIK: Die
-*          Sets Sputnik to dead
-***********************************************/
-void Sputnik::die()
-{
-	dead = true;
-}
+

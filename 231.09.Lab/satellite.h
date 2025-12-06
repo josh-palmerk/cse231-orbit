@@ -23,6 +23,7 @@ public:
 
 	bool isDefunct() const { return defunct; }
 	void updateObject(double timestep, vector<SpaceObject*>& spaceObjects) override;
+	void die() override;
 
 	
 

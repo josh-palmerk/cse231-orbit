@@ -57,3 +57,12 @@ void Satellite::updateObject(double timestep, vector<SpaceObject*>& spaceObjects
 	}
 	else rotate(0.01);
 }
+
+/***********************************************
+* SATELLITE: Die
+*            Sets the sattelite to dead
+***********************************************/
+void Satellite::die()
+{
+	dead = true;
+}

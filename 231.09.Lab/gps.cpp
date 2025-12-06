@@ -87,11 +87,3 @@ void GPS::shatter(vector<SpaceObject*>& spaceObjects)
     // remove self here?
 }
 
-/***********************************************
-* GPS: Die
-*      Sets the GPS to dead
-***********************************************/
-void GPS::die()
-{
-	dead = true;
-}

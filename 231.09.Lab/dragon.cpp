@@ -70,11 +70,3 @@ void Dragon::shatter(vector<SpaceObject*>& spaceObjects)
 		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawCrewDragonLeft(pos, rot); }, 2));
 }
 
-/***********************************************
-* DRAGON: Die
-*         Sets the dragon to dead
-***********************************************/
-void Dragon::die()
-{
-	dead = true;
-}
