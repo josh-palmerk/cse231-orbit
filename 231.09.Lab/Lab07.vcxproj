@@ -161,6 +161,7 @@
     <ClCompile Include="test.cpp" />
     <ClCompile Include="testAcceleration.cpp" />
     <ClCompile Include="testAngle.cpp" />
+    <ClCompile Include="testBullet.cpp" />
     <ClCompile Include="testDragon.cpp" />
     <ClCompile Include="testDreamChaser.cpp" />
     <ClCompile Include="testEarth.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="test.h" />
     <ClInclude Include="testAcceleration.h" />
     <ClInclude Include="testAngle.h" />
+    <ClInclude Include="testBullet.h" />
     <ClInclude Include="testDragon.h" />
     <ClInclude Include="testDreamChaser.h" />
     <ClInclude Include="testEarth.h" />

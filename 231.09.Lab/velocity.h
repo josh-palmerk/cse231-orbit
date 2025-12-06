@@ -22,6 +22,7 @@ class TestSputnik;
 class TestStarlink;
 class TestGPS;
 class TestDreamChaser;
+class TestBullet;
 
  /*********************************************
   * Velocity
@@ -38,6 +39,7 @@ class Velocity
 	friend TestStarlink;
 	friend TestGPS;
 	friend TestDreamChaser;
+	friend TestBullet;
    
 public:
    // constructors

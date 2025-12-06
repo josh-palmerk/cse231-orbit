@@ -25,6 +25,7 @@ class TestSputnik;
 class TestStarlink;
 class TestGPS;
 class TestDreamChaser;
+class TestBullet;
 
 /*********************************************
  * Position
@@ -42,6 +43,7 @@ public:
    friend TestStarlink;
    friend TestGPS;
    friend TestDreamChaser;
+   friend TestBullet;
    
    // constructors
    Position()            : x(0.0), y(0.0)  {}

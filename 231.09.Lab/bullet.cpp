@@ -21,6 +21,7 @@ Bullet::Bullet()
 }
 
 Bullet::Bullet(Position pos, Velocity vel)
+	: SpaceObject()
 {
 	position = pos;
 	velocity = vel;
