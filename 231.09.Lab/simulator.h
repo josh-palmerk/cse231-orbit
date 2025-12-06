@@ -34,7 +34,7 @@ private:
 
 public:
 	Simulator();
-	vector<SpaceObject*> getSpaceObjects();
+	vector<SpaceObject*>& getSpaceObjects();
 	DreamChaser& getPlayer() { return player; }
 
 

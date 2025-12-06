@@ -54,10 +54,18 @@ void Sputnik::draw(ogstream& ui) const
 void Sputnik::shatter(vector<SpaceObject*>& spaceObjects)
 {
 	// Logic for Sputnik shattering
-	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
-	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
-	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
-	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
+	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));
+	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));
+	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));
+	spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));
 	// remove self here?
 }
 
+/***********************************************
+* SPUTNIK: Die
+*          Sets Sputnik to dead
+***********************************************/
+void Sputnik::die()
+{
+	dead = true;
+}

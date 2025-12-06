@@ -81,7 +81,16 @@ void GPS::shatter(vector<SpaceObject*>& spaceObjects)
 		getPosition(), getVelocity(), getAngle(), 8.0,
 		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawGPSRight(pos, rot, offset); }, 3));
 
-    spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
-    spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
+    spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));
+    spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));
     // remove self here?
+}
+
+/***********************************************
+* GPS: Die
+*      Sets the GPS to dead
+***********************************************/
+void GPS::die()
+{
+	dead = true;
 }

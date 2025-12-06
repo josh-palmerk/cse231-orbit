@@ -28,14 +28,14 @@ Simulator::Simulator()
 
 	spaceObjects.push_back(new Dragon());
 	spaceObjects.push_back(new Sputnik());
-	//spaceObjects.push_back(new DreamChaser());
+	spaceObjects.push_back(new DreamChaser());
 }
 
 /************************************************
  * SIMULATOR : GET SPACE OBJECTS
  * Returns spaceObjects.
  ***********************************************/
-vector<SpaceObject*> Simulator::getSpaceObjects()
+vector<SpaceObject*>& Simulator::getSpaceObjects()
 {
 	return spaceObjects;
 }

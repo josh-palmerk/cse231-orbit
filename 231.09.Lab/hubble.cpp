@@ -75,3 +75,12 @@ void Hubble::shatter(vector<SpaceObject*>& spaceObjects)
 		getPosition(), getVelocity(), getAngle(), 8.0,
 		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawHubbleRight(pos, rot, offset); }, 2));
 }
+
+/***********************************************
+* HUBBLE: Die
+*         Sets the hubble to dead
+***********************************************/
+void Hubble::die()
+{
+	dead = true;
+}

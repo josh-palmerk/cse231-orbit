@@ -17,7 +17,7 @@ Part::Part()
 * ***********************************************/
 
 Part::Part(const Position& pos, const Velocity& vel, const Angle& angle, double radius, std::function <void(const Position&, double, const Position&)> drawFunction, int fragNum)
-	: SpaceJunk(pos, vel, angle, radius)
+	: SpaceJunk(pos, vel, angle, radius, dead)
 {
 	this->drawFunction = drawFunction;
 	this->fragNum = fragNum;
@@ -43,6 +43,6 @@ void Part::shatter(vector<SpaceObject*>& spaceObjects)
 	// Logic for Part shattering
 	for (int i = 0; i < fragNum; ++i)
 	{
-		spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0));
+		spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));
 	}
 }

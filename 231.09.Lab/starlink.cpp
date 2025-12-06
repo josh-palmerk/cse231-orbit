@@ -55,3 +55,12 @@ void Starlink::shatter(vector<SpaceObject*>& spaceObjects)
 {
 	// Logic for Starlink shattering
 }
+
+/***********************************************
+* STARLINK: Die
+*           Sets Starlink to dead
+***********************************************/
+void Starlink::die()
+{
+	dead = true;
+}

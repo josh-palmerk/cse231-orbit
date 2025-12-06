@@ -40,32 +40,65 @@ void callBack(const Interface* pUI, void* p)
    ogstream gout(pt);
    const double dt = 48.0;
 
-   vector<SpaceObject*> spaceObjects = pOrbit->getSpaceObjects();
+   vector<SpaceObject*>& spaceObjects = pOrbit->getSpaceObjects();
+   vector<SpaceObject*> spaceObjectsCrashed;
 
    //loop through each object
    for (auto obj : spaceObjects)
    {
 	   obj->updateObject(dt, spaceObjects);
-	   obj->draw(gout);
    }
+
+   //cout << "spaceObjects.size() = " << spaceObjects.size() << endl;
+
+   
 
    for (int i = 0; i < spaceObjects.size(); i++)
    {
 	   for (int x = i + 1; x < spaceObjects.size(); x++)
 	   {
+
 		   double distance = computeDistance(spaceObjects[i]->getPosition(), spaceObjects[x]->getPosition());
-		   if (distance < (spaceObjects[i]->getRadius() + spaceObjects[x]->getRadius()))
+
+		   if (distance < (spaceObjects[i]->getRadius() * 40 + spaceObjects[x]->getRadius() * 40))
 		   {
-			   //spaceObjects[i]->shatter();
-			   //spaceObjects[x]->shatter();
+			   cout << "hello" << endl;
+			   spaceObjects[i]->die();
+			   spaceObjects[x]->die();
+			   spaceObjectsCrashed.push_back(spaceObjects[i]);
+			   spaceObjectsCrashed.push_back(spaceObjects[x]);
 		   }
 	   }
    }
+
+   //erase all crashed objects and add in the parts.
+   for (auto obj : spaceObjectsCrashed)
+   {
+	   if (obj->isDead())
+	   {
+		   obj->shatter(spaceObjects);
+
+	   }
+   }
+
+   //ai generated, get rid of the dead objects
+   spaceObjects.erase(
+	   remove_if(spaceObjects.begin(), spaceObjects.end(),
+		   [](SpaceObject* obj) { return obj->isDead(); }),
+	   spaceObjects.end()
+    );
+
 
    //separate dream chaser logic
    pOrbit->getPlayer().handleInput(pUI, dt, spaceObjects);
    pOrbit->getPlayer().updateObject(dt, spaceObjects);
    pOrbit->getPlayer().draw(gout, pUI);
+
+   //draw
+   for (auto obj : spaceObjects)
+   {
+	   obj->draw(gout);
+   }
 }
 
 double Position::metersFromPixels = 40.0;

@@ -18,7 +18,7 @@ public:
 	friend TestBullet;
 	Bullet();
 	Bullet(Position pos, Velocity vel);
-	bool isExpired();
+	void die() override;
 	virtual void draw(ogstream& ui) const override;
 	virtual void updateObject(double timestep, vector<SpaceObject*>& spaceObjects) override;
 };

@@ -15,7 +15,7 @@ class SpaceJunk : public SpaceObject
 {
 public:
 	SpaceJunk();
-	SpaceJunk(const Position& pos, const Velocity& vel, const Angle& angle, double radius);
+	SpaceJunk(const Position& pos, const Velocity& vel, const Angle& angle, double radius, bool dead);
 	void addKick();
 	void updateObject(double timestep, vector<SpaceObject*>& spaceObjects) override;
 };

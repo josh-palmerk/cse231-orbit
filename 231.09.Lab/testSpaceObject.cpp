@@ -61,9 +61,10 @@ void TestSpaceObject::nonDefaultConstructor()
     Angle ang;
     ang.radians = 0.8;
     double radius = 8.6;
+    bool dead = false;
 
     // exercise
-    SpaceObjectDerived so(pos, v, ang, radius);
+    SpaceObjectDerived so(pos, v, ang, radius, dead);
 
     // verify
     assertEquals(so.position.x, 1.3);
@@ -73,6 +74,7 @@ void TestSpaceObject::nonDefaultConstructor()
     assertEquals(so.angle.radians, 0.8);
     assertEquals(so.radius, 8.6);
     assertEquals(so.secondsAlive, 0);
+    assertEquals(so.dead, false);
 }
 // teardown
 

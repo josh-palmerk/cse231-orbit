@@ -24,7 +24,7 @@ public:
 	bool isDefunct() const { return defunct; }
 	void updateObject(double timestep, vector<SpaceObject*>& spaceObjects) override;
 
-	virtual void shatter(vector<SpaceObject*>& spaceObjects) = 0;
+	
 
 protected:
 	bool defunct;

@@ -16,7 +16,7 @@
   * Creates the earth object
   ***********************************************/
 Earth::Earth()
-	: SpaceObject(Position(0, 0), Velocity(0, 0), Angle(0), 6378000.0) // Earth's radius in meters
+	: SpaceObject(Position(0, 0), Velocity(0, 0), Angle(0), 6378000.0 / 40.0, false) // Earth's radius in pixels
 {
 }
 

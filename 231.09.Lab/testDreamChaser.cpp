@@ -59,9 +59,10 @@ void TestDreamChaser::nonDefaultConstructor()
     Angle ang;
     ang.radians = atan2(-pos.y, -pos.x) + M_PI_2;
     double radius = 15.7;
+    bool dead = false;
 
     // exercise
-    DreamChaser dc(pos, v, ang, radius);
+    DreamChaser dc(pos, v, ang, radius, dead);
 
     // verify
     assertEquals(dc.position.x, 573.4);
@@ -71,6 +72,7 @@ void TestDreamChaser::nonDefaultConstructor()
     assert(fabs(dc.angle.radians - 5.585) < 0.001);
     assertEquals(dc.radius, 15.7);
     assertEquals(dc.secondsAlive, 0);
+    assertEquals(dc.dead, false);
 }
 // teardown
 

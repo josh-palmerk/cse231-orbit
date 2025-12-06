@@ -15,7 +15,7 @@
  * Create a space object
  ***********************************************/
 SpaceObject::SpaceObject()
-	: position(Position(0, 0)), velocity(Velocity(0, 0)), angle(Angle(0)), secondsAlive(0), radius(0.0)
+	: position(Position(0, 0)), velocity(Velocity(0, 0)), angle(Angle(0)), secondsAlive(0), radius(0.0), dead(false)
 {
 }
 
@@ -24,8 +24,8 @@ SpaceObject::SpaceObject()
  * SPACEOBJECT: Non Default Constructor
  * Create a space object with parameters
  ***********************************************/
-SpaceObject::SpaceObject(const Position& pos, const Velocity& vel, const Angle& ang, double rad)
-	: position(pos), velocity(vel), angle(ang), secondsAlive(0), radius(rad)
+SpaceObject::SpaceObject(const Position& pos, const Velocity& vel, const Angle& ang, double rad, bool dead)
+	: position(pos), velocity(vel), angle(ang), secondsAlive(0), radius(rad), dead(dead)
 {
 }
 

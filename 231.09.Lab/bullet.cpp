@@ -16,7 +16,7 @@
   * Creates the earth object
   ***********************************************/
 Bullet::Bullet()
-	: SpaceObject(Position(0, 0), Velocity(0, 0), Angle(0), 0.5) // Radius in pixels?
+	: SpaceObject(Position(0, 0), Velocity(0, 0), Angle(0), 0.5, false) // Radius in pixels?
 {
 }
 
@@ -26,6 +26,7 @@ Bullet::Bullet(Position pos, Velocity vel)
 	position = pos;
 	velocity = vel;
 	radius = 1.5;
+	dead = false;
 }
 
 /***********************************************
@@ -52,14 +53,14 @@ void Bullet::updateObject(double timestep, vector<SpaceObject*>& spaceObjects)
  * BULLET: isExpired
  * The bullet expires after 2 seconds.
  ***********************************************/
-bool Bullet::isExpired()
+void Bullet::die()
 {
 	if (secondsAlive >= 2)
 	{
-		return true;
+		dead = true;
 	}
 	else
 	{
-		return false;
+		dead = false;
 	}
 }

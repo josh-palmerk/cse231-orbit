@@ -32,8 +32,8 @@ DreamChaser::DreamChaser()
  * DREAMCHASER: NonDefault Constructor
  *              Creates a Dream Chaser object
  ***********************************************/
-DreamChaser::DreamChaser(const Position& pos, const Velocity& vel, const Angle& angle, double radius)
-	: SpaceObject(pos, vel, angle, radius)
+DreamChaser::DreamChaser(const Position& pos, const Velocity& vel, const Angle& angle, double radius, bool dead)
+	: SpaceObject(pos, vel, angle, radius, dead)
 {
 }
 
@@ -106,6 +106,14 @@ void DreamChaser::handleInput(const Interface* pUI, double timestep, vector<Spac
 	}
 }
 
+/***********************************************
+* DREAMCHASER: Die
+*              Sets the Dream Chaser to dead
+***********************************************/
+void DreamChaser::die()
+{
+	dead = true;
+}
 
 
 

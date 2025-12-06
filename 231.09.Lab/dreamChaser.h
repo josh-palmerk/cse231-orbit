@@ -21,7 +21,7 @@ public:
 	friend TestDreamChaser;
 
 	DreamChaser();
-	DreamChaser(const Position& pos, const Velocity& vel, const Angle& angle, double radius);
+	DreamChaser(const Position& pos, const Velocity& vel, const Angle& angle, double radius, bool dead);
 
 	//using SpaceObject::draw;
 	void draw(ogstream& ui) const override {} // to satisfy pure virtual requirement
@@ -33,5 +33,6 @@ public:
 
 	//void updateObject(double timestep) override;
 	void handleInput(const Interface* pUI, double timestep, vector<SpaceObject*>& bullets);
+	void die() override;
 };
 

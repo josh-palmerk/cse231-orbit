@@ -32,7 +32,7 @@ public:
 	friend TestEarth;
 
 	SpaceObject();
-	SpaceObject(const Position& pos, const Velocity& vel, const Angle& angle, double radius);
+	SpaceObject(const Position& pos, const Velocity& vel, const Angle& angle, double radius, bool dead);
 	 
 	// Getters
 	Position getPosition() const	{ return position; }
@@ -40,6 +40,7 @@ public:
 	Angle getAngle() const			{ return angle; }
 	double getRadius() const		{ return radius; }
 	int getSecondsAlive() const     { return secondsAlive; }
+	bool isDead() const				{ return dead; }
 
 	// Setters
 	void setPosition(const Position& position)	{ this->position = position; };
@@ -55,6 +56,8 @@ public:
 	virtual void updateObject(double timestep, vector<SpaceObject*> & spaceObjects);
 	void incrementSecondsAlive(int amount);
 	virtual void draw(ogstream& ui) const = 0;
+	virtual void shatter(vector<SpaceObject*>& spaceObjects) {};
+	virtual void die() {};
 
 protected:
 	Position position;
@@ -62,6 +65,7 @@ protected:
 	Angle angle;
 	int secondsAlive;
 	double radius;
+	bool dead;
 };
 
 
@@ -73,7 +77,7 @@ class SpaceObjectDerived : public SpaceObject
 {
 public:
 	SpaceObjectDerived() : SpaceObject() {}
-	SpaceObjectDerived(const Position& pos, const Velocity& vel, const Angle& angle, double radius)
-		: SpaceObject(pos, vel, angle, radius) {}
+	SpaceObjectDerived(const Position& pos, const Velocity& vel, const Angle& angle, double radius, bool dead)
+		: SpaceObject(pos, vel, angle, radius, dead) {}
 	void draw(ogstream& ui) const  { assert(false && "draw should not be called"); }
 };

@@ -14,8 +14,8 @@ Fragment::Fragment()
 * 	   Creates a fragment object
 * ***********************************************/
 	
-Fragment::Fragment(const Position& pos, const Velocity& vel, const Angle& angle, double radius)
-	: SpaceJunk(pos, vel, angle, radius)
+Fragment::Fragment(const Position& pos, const Velocity& vel, const Angle& angle, double radius, bool dead)
+	: SpaceJunk(pos, vel, angle, radius, dead)
 {
 	radius = 2; // radius of Fragment in pixels
 	addKick();
