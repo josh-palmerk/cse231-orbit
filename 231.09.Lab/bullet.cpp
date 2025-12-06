@@ -20,12 +20,11 @@ Bullet::Bullet()
 {
 }
 
-Bullet::Bullet(Position pos, Velocity vel, Angle ang)
+Bullet::Bullet(Position pos, Velocity vel)
 	: SpaceObject()
 {
 	position = pos;
 	velocity = vel;
-	angle = ang;
 	radius = 0.5 * 128000.0;
 	dead = false;
 }
@@ -48,20 +47,17 @@ void Bullet::updateObject(double timestep, vector<SpaceObject*>& spaceObjects)
 	//same as spaceobject but doesnt apply gravity.
 	updatePosition(timestep);
 	incrementSecondsAlive(static_cast<int>(timestep));
-}
-
-/***********************************************
- * BULLET: isExpired
- * The bullet expires after 2 seconds.
- ***********************************************/
-void Bullet::die()
-{
-	if (secondsAlive >= 2)
+	if (secondsAlive >= 3360)
 	{
 		dead = true;
 	}
-	else
-	{
-		dead = false;
-	}
+}
+
+/***********************************************
+ * BULLET: die
+ * The bullet is set to dead
+ ***********************************************/
+void Bullet::die()
+{
+		dead = true;
 }

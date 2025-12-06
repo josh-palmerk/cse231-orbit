@@ -59,26 +59,55 @@ void callBack(const Interface* pUI, void* p)
 	   cout << "dreamchaser positon: " << spaceObjects[11]->getPosition() << endl;
 	   double distancebetween = computeDistance(spaceObjects[1]->getPosition(), spaceObjects[12]->getPosition());
 	   cout << "distance between bullet and earth: " << distancebetween << endl;
+	   cout << spaceObjects[12]->getSecondsAlive() << endl;
    }
 
+   //loop through each object to update
+   for (auto obj : spaceObjects)
+   {
+	   obj->updateObject(dt, spaceObjects);
+   }
+   //update the player
+   pOrbit->getPlayer().updateObject(dt, spaceObjects);
    
 
+   //check for collisions
    for (int i = 0; i < spaceObjects.size(); i++)
    {
 	   for (int x = i + 1; x < spaceObjects.size(); x++)
 	   {
 		   double distance = computeDistance(spaceObjects[i]->getPosition(), spaceObjects[x]->getPosition());
 
-		   if (distance < (spaceObjects[i]->getRadius() + spaceObjects[x]->getRadius()))
+		   if (spaceObjects[i]->isDead() == false && spaceObjects[x]->isDead() == false)
 		   {
-			   cout << "hello" << endl;
-			   spaceObjects[i]->die();
-			   spaceObjects[x]->die();
-			   spaceObjectsCrashed.push_back(spaceObjects[i]);
-			   spaceObjectsCrashed.push_back(spaceObjects[x]);
+			   if (distance < (spaceObjects[i]->getRadius() + spaceObjects[x]->getRadius()))
+			   {
+				   cout << "hello" << endl;
+				   spaceObjects[i]->die();
+				   spaceObjects[x]->die();
+				   spaceObjectsCrashed.push_back(spaceObjects[i]);
+				   spaceObjectsCrashed.push_back(spaceObjects[x]);
+			   }
+		   }
+		   
+	   }
+   }
+
+   //check for collisions with the player
+   for (auto obj : spaceObjects)
+   {
+	   double distance = computeDistance(obj->getPosition(), pOrbit->getPlayer().getPosition());
+	   if (pOrbit->getPlayer().isDead() == false && obj->isDead() == false)
+	   {
+		   if (distance < (pOrbit->getPlayer().getRadius() + obj->getRadius()))
+		   {
+			   obj->die();
+			   pOrbit->getPlayer().die();
+			   spaceObjectsCrashed.push_back(obj);
 		   }
 	   }
    }
+
 
    //erase all crashed objects and add in the parts.
    for (auto obj : spaceObjectsCrashed)
@@ -90,7 +119,8 @@ void callBack(const Interface* pUI, void* p)
 	   }
    }
 
-   //ai generated, get rid of the dead objects
+
+   //get rid of the dead objects (ai generated)
    spaceObjects.erase(
 	   remove_if(spaceObjects.begin(), spaceObjects.end(),
 		   [](SpaceObject* obj) { return obj->isDead(); }),
@@ -99,21 +129,20 @@ void callBack(const Interface* pUI, void* p)
 
 
    //separate dream chaser logic
-   pOrbit->getPlayer().handleInput(pUI, dt, spaceObjects);
-   pOrbit->getPlayer().updateObject(dt, spaceObjects);
-   pOrbit->getPlayer().draw(gout, pUI);
-
-   //loop through each object
-   /*for (auto obj : spaceObjects)
+   if (pOrbit->getPlayer().isDead() == false)
    {
-	   obj->updateObject(dt, spaceObjects);
-   }*/
+	   pOrbit->getPlayer().handleInput(pUI, dt, spaceObjects);
+	   pOrbit->getPlayer().draw(gout, pUI);
+   }
+   
+
+   
 
    //draw
    for (auto obj : spaceObjects)
    {
 	   //cout << obj->getRadius() << endl;
-	   obj->updateObject(dt, spaceObjects);
+	   //obj->updateObject(dt, spaceObjects);
 	   obj->draw(gout);
    }
 

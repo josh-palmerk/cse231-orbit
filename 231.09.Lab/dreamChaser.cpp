@@ -9,6 +9,7 @@
 
 #include "dreamChaser.h"
 #include "bullet.h"
+#include <cmath>
 
 
  /***********************************************
@@ -55,11 +56,21 @@ void DreamChaser::draw(ogstream& ui, const Interface* pUI) const
 ***********************************************/
 void DreamChaser::fireBullet(vector<SpaceObject*>& bullets)
 {
+
+	// amount to offset
+	double dy = 19.0 * 128000;
+
+	// Rotate the offset to the ship's current orientation, generated with ai
+	double frontX = getPosition().getMetersX() + dy * sin(getAngle().getRadians());
+	double frontY = getPosition().getMetersY() + dy * cos(getAngle().getRadians());
+
+	Position front(frontX, frontY);
+
 	// Logic for firing a bullet
-	Position p = getPosition();
-	Angle ang = getAngle();
-	Velocity v = Velocity(9000, 0);
-	bullets.push_back(new Bullet(p, v, ang));
+	Position p = front;
+	Velocity v;
+	v.set(getAngle(), 9000);
+	bullets.push_back(new Bullet(p, v));
 }
 
 
