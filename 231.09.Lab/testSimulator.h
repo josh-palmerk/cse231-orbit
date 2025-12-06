@@ -29,7 +29,6 @@ public:
         dragonCollideStarlink();
         hubbleCollideEarth();
         dreamChaserCollideGPS();
-        //bulletCollideSputnik();
 
         report("Simulator");
     }
@@ -40,7 +39,6 @@ private:
     void dragonCollideStarlink();
     void hubbleCollideEarth();
     void dreamChaserCollideGPS();
-    //void bulletCollideSputnik();
 
 
 
