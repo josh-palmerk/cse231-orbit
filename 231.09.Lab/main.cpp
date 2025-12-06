@@ -49,6 +49,19 @@ void callBack(const Interface* pUI, void* p)
 	   obj->draw(gout);
    }
 
+   for (int i = 0; i < spaceObjects.size(); i++)
+   {
+	   for (int x = i + 1; x < spaceObjects.size(); x++)
+	   {
+		   double distance = computeDistance(spaceObjects[i]->getPosition(), spaceObjects[x]->getPosition());
+		   if (distance < (spaceObjects[i]->getRadius() + spaceObjects[x]->getRadius()))
+		   {
+			   //spaceObjects[i]->shatter();
+			   //spaceObjects[x]->shatter();
+		   }
+	   }
+   }
+
    //separate dream chaser logic
    pOrbit->getPlayer().handleInput(pUI, dt, spaceObjects);
    pOrbit->getPlayer().updateObject(dt, spaceObjects);
