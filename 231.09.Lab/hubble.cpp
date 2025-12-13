@@ -58,21 +58,19 @@ void Hubble::shatter(vector<SpaceObject*>& spaceObjects)
 	// telescope rad 10 3 frags
 	spaceObjects.push_back(new Part(
 		getPosition(), getVelocity(), getAngle(), 10.0,
-		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawHubbleTelescope(pos, rot); }, 3));
+		HUBBLE_TELESCOPE));
 
 	// computer rad 7 2 frags
 	
 	spaceObjects.push_back(new Part(
 		getPosition(), getVelocity(), getAngle(), 7.0,
-		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawHubbleComputer(pos, rot); }, 2));
+		HUBBLE_COMPUTER));
 
 	// left rad 8 2 frags
 	spaceObjects.push_back(new Part(
-		getPosition(), getVelocity(), getAngle(), 8.0,
-		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawHubbleLeft(pos, rot, offset); }, 2));
+		getPosition(), getVelocity(), getAngle(), 8.0, HUBBLE_LEFT));
 	// right rad 8 2 frags
 	spaceObjects.push_back(new Part(
-		getPosition(), getVelocity(), getAngle(), 8.0,
-		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawHubbleRight(pos, rot, offset); }, 2));
+		getPosition(), getVelocity(), getAngle(), 8.0, HUBBLE_RIGHT));
 }
 

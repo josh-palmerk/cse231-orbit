@@ -17,12 +17,15 @@ Part::Part()
 * 	   Creates a part object
 * ***********************************************/
 
-Part::Part(const Position& pos, const Velocity& vel, const Angle& angle, double radius, std::function <void(const Position&, double, const Position&)> drawFunction, int fragNum)
+Part::Part(const Position& pos, const Velocity& vel, const Angle& angle, double radius, PartType type)
 	: SpaceJunk(pos, vel, angle, radius, dead)
 {
-	this->drawFunction = drawFunction;
+	//this->drawFunction = drawFunction;
+	this->type = type;
+	this->dead = false;
 	this->fragNum = fragNum;
 	addKick();
+	updatePosition(48.0); // Move part slightly to avoid immediate collision
 }
 
 /***********************************************
@@ -32,8 +35,50 @@ Part::Part(const Position& pos, const Velocity& vel, const Angle& angle, double 
 void Part::draw(ogstream& ui) const
 {
 	// Drawing logic for Part
-	drawFunction(getPosition(), getAngle().getRadians(), Position());
+	//drawFunction(getPosition(), getAngle().getRadians(), Position());
+	switch (type)
+	{
+	case GPS_CENTER:
+		ui.drawGPSCenter(getPosition(), getAngle().getRadians());
+		break;
+	case GPS_LEFT:
+		ui.drawGPSLeft(getPosition(), getAngle().getRadians());
+		break;
+	case GPS_RIGHT:
+		ui.drawGPSRight(getPosition(), getAngle().getRadians());
+		break;
+	case HUBBLE_TELESCOPE:
+		ui.drawHubbleTelescope(getPosition(), getAngle().getRadians());
+		break;
+	case HUBBLE_COMPUTER:
+		ui.drawHubbleComputer(getPosition(), getAngle().getRadians());
+		break;
+	case HUBBLE_LEFT:
+		ui.drawHubbleLeft(getPosition(), getAngle().getRadians());
+		break;
+	case HUBBLE_RIGHT:
+		ui.drawHubbleRight(getPosition(), getAngle().getRadians());
+		break;
+	case DRAGON_CENTER:
+		ui.drawCrewDragonCenter(getPosition(), getAngle().getRadians());
+		break;
+	case DRAGON_LEFT:
+		ui.drawCrewDragonLeft(getPosition(), getAngle().getRadians());
+		break;
+	case DRAGON_RIGHT:
+		ui.drawCrewDragonRight(getPosition(), getAngle().getRadians());
+		break;
+	case STARLINK_BODY:
+		ui.drawStarlinkBody(getPosition(), getAngle().getRadians());
+		break;
+	case STARLINK_ARRAY:
+		ui.drawStarlinkArray(getPosition(), getAngle().getRadians());
+		break;
+	default:
+		break;
+	}
 }
+
 
 /***********************************************
 * PART : Shatter

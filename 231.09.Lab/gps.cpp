@@ -72,14 +72,14 @@ void GPS::shatter(vector<SpaceObject*>& spaceObjects)
 
     ogstream ui;
     spaceObjects.push_back(new Part(
-        getPosition(), getVelocity(), getAngle(), 7.0,
-        [&ui](const Position& pos, double rot, const Position& offset) { ui.drawGPSCenter(pos, rot); }, 3));
+		getPosition(), getVelocity(), getAngle(), 7.0, GPS_CENTER));
+	
+	spaceObjects.push_back(new Part(
+		getPosition(), getVelocity(), getAngle(), 8.0, GPS_LEFT));
+	
 	spaceObjects.push_back(new Part(
 		getPosition(), getVelocity(), getAngle(), 8.0,
-		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawGPSLeft(pos, rot, offset); }, 3));
-	spaceObjects.push_back(new Part(
-		getPosition(), getVelocity(), getAngle(), 8.0,
-		[&ui](const Position& pos, double rot, const Position& offset) { ui.drawGPSRight(pos, rot, offset); }, 3));
+		GPS_RIGHT));
 
     spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));
     spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));

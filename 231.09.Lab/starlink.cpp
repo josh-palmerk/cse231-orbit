@@ -54,5 +54,13 @@ void Starlink::draw(ogstream& ui) const
 void Starlink::shatter(vector<SpaceObject*>& spaceObjects)
 {
 	// Logic for Starlink shattering
+
+	// body rad 2 3 frags
+	spaceObjects.push_back(new Part(
+		Position(40000000.0, 40000000.0), getVelocity(), getAngle(), 2.0,
+		STARLINK_BODY));
+
+	// array rad 4 3 frags
+	//spaceObjects.push_back(new Part(getPosition(), getVelocity(), getAngle(), 4.0,STARLINK_ARRAY));
 }
 
