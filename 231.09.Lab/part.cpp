@@ -1,3 +1,12 @@
+/***********************************************************************
+ * Source File:
+ *    Part : The base class for part
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    The base class for part
+ ************************************************************************/
+
 #include "part.h"
 #include "fragment.h"
 

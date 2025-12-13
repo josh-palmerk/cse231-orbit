@@ -1,3 +1,12 @@
+/***********************************************************************
+ * Header File:
+ *    Part
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    Space Junk Part.
+ ************************************************************************/
+
 #pragma once
 #include "spaceJunk.h"
 #include <functional>
