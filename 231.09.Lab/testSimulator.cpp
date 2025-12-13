@@ -33,8 +33,8 @@ void TestSimulator::defaultConstructor()
     Simulator sim;
 
     // verify
-    assertEquals(sim.spaceObjects.size(), 11);
-    assertEquals(sim.stars.size(), 50);
+    assertEquals(static_cast<double>(sim.spaceObjects.size()), 11);
+    assertEquals(static_cast<double>(sim.stars.size()), 50);
 }
 // teardown
 

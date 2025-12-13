@@ -21,7 +21,7 @@ DreamChaser::DreamChaser()
 {
 	Position pos(40000000.0, 40000000.0); // Approximate altitude of Dream Chaser
 	Velocity vel(0.0, -2000.0);     // Approximate orbital velocity
-	Angle angle(0.0);
+	Angle angle(M_2_PI);
 	setPosition(pos);
 	setVelocity(vel);
 	setAngle(angle);

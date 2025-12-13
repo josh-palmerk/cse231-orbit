@@ -199,7 +199,7 @@ void TestDreamChaser::turnRightFromZero()
     dc.handleInput(pUI, timeStep, bullets);
 
     // verify
-    assert(dc.angle.radians, 0.1);
+    assertEquals(dc.angle.radians, 0.1);
     assertEquals(timeStep, 1);
 
     // teardown
@@ -425,7 +425,7 @@ void TestDreamChaser::spaceFiresBullet()
     dc.handleInput(pUI, timeStep, bullets);
 
     // verify
-    assertEquals(bullets.size(), 1);
+    assertEquals(static_cast<double>(bullets.size()), 1.0);
     assertEquals(timeStep, 1.0);
 
     // teardown
@@ -455,7 +455,7 @@ void TestDreamChaser::bulletLocation()
     dc.fireBullet(bullets);
 
     // verify
-    assertEquals(bullets.size(), 1);
+    assertEquals(static_cast<double>(bullets.size()), 1.0);
     assertEquals(bullets[0]->position.x, 10.5);
     assertEquals(bullets[0]->position.y, 2432010.5);
     assertEquals(dc.position.x, 10.5);
@@ -486,7 +486,7 @@ void TestDreamChaser::bulletLocationAngle()
     dc.fireBullet(bullets);
 
     // verify
-    assertEquals(bullets.size(), 1);
+    assertEquals(static_cast<double>(bullets.size()), 1.0);
     assert(fabs(bullets[0]->position.x - 1165962.9) < 0.1);
     assert(fabs(bullets[0]->position.y - 2134280.8) < 0.1);
     assertEquals(dc.angle.radians, 0.5);

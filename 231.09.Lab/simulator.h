@@ -30,7 +30,6 @@ class TestSimulator;
 class Simulator
 {
 private:
-	//to do add stars.
 	vector<SpaceObject*> spaceObjects;
 	vector<Star*> stars;
 	DreamChaser player;
