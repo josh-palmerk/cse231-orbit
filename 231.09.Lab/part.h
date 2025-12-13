@@ -26,6 +26,7 @@ public:
 	Part(const Position& pos, const Velocity& vel, const Angle& angle, double radius, PartType type);
 	void draw(ogstream& ui) const override;
 	void shatter(vector<SpaceObject*>& spaceObjects);
+	void updateObject(double timestep, vector<SpaceObject*>& spaceObjects) override;
 private:
 	std::function <void(const Position&, double, const Position&)> drawFunction;
 	PartType type;

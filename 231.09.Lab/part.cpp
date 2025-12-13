@@ -92,3 +92,12 @@ void Part::shatter(vector<SpaceObject*>& spaceObjects)
 		spaceObjects.push_back(new Fragment(getPosition(), getVelocity(), getAngle(), 2.0, false));
 	}
 }
+
+
+void Part::updateObject(double timestep, vector<SpaceObject*>& spaceObjects)
+{
+	applyGravity(Position(0, 0), 398600441800000.0, timestep); // Example gravitational constant for Earth)
+	updatePosition(timestep);
+	incrementSecondsAlive(static_cast<int>(timestep));
+	rotate(timestep * 0.002); // Parts rotate
+}
