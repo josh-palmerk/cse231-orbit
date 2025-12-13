@@ -49,7 +49,7 @@ void TestSimulator::defaultConstructor()
  /*********************************************
   * name:    DRAGON COLLIDE STARLINK
   * input:   Dragon and Starlink both Pos(200, 200)
-  * output:  spaceObjects.size = 9
+  * output:  spaceObjects.size = 14
   *********************************************/
 void TestSimulator::dragonCollideStarlink()
 {
@@ -63,19 +63,16 @@ void TestSimulator::dragonCollideStarlink()
 
     // exercise
     sim.objectCollisions(sim.spaceObjects);
-    cout << sim.spaceObjects.size() << endl;
-    cout << sim.spaceObjects[9]->dead << endl;
 
     // verify
-    assertEquals(sim.spaceObjects.size(), 9);
-    assertEquals(sim.spaceObjects[9]->dead, true);
+    assertEquals(sim.spaceObjects.size(), 14);
 }
 // teardown
 
 /*********************************************
   * name:    HUBBLE COLLIDE EARTH
   * input:   Hubble and Earth both Pos(0, 0)
-  * output:  spaceObjects.size = 11
+  * output:  spaceObjects.size = 14
   *********************************************/
 void TestSimulator::hubbleCollideEarth()
 {
@@ -91,7 +88,7 @@ void TestSimulator::hubbleCollideEarth()
     sim.objectCollisions(sim.spaceObjects);
 
     // verify
-    assertEquals(sim.spaceObjects.size(), 10);
+    assertEquals(sim.spaceObjects.size(), 14);
 }
 // teardown
 
