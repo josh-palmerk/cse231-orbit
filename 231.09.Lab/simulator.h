@@ -32,6 +32,7 @@ class Simulator
 private:
 	//to do add stars.
 	vector<SpaceObject*> spaceObjects;
+	vector<Star*> stars;
 	DreamChaser player;
 
 public:
@@ -40,8 +41,8 @@ public:
 
 	Simulator();
 	vector<SpaceObject*>& getSpaceObjects();
+	vector<Star*>& getStars();
 	DreamChaser& getPlayer() { return player; }
 	void objectCollisions(vector<SpaceObject*>& spaceObjects);
-	//vector<Star> stars;
 
 };

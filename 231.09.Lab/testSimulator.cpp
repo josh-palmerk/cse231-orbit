@@ -24,7 +24,7 @@
  /*********************************************
   * name:    DEFAULT CONSTRUCTOR
   * input:   nothing
-  * output:  spaceObjects.size = 61
+  * output:  spaceObjects.size = 11 stars.size = 50;
   *********************************************/
 void TestSimulator::defaultConstructor()
 {
@@ -33,7 +33,8 @@ void TestSimulator::defaultConstructor()
     Simulator sim;
 
     // verify
-    assertEquals(sim.spaceObjects.size(), 61);
+    assertEquals(sim.spaceObjects.size(), 11);
+    assertEquals(sim.stars.size(), 50);
 }
 // teardown
 
@@ -48,7 +49,7 @@ void TestSimulator::defaultConstructor()
  /*********************************************
   * name:    DRAGON COLLIDE STARLINK
   * input:   Dragon and Starlink both Pos(200, 200)
-  * output:  spaceObjects.size = 59
+  * output:  spaceObjects.size = 9
   *********************************************/
 void TestSimulator::dragonCollideStarlink()
 {
@@ -64,14 +65,14 @@ void TestSimulator::dragonCollideStarlink()
     sim.objectCollisions(sim.spaceObjects);
 
     // verify
-    assertEquals(sim.spaceObjects.size(), 59);
+    assertEquals(sim.spaceObjects.size(), 9);
 }
 // teardown
 
 /*********************************************
   * name:    HUBBLE COLLIDE EARTH
   * input:   Hubble and Earth both Pos(0, 0)
-  * output:  spaceObjects.size = 60
+  * output:  spaceObjects.size = 11
   *********************************************/
 void TestSimulator::hubbleCollideEarth()
 {
@@ -87,7 +88,7 @@ void TestSimulator::hubbleCollideEarth()
     sim.objectCollisions(sim.spaceObjects);
 
     // verify
-    assertEquals(sim.spaceObjects.size(), 60);
+    assertEquals(sim.spaceObjects.size(), 10);
 }
 // teardown
 

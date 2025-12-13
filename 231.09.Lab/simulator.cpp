@@ -32,7 +32,7 @@ Simulator::Simulator()
 	// Initialize 50 stars at random positions
 	for (int i = 0; i < 50; i++)
 	{
-		spaceObjects.push_back(new Star(500, 500));
+		stars.push_back(new Star(500, 500));
 	}
 }
 
@@ -43,6 +43,15 @@ Simulator::Simulator()
 vector<SpaceObject*>& Simulator::getSpaceObjects()
 {
 	return spaceObjects;
+}
+
+/************************************************
+ * SIMULATOR : GET STARS
+ * Returns stars.
+ ***********************************************/
+vector<Star*>& Simulator::getStars()
+{
+	return stars;
 }
 
 /***********************************

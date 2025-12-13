@@ -42,6 +42,7 @@ void callBack(const Interface* pUI, void* p)
    const double dt = 48.0;
 
    vector<SpaceObject*>& spaceObjects = pOrbit->getSpaceObjects();
+   vector<Star*>& stars = pOrbit->getStars();
 
    //loop through each object to update
    for (auto obj : spaceObjects)
@@ -65,8 +66,13 @@ void callBack(const Interface* pUI, void* p)
    }
 
 
-   //draw
+   //draw space objects
    for (auto obj : spaceObjects)
+   {
+	   obj->draw(gout);
+   }
+   //draw stars
+   for (auto obj : stars)
    {
 	   obj->draw(gout);
    }
@@ -79,7 +85,7 @@ void callBack(const Interface* pUI, void* p)
 		   partCount++;
 	   }
    }
-   cout << "Parts in sim: " << partCount << endl;
+   //cout << "Parts in sim: " << partCount << endl;
 }
 
 double Position::metersFromPixels = 40.0;

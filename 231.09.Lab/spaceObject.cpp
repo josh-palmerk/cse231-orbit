@@ -35,10 +35,9 @@ SpaceObject::SpaceObject(const Position& pos, const Velocity& vel, const Angle& 
  * Applies gravity to an object,
  * changing its velocity.
  ***********************************************/
-// Behavior stubs (to be implemented)
 void SpaceObject::applyGravity(const Position& center, double gravitationalConstant, double timeStep)
 {
-	// TODO: Apply gravitational acceleration based on the center position and gravitational constant
+	//Apply gravitational acceleration based on the center position and gravitational constant
 	double dx = center.getMetersX() - position.getMetersX();
 	double dy = center.getMetersY() - position.getMetersY();
 	double distanceSquared = dx * dx + dy * dy;
@@ -82,7 +81,7 @@ void SpaceObject::rotate(double radians)
 ***********************************/
 void SpaceObject::updateObject(double timestep, vector<SpaceObject*>& spaceObjects)
 {
-	// TODO: General update behavior (e.g., move, rotate, age, etc.)
+	//General update behavior (e.g., move, rotate, age, etc.)
 	applyGravity(Position(0, 0), 398600441800000.0, timestep); // Example gravitational constant for Earth)
 	updatePosition(timestep);
 	incrementSecondsAlive(static_cast<int>(timestep));
