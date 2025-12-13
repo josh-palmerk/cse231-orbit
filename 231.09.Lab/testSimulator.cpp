@@ -49,12 +49,16 @@ void TestSimulator::defaultConstructor()
  /*********************************************
   * name:    DRAGON COLLIDE STARLINK
   * input:   Dragon and Starlink both Pos(200, 200)
-  * output:  spaceObjects.size = 14
+  * output:  dragon and starlink dead = true
   *********************************************/
 void TestSimulator::dragonCollideStarlink()
 {
     // setup
     Simulator sim;
+
+    SpaceObject* dragon = sim.spaceObjects[9];
+    SpaceObject* starlink = sim.spaceObjects[2];
+
     sim.spaceObjects[9]->position.x = 200; //Dragon
     sim.spaceObjects[9]->position.y = 200;
 
@@ -65,19 +69,23 @@ void TestSimulator::dragonCollideStarlink()
     sim.objectCollisions(sim.spaceObjects);
 
     // verify
-    assertEquals(sim.spaceObjects.size(), 14);
+    assertEquals(dragon->dead, true);
+    assertEquals(starlink->dead, true);
 }
 // teardown
 
 /*********************************************
   * name:    HUBBLE COLLIDE EARTH
   * input:   Hubble and Earth both Pos(0, 0)
-  * output:  spaceObjects.size = 14
+  * output:  hubble dead = true, earth dead = false
   *********************************************/
 void TestSimulator::hubbleCollideEarth()
 {
     // setup
     Simulator sim;
+    SpaceObject* hubble = sim.spaceObjects[0];
+    SpaceObject* earth = sim.spaceObjects[1];
+
     sim.spaceObjects[0]->position.x = 0; //Hubble
     sim.spaceObjects[0]->position.y = 0;
 
@@ -88,7 +96,8 @@ void TestSimulator::hubbleCollideEarth()
     sim.objectCollisions(sim.spaceObjects);
 
     // verify
-    assertEquals(sim.spaceObjects.size(), 14);
+    assertEquals(hubble->dead, true);
+    assertEquals(earth->dead, false);
 }
 // teardown
 
@@ -97,12 +106,13 @@ void TestSimulator::hubbleCollideEarth()
 /*********************************************
   * name:    DREAMCHASER COLLIDE GPS
   * input:   DreamChaser and GPS both Pos(0, 26560000.0)
-  * output:  player.dead = true
+  * output:  player.dead and gps dead = true
   *********************************************/
 void TestSimulator::dreamChaserCollideGPS()
 {
     // setup
     Simulator sim;
+    SpaceObject* gps = sim.spaceObjects[3];
     sim.spaceObjects[3]->position.x = 0; //GPS
     sim.spaceObjects[3]->position.y = 26560000.0;
 
@@ -114,5 +124,6 @@ void TestSimulator::dreamChaserCollideGPS()
 
     // verify
     assertEquals(sim.player.dead, true);
+    assertEquals(gps->dead, true);
 }
 // teardown
