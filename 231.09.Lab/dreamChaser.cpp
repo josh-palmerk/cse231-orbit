@@ -118,15 +118,6 @@ void DreamChaser::handleInput(const Interface* pUI, double timestep, vector<Spac
 	}
 }
 
-/***********************************************
-* DREAMCHASER: Die
-*              Sets the Dream Chaser to dead
-***********************************************/
-void DreamChaser::die()
-{
-	dead = true;
-}
-
 
 
 //void DreamChaser::updateObject(double timestep) 

@@ -63,9 +63,12 @@ void TestSimulator::dragonCollideStarlink()
 
     // exercise
     sim.objectCollisions(sim.spaceObjects);
+    cout << sim.spaceObjects.size() << endl;
+    cout << sim.spaceObjects[9]->dead << endl;
 
     // verify
     assertEquals(sim.spaceObjects.size(), 9);
+    assertEquals(sim.spaceObjects[9]->dead, true);
 }
 // teardown
 

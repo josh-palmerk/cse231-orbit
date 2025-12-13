@@ -19,5 +19,6 @@ public:
 	Earth();
 	virtual void draw(ogstream& ui) const override;
 	virtual void updateObject(double timestep, vector<SpaceObject*>& spaceObjects) override;
+	void die() override;
 };
 

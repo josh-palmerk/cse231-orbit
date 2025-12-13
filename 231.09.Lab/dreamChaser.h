@@ -33,6 +33,5 @@ public:
 
 	//void updateObject(double timestep) override;
 	void handleInput(const Interface* pUI, double timestep, vector<SpaceObject*>& bullets);
-	void die() override;
 };
 

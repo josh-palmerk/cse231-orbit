@@ -44,20 +44,23 @@ void callBack(const Interface* pUI, void* p)
    vector<SpaceObject*>& spaceObjects = pOrbit->getSpaceObjects();
    vector<Star*>& stars = pOrbit->getStars();
 
-   //loop through each object to update
+
+   //UPDATE objects
+   //loop through each spaceObject to update
    for (auto obj : spaceObjects)
    {
 	   obj->updateObject(dt, spaceObjects);
    }
-
    //update the player
    pOrbit->getPlayer().updateObject(dt, spaceObjects);
    
 
+   //COLLISION
    //check for collisions
    pOrbit->objectCollisions(spaceObjects);
 
 
+   //HANDLE PLAYER
    //if the player isnt dead take input and draw.
    if (pOrbit->getPlayer().isDead() == false)
    {
@@ -65,7 +68,7 @@ void callBack(const Interface* pUI, void* p)
 	   pOrbit->getPlayer().draw(gout, pUI);
    }
 
-
+   //DRAW
    //draw space objects
    for (auto obj : spaceObjects)
    {

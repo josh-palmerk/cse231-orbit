@@ -98,5 +98,13 @@ void SpaceObject::incrementSecondsAlive(int amount)
 	secondsAlive += amount;
 }
 
+/***********************************
+* SPACEOBJECT: die
+* changes dead to true
+***********************************/
+void SpaceObject::die()
+{
+	dead = true;
+}
 
 

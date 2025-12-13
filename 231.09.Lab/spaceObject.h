@@ -63,7 +63,7 @@ public:
 	void incrementSecondsAlive(int amount);
 	virtual void draw(ogstream& ui) const = 0;
 	virtual void shatter(vector<SpaceObject*>& spaceObjects) {};
-	virtual void die() {};
+	virtual void die();
 
 protected:
 	Position position;

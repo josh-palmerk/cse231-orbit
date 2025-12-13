@@ -39,3 +39,12 @@ void Earth::updateObject(double timestep, vector<SpaceObject*>& spaceObjects)
 	// Calculates radians for accurate rotation this frame
 	rotate(-(2.0 * M_PI / 86400) * timestep);
 }
+
+/***********************************************
+ * EARTH: die
+ * Overrides die so nothing happens
+ ***********************************************/
+void Earth::die()
+{
+
+}
