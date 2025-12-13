@@ -1,3 +1,12 @@
+/***********************************************************************
+ * Source File:
+ *    Space Junk : The base class for space junk
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    The base class for space junk
+ ************************************************************************/
+
 #include "spaceJunk.h"
 
 /***********************************************

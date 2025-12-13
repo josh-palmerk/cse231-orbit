@@ -21,7 +21,7 @@ DreamChaser::DreamChaser()
 {
 	Position pos(40000000.0, 40000000.0); // Approximate altitude of Dream Chaser
 	Velocity vel(0.0, -2000.0);     // Approximate orbital velocity
-	Angle angle(M_2_PI);
+	Angle angle(0);
 	setPosition(pos);
 	setVelocity(vel);
 	setAngle(angle);
@@ -117,15 +117,3 @@ void DreamChaser::handleInput(const Interface* pUI, double timestep, vector<Spac
 		fireBullet(bullets);
 	}
 }
-
-
-
-//void DreamChaser::updateObject(double timestep) 
-//{
-//
-//	applyGravity(Position(0, 0), 398600441800000.0, timestep); // Example gravitational constant for Earth)
-//	updatePosition(timestep);
-//	incrementSecondsAlive(static_cast<int>(timestep));
-//
-//	// TODO need to handle thrust effects here
-//}

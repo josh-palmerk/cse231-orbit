@@ -1,3 +1,11 @@
+/***********************************************************************
+ * Source File:
+ *    Fragment : The base class for fragment
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    The base class for fragment
+ ************************************************************************/
 #include "fragment.h"
 
 

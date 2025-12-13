@@ -1,3 +1,11 @@
+/***********************************************************************
+ * Header File:
+ *    Fragment
+ * Author:
+ *    Garrin and Josh
+ * Summary:
+ *    Space Junk Fragment.
+ ************************************************************************/
 #pragma once
 
 #include "spaceJunk.h"
